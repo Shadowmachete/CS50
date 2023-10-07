@@ -21,7 +21,7 @@ int main(void)
     int numYears;
     int x;
     x = (int)(5/3);
-    printf(x);
+    printf("%i", x);
     do {
         startSize = startSize + (int)startSize/3;
     }
