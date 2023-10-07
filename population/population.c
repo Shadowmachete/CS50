@@ -20,7 +20,7 @@ int main(void)
     // TODO: Calculate number of years until we reach threshold
     int numYears;
     do {
-        star
+        startSize = startSize + startSize/
     }
     while (startSize < endSize);
     // TODO: Print number of years
