@@ -19,7 +19,7 @@ int main(void)
     while (endSize < startSize);
     // TODO: Calculate number of years until we reach threshold
     int numYears;
-    numYears ++;
+    numYears = 10;
     // TODO: Print number of years
     printf("Years: %i\n", numYears);
 }
