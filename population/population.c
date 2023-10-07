@@ -5,16 +5,18 @@ int main(void)
 {
     // TODO: Prompt for start size
     int startSize = 0;
-    while (startSize < 9) {
+    do {
         printf("Start size: \n");
         scanf("%d", &startSize);
     }
+    while (startSize < 9);
     // TODO: Prompt for end size
     int endSize = 0;
-    while (endSize < startSize) {
+    do {
         printf("Start size: \n");
         scanf("%d", &endSize);
     }
+    while (endSize < startSize);
     // TODO: Calculate number of years until we reach threshold
     int numYears;
     numYears ++;
