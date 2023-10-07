@@ -19,10 +19,10 @@ int main(void)
     while (endSize < startSize);
     // TODO: Calculate number of years until we reach threshold
     int numYears;
-    int x;
-    x = (int)(5/3);
-    printf("%i", x);
+    int numBirths;
+    int numDeaths;
     do {
+        numBirths = (int)startSize/3
         startSize = startSize + (int)startSize/3;
     }
     while (startSize < endSize);
