@@ -9,7 +9,7 @@ int main(void)
         scanf("%d", &pyramidHeight);
     }
     for (layer = 1; layer < pyramidHeight + 1; layer++) {
-        printf(" "*)
+        for (i = )
     }
     printf("%i", pyramidHeight);
 }
