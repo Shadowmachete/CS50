@@ -8,8 +8,22 @@ int main(void)
         printf("Input a height for the pyramid (between 1 and 8 inclusive): ");
         scanf("%d", &pyramidHeight);
     }
-    for (layer = 1; layer < pyramidHeight + 1; layer++) {
-        for (i = )
+    for (int layer = 1; layer < pyramidHeight + 1; layer++) {
+        // spaces until the start of the brick
+        for (int i = 1; i < pyramidHeight - layer + 1; i++) {
+            printf(" ");
+        }
+        // left half of the wall
+        for (int i = 1; i < layer + 1; i++) {
+            printf("#");
+        }
+        // space in the middle
+        printf("  ");
+
+        // right half of the wall
+        for (int i = 1; i < layer + 1; i++) {
+            printf("#");
+        }
+        printf("\n");
     }
-    printf("%i", pyramidHeight);
 }
