@@ -13,7 +13,7 @@ int main(void)
     // TODO: Prompt for end size
     int endSize = 0;
     do {
-        printf("Start size: \n");
+        printf("End size: \n");
         scanf("%d", &endSize);
     }
     while (endSize < startSize);
