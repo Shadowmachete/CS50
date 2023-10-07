@@ -24,7 +24,9 @@ int main(void)
     do {
         numBirths = (int)startSize/3;
         numDeaths = (int)startSize/4;
-        startSize += numBirths
+        startSize += numBirths;
+        startSize -= numDeaths;
+        numYears ++;
     }
     while (startSize < endSize);
     // TODO: Print number of years
