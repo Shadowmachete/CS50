@@ -6,14 +6,14 @@ int main(void)
     // TODO: Prompt for start size
     int startSize = 0;
     do {
-        printf("Start size: \n");
+        printf("Start size: ");
         scanf("%d", &startSize);
     }
     while (startSize < 9);
     // TODO: Prompt for end size
     int endSize = 0;
     do {
-        printf("End size: \n");
+        printf("End size: ");
         scanf("%d", &endSize);
     }
     while (endSize < startSize);
