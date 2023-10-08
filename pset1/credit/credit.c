@@ -8,7 +8,14 @@ int main(void)
     for (int i = 0; i < 16; i++)
     {
         // loop through the number and add
-        checksum += number % 10;
+        if (i % 10 == 1)
+        {
+            checksum += 2 * number % 10;
+        }
+        else
+        {
+            checksum += number % 10;
+        }
         number /= 10;
     }
     printf("%i\n", checksum);
