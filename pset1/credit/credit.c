@@ -20,8 +20,11 @@ int main(void)
         }
         printf("%i\n", sum);
     }
-    if (checksum % 10 == 0)
+    if (number % 10 == 0)
     {
-        if (checksum[1] + checksum[2] == )
+        if (checksum[1] + checksum[2] == 34 || checksum[1] + checksum[2] == 37)
+        {
+            printf("AMEX\n");
+        }
     }
 }
