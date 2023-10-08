@@ -10,7 +10,7 @@ int main(void)
     {
         if (number < 1000)
         {
-            checkTwo = number;
+            checkTwo = number * 100;
         }
         // loop through the number and add
         if (i % 2 == 1)
