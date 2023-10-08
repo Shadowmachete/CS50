@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(void)
 {
@@ -19,8 +20,10 @@ int main(void)
         }
         number /= 10;
     }
-
-    if (checksum % 10 == 0)
+    printf("%f %ld\n", pow(10, 17), checkTwo);
+    printf("%d\n", checkTwo < pow(10, 17));
+    printf("%d", (checksum % 10 == 0) && (checkTwo > pow(10, 13)) && (checkTwo < pow(10, 17)));
+    if ((checksum % 10 == 0) && (checkTwo > pow(10, 13)) && (checkTwo < pow(10, 17)))
     {
         // getting first or first 2 digits
         while (checkTwo > 100)
