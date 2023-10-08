@@ -4,18 +4,18 @@
 int main(void)
 {
     long number = get_long("Input your credit card number: ");
-    long checksum[14];
-    printf("%li\n", number % 10);
+    long checksum = 0;
     for (int i = 1; i < 16; i++)
     {
         if (i % 2 == 0)
         {
-            checksum[i] = 2 * number % 10;
+            checksum += 2 * number % 10;
         }
         else
         {
-            checksum[i] = number % 10;
+            checksum += number % 10;
         }
-        printf("%li", checksum);
+        checksum /= 10;
     }
+    printf("%li\n", checksum);
 }
