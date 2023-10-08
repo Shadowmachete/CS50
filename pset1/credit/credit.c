@@ -8,16 +8,16 @@ int main(void)
     for (int i = 0; i < 16; i++)
     {
         // loop through the number and add
-        if (i % 10 == 1)
+        if (i % 2 == 1)
         {
-            checksum += 2 * number % 10;
+            checksum += 2 * (number % 10);
         }
         else
         {
             checksum += number % 10;
         }
         number /= 10;
-        printf("%li %i\n", number, checksum);
+        printf("%li %i %i\n", number, checksum, i);
     }
     if (checksum % 10 == 0)
     {
