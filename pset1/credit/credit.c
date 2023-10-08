@@ -5,13 +5,9 @@ int main(void)
 {
     long number = get_long("Input your credit card number: ");
     int checksum = 0;
-    int checkTwo;
+    long checkTwo = number + 0;
     for (int i = 0; i < 16; i++)
     {
-        if (number < 1000)
-        {
-            checkTwo = number * 100;
-        }
         // loop through the number and add
         if (i % 2 == 1)
         {
@@ -27,7 +23,10 @@ int main(void)
     if (checksum % 10 == 0)
     {
         // getting first or first 2 digits
-        printf("%i", checkTwo);
+        while (checkTwo > 100)
+        {
+            checkTwo /= 10;
+        }
         // checking if first 2 digits satisfy condition
         if (((int) (checkTwo / 10)) == 4)
         {
@@ -36,6 +35,10 @@ int main(void)
         else if (checkTwo == 34 || checkTwo == 37)
         {
             printf("AMEX\n");
+        }
+        else
+        {
+            printf("MASTERCARD\n");
         }
     }
     else
