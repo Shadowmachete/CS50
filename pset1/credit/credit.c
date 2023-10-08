@@ -20,10 +20,26 @@ int main(void)
     }
     if (checksum % 10 == 0)
     {
-        // check first 1/2 digits and print the correct thing
-        if (number[0] == 4)
+        // getting first or first 2 digits
+        long checkFirstTwo = number;
+        long checkFirst = number;
+        while (checkFirstTwo >= 100)
+        {
+            checkFirstTwo /= 10;
+        }
+        while (checkFirst >= 10)
+        {
+            printf("%li\n", checkFirst);
+            checkFirst /= 10;
+        }
+        // checking if first 2 digits satisfy condition
+        if (checkFirst == 4)
         {
             printf("VISA\n");
+        }
+        else if (checkFirstTwo == 34 || checkFirstTwo == 37)
+        {
+            printf("AMEX\n");
         }
     }
     else
