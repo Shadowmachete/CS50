@@ -18,22 +18,19 @@ int main(void)
         }
         number /= 10;
     }
+
     if (checksum % 10 == 0)
     {
         // getting first or first 2 digits
         long checkFirstTwo = number;
-        long checkFirst = number;
+        printf("%li, %li\n", checkFirstTwo, (checkFirstTwo / 10));
         while (checkFirstTwo >= 100)
         {
             checkFirstTwo /= 10;
         }
-        while (checkFirst >= 10)
-        {
-            printf("%li\n", checkFirst);
-            checkFirst /= 10;
-        }
+        printf("%li, %li\n", checkFirstTwo, (checkFirstTwo / 10));
         // checking if first 2 digits satisfy condition
-        if (checkFirst == 4)
+        if (((int) (checkFirstTwo / 10)) == 4)
         {
             printf("VISA\n");
         }
