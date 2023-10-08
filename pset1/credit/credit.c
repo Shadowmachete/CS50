@@ -20,8 +20,8 @@ int main(void)
         }
         printf("%i\n", sum);
     }
-    if (true)
+    if (checksum % 10 == 0)
     {
-        printf("asdyfyaudyda\n");
+        if (checksum[1] + checksum[2] == )
     }
 }
