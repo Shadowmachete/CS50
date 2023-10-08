@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <cs50.h>
 
-void main(void)
+int main(void)
 {
     string name = get_string("What's your name? ");
     int age = get_int("What's your age? ");
-    long phoneNumber = get_long("What's your phone number? ");
+    string phoneNumber = get_string("What's your phone number? ");
+    printf("Your name is %s. Age is %i. Phone number is %s.\n", name, age, phoneNumber);
 }
