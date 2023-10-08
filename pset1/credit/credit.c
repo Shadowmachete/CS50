@@ -17,8 +17,8 @@ int main(void)
             checksum += number % 10;
         }
         number /= 10;
+        printf("%li %i\n", number, checksum);
     }
-    printf("%i\n", checksum);
     if (checksum % 10 == 0)
     {
         // check first 1/2 digits and print the correct thing
