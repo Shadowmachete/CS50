@@ -4,15 +4,14 @@
 int main(void)
 {
     long number = get_long("Input your credit card number: ");
-    char s[256];
-    sprintf(s, "%ld", number);
-    printf("$s", s);
-    for (int i = 1; i < 16; i++)
+    char checksum[256];
+    sprintf(checksum, "%ld", number);
+    for (int i = 0; i < 16; i++)
     {
-        printf("asdyfyaudyda")
+        printf("%c\n", checksum[i]);
     }
-    if (checksum == 0)
+    if (true)
     {
-        printf("asdyfyaudyda")
+        printf("asdyfyaudyda\n");
     }
 }
