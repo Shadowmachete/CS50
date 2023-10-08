@@ -20,7 +20,7 @@ int main(void)
         }
         number /= 10;
     }
-    if ((checksum % 10 == 0) && (checkTwo > pow(10, 13)) && (checkTwo < pow(10, 17)))
+    if ((checksum % 10 == 0) && (checkTwo > pow(10, 12)) && (checkTwo < pow(10, 17)))
     {
         // getting first or first 2 digits
         while (checkTwo > 100)
