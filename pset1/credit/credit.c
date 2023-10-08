@@ -10,18 +10,21 @@ int main(void)
         // loop through the number and add
         if (i % 2 == 1)
         {
-            checksum += 2 * (number % 10);
+            checksum += (2 * (number % 10)) % 10 + (2 * (number % 10)) / 10;
         }
         else
         {
             checksum += number % 10;
         }
         number /= 10;
-        printf("%li %i %i\n", number, checksum, i);
     }
     if (checksum % 10 == 0)
     {
         // check first 1/2 digits and print the correct thing
+        if (number[0] == 4)
+        {
+            printf("VISA\n");
+        }
     }
     else
     {
