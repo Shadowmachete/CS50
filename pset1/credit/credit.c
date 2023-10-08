@@ -20,10 +20,7 @@ int main(void)
         }
         number /= 10;
     }
-    printf("%f %ld\n", pow(10, 17), checkTwo);
-    printf("%d\n", checkTwo < pow(10, 17));
-    printf("%d", (checksum % 10 == 0) && (checkTwo > pow(10, 13)) && (checkTwo < pow(10, 17)));
-    if ((checksum % 10 == 0) && (checkTwo > pow(10, 13)) && (checkTwo < pow(10, 17)))
+    if ((checksum % 10 == 0) && (checkTwo > pow(10, 13)) && (checkTwo < pow(10, 15)))
     {
         // getting first or first 2 digits
         while (checkTwo > 100)
@@ -39,9 +36,13 @@ int main(void)
         {
             printf("AMEX\n");
         }
-        else
+        else if (checkTwo == 51 || checkTwo == 52 || checkTwo == 53 || checkTwo == 54 || checkTwo == 55)
         {
             printf("MASTERCARD\n");
+        }
+        else
+        {
+            printf("INVALID\n");
         }
     }
     else
