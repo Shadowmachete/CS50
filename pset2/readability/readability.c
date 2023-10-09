@@ -15,7 +15,8 @@ int main(void)
     int numWords = count_words(text);
     int numSentences = count_sentences(text);
     float grade = 0.0588 * (numLetters * 100 / numWords ) - 0.296 * (numSentences * 100 / numWords ) - 15.8;
-    printf("%f", grade);
+    printf("%i Letters, %i Words, %i Sentences\n", numLetters, numWords, numSentences);
+    printf("%f\n", grade);
     if (grade < 1)
     {
         printf("Before Grade 1\n");
