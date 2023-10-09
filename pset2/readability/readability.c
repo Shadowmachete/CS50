@@ -45,9 +45,9 @@ int count_words(string text)
     int count = 0;
     for (int i = 0; i < strlen(text); i++)
     {
-        printf("%i", strcmp(&text[i+1], " "));
-        if (strcmp(&text[i+1], " ") == 0 && strcmp(&text[i], " ") != 0)
+        if ((text[i+1] == ' ' || text[i+1] == '.' || text[i+1] == ',') && text[i] != ' ')
         {
+            printf("%i", i);
             count += 1;
         }
     }
