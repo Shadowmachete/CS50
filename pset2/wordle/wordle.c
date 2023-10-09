@@ -145,10 +145,16 @@ int check_word(string guess, int wordsize, int status[], string choice)
     {
         for (int j = 0; j < wordsize; j++)
         {
-            if (guess[i] == guess[j] && i == j)
+            if (guess[i] == choice[j] && i == j)
             {
-                score += 
-                break
+                score += 2;
+                status[i] = 2;
+                break;
+            }
+            else if (guess[i] == choice[j])
+            {
+                score += 1;
+                status[i] = 1;
             }
         }
     }
@@ -159,7 +165,7 @@ void print_word(string guess, int wordsize, int status[])
 {
     // print word character-for-character with correct color coding, then reset terminal font to normal
     // TODO #6
-
+    printf("%s", guess);
     printf("\n");
     return;
 }
