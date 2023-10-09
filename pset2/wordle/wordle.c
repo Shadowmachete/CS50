@@ -95,7 +95,7 @@ int main(int argc, string argv[])
         printf("Guess %i: ", i + 1);
 
         // Print the guess
-        
+
         print_word(guess, wordsize, status);
 
         // if they guessed it exactly right, set terminate loop
@@ -166,7 +166,21 @@ void print_word(string guess, int wordsize, int status[])
 {
     // print word character-for-character with correct color coding, then reset terminal font to normal
     // TODO #6
-    printf("%s", guess);
+    for (int i = 0; i < wordsize; i++)
+    {
+        if (status[i] == 2)
+        {
+            printf(GREEN"%c"RESET, guess[i]);
+        }
+        else if (status[i] == 1)
+        {
+            printf(YELLOW"%c"RESET, guess[i]);
+        }
+        else
+        {
+            printf(RED"%c"RESET, guess[i]);
+        }
+    }
     printf("\n");
     return;
 }
