@@ -29,7 +29,7 @@ int main(int argc, string argv[])
     // TODO #1
 
     int wordsize = 0;
-    if (!argv[1])
+    if (!argv[1] || argv[2])
     {
         printf("Usage: ./wordle wordsize\n");
         return 1;
