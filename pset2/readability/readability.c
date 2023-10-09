@@ -3,12 +3,14 @@
 #include <string.h>
 
 int count_letters(string text);
+int count_words(string text);
 
 int main(void)
 {
     string text = get_string("Text: ");
     int numLetters = count_letters(text);
-    printf("%i\n", numLetters);
+    int numWords = count_words(text);
+    printf("%i\n", numWords);
     int grade = 0;
     if (grade < 1)
     {
@@ -35,4 +37,9 @@ int count_letters(string text)
         }
     }
     return count;
+}
+
+int count_words(string text)
+{
+    
 }
