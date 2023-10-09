@@ -34,19 +34,16 @@ int main(int argc, string argv[])
         printf("Usage: ./wordle wordsize\n");
         return 1;
     }
-    else if (argv[1] >= 5 && argv[1] <= 8)
-    {
-        printf("This is WORDLE50\n You have 6 tries to guess the %i-letter word I'm thinking of\n Input a %i-letter word: ", (int) argv[1], (int) argv[1])
-    }
-    else
-    {
-        printf("Error: wordsize must be either 5, 6, 7, or 8");
-    }
-    wordsize = argv[1];
-    printf("%i", wordsize);
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
     // TODO #2
-
+    if (argv[1] <= 5 || argv[1] >= 8)
+    {
+        printf("Error: wordsize must be either 5, 6, 7, or 8");
+        return 1;
+    }
+    
+    wordsize = argv[1];
+    printf("%i", wordsize);
     // open correct file, each file has exactly LISTSIZE words
     char wl_filename[6];
     sprintf(wl_filename, "%i.txt", wordsize);
