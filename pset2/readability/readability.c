@@ -14,8 +14,8 @@ int main(void)
     int numLetters = count_letters(text);
     int numWords = count_words(text);
     int numSentences = count_sentences(text);
-    printf("%i Letters, %i Words, %i Sentences.\n", numLetters, numWords, numSentences);
     float grade = 0.0588 * (numLetters * 100 / numWords ) - 0.296 * (numSentences * 100 / numWords ) - 15.8;
+    printf("%f", grade);
     if (grade < 1)
     {
         printf("Before Grade 1\n");
@@ -26,7 +26,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %i\n", (int) round(grade));
+        printf("Grade %i\n", (int) grade);
     }
 }
 
@@ -48,7 +48,7 @@ int count_words(string text)
     int count = 0;
     for (int i = 0; i < strlen(text); i++)
     {
-        if ((text[i+1] == ' ' || text[i+1] == '.' || text[i+1] == ',') && (text[i] != ' ' && text[i] != '.' && text[i] != ','))
+        if ((text[i+1] == ' ' || text[i+1] == '.' || text[i+1] == ',' || text[i+1] == '!') && (text[i] != ' ' && text[i] != '.' && text[i] != ',' && text[i] != '!'))
         {
             count += 1;
         }
