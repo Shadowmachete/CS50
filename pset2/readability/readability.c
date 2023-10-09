@@ -1,6 +1,8 @@
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
+
 
 int count_letters(string text);
 int count_words(string text);
@@ -12,6 +14,7 @@ int main(void)
     int numLetters = count_letters(text);
     int numWords = count_words(text);
     int numSentences = count_sentences(text);
+    printf("%i Letters, %i Words, %i Sentences.\n", numLetters, numWords, numSentences);
     float grade = 0.0588 * (numLetters * 100 / numWords ) - 0.296 * (numSentences * 100 / numWords ) - 15.8;
     if (grade < 1)
     {
@@ -23,7 +26,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %i\n", (int) grade);
+        printf("Grade %i\n", (int) round(grade));
     }
 }
 
