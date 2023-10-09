@@ -10,7 +10,8 @@ int main(void)
     string text = get_string("Text: ");
     int numLetters = count_letters(text);
     int numWords = count_words(text);
-    printf("%i\n", numWords);
+    printf("%i Letters\n", numLetters);
+    printf("%i Words\n", numWords);
     int grade = 0;
     if (grade < 1)
     {
@@ -44,7 +45,8 @@ int count_words(string text)
     int count = 0;
     for (int i = 0; i < strlen(text); i++)
     {
-        if (text[i+1] == " " && text[i] != " ")
+        printf("%c", text[i+1]);
+        if (strcmp(&text[i+1], " ") == 0 && strcmp(&text[i], " ") != 0)
         {
             count += 1;
         }
