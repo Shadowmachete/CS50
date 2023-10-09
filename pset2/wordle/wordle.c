@@ -36,7 +36,7 @@ int main(int argc, string argv[])
     }
     else if (argv[1] >= 5 && argv[1] <= 8)
     {
-        printf("This is WORDLE50\n You have 6 tries to guess the %i-letter word I'm thinking of\n Input a %i-letter word: ", argv[1], argv[1])
+        printf("This is WORDLE50\n You have 6 tries to guess the %i-letter word I'm thinking of\n Input a %i-letter word: ", (int) argv[1], (int) argv[1])
     }
     else
     {
