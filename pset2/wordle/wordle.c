@@ -43,8 +43,8 @@ int main(int argc, string argv[])
         return 1;
     }*/
 
-    wordsize = (int) argv[1];
-    printf("%i", wordsize);
+    // wordsize = argv[1];
+    printf("%i", (int) argv[1]);
     // open correct file, each file has exactly LISTSIZE words
     char wl_filename[6];
     sprintf(wl_filename, "%i.txt", wordsize);
