@@ -178,8 +178,7 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        // check if it will make a cycle
-        // if not
+        
         if (!pairs[i].loser)
         {
             continue;
