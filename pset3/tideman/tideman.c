@@ -182,7 +182,19 @@ void lock_pairs(void)
         {
             return true
         }
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if (locked[i][end])
+            {
+                if (cycle[i][end])
+                {
+                    return true
+                }
+            }
+        }
+        return false
     }
+
     for (int i = 0; i < pair_count; i++)
     {
         if (!cycle(pairs[i].winner, pairs[i].loser))
