@@ -200,5 +200,9 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        
+    }
     return;
 }
