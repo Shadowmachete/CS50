@@ -156,11 +156,14 @@ void sort_pairs(void)
     {
         if (preferences[pairs[i].winner][pairs[i].winner] < preferences[pairs[i+1].winner][pairs[i+1].loser])
         {
-            lowerWinner = pairs[i].winner;
-            lowerLoser = pairs[i].loser;
-            higherWinner = pairs[i+1].winner;
-            higherLoser = pairs[i+1].loser;
-            
+            int lowerWinner = pairs[i].winner;
+            int lowerLoser = pairs[i].loser;
+            int higherWinner = pairs[i+1].winner;
+            int higherLoser = pairs[i+1].loser;
+            pairs[i].winner = higherWinner;
+            pairs[i].loser = higherLoser;
+            pairs[i+1].winner = lowerWinner;
+            pairs[i+1].loser = lowerLoser;
         }
     }
     return;
