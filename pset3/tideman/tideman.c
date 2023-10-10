@@ -84,7 +84,10 @@ int main(int argc, string argv[])
                 return 3;
             }
         }
-
+        for (int x = 0; x < candidate_count; x++)
+        {
+            printf("%d", ranks[x]);
+        }
         record_preferences(ranks);
 
         printf("\n");
@@ -105,7 +108,7 @@ bool vote(int rank, string name, int ranks[])
     {
         if (strcmp(candidates[i], name) == 0)
         {
-            ranks[i] = rank;
+            ranks[i+!] = rank;
             return true;
         }
     }
