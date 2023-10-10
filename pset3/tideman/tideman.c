@@ -168,8 +168,9 @@ void sort_pairs(void)
                 pairs[i+1].loser = lowerLoser;
                 for (int x = 0; x < pair_count; x++)
                 {
-                    printf("Winner: %d, Loser %d\n", pairs[x].winner, pairs[x].loser);
+                    printf("Winner: %d, Loser %d, %i\n", pairs[x].winner, pairs[x].loser, preferences[pairs[x].winner][pairs[x].loser]);
                 }
+                printf("\n");
             }
         }
     }
