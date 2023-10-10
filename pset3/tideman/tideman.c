@@ -205,13 +205,14 @@ void print_winner(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            printf("%d, %d, %d, %d\n", i,j, locked[j][i], locked[i][j]);
+            printf("%d, %d, %d, %d\n", j,i, locked[j][i], locked[i][j]);
             if (locked[j][i] == true)
             {
                 win[j] = false;
             }
         }
     }
+    printf("%d", win[0]);
     for (int i = 0; i < candidate_count; i++)
     {
         if (win[i] == true)
