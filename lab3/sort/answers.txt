@@ -3,8 +3,10 @@ sort1 uses: TODO
 How do you know?: TODO
 
 sort2 uses: TODO
+Merge Sort
 
 How do you know?: TODO
+sort2 runs much faster than sort1 and sort3 and has to be the fastest sorting algorithm of bubble, selection and merge sort which is merge sort.
 
 sort3 uses: TODO
 
