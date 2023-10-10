@@ -156,7 +156,7 @@ void sort_pairs(void)
     {
         for (int i = 0; i < pair_count - 1; i++)
         {
-            if (preferences[pairs[i].winner][pairs[i].winner] < preferences[pairs[i+1].winner][pairs[i+1].loser])
+            if (preferences[pairs[i].winner][pairs[i].winner] > preferences[pairs[i+1].winner][pairs[i+1].loser])
             {
                 int lowerWinner = pairs[i].winner;
                 int lowerLoser = pairs[i].loser;
@@ -166,14 +166,14 @@ void sort_pairs(void)
                 pairs[i].loser = higherLoser;
                 pairs[i+1].winner = lowerWinner;
                 pairs[i+1].loser = lowerLoser;
-                for (int x = 0; x < pair_count; x++)
-                {
-                    printf("Winner: %d, Loser %d, %i\n", pairs[x].winner, pairs[x].loser, preferences[pairs[x].winner][pairs[x].loser]);
-                }
-                printf("\n");
             }
         }
     }
+    for (int x = 0; x < pair_count; x++)
+    {
+        printf("Winner: %d, Loser %d, %i\n", pairs[x].winner, pairs[x].loser, preferences[pairs[x].winner][pairs[x].loser]);
+    }
+    printf("\n");
     return;
 }
 
