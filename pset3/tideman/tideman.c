@@ -180,7 +180,7 @@ void lock_pairs(void)
     {
         // check if it will make a cycle
         // if not
-        if (!pairs[i].loser)
+        if (pairs[i].loser)
         {
             continue;
         }
