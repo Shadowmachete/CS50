@@ -173,14 +173,11 @@ void sort_pairs(void)
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
-void lock_pairs(void)
-{
-    // TODO
-    bool cycle(int start, int end)
+bool cycle(int start, int end)
     {
         if (end == start)
         {
-            return true
+            return true;
         }
         for (int i = 0; i < candidate_count; i++)
         {
@@ -188,13 +185,16 @@ void lock_pairs(void)
             {
                 if (cycle[i][end])
                 {
-                    return true
+                    return true;
                 }
             }
         }
-        return false
+        return false;
     }
 
+void lock_pairs(void)
+{
+    // TODO
     for (int i = 0; i < pair_count; i++)
     {
         if (!cycle(pairs[i].winner, pairs[i].loser))
