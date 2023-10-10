@@ -152,18 +152,21 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    for (int i = 0; i < pair_count - 1; i++)
+    for (int j = 0; j < pair_count; j++)
     {
-        if (preferences[pairs[i].winner][pairs[i].winner] < preferences[pairs[i+1].winner][pairs[i+1].loser])
+        for (int i = 0; i < pair_count - 1; i++)
         {
-            int lowerWinner = pairs[i].winner;
-            int lowerLoser = pairs[i].loser;
-            int higherWinner = pairs[i+1].winner;
-            int higherLoser = pairs[i+1].loser;
-            pairs[i].winner = higherWinner;
-            pairs[i].loser = higherLoser;
-            pairs[i+1].winner = lowerWinner;
-            pairs[i+1].loser = lowerLoser;
+            if (preferences[pairs[i].winner][pairs[i].winner] < preferences[pairs[i+1].winner][pairs[i+1].loser])
+            {
+                int lowerWinner = pairs[i].winner;
+                int lowerLoser = pairs[i].loser;
+                int higherWinner = pairs[i+1].winner;
+                int higherLoser = pairs[i+1].loser;
+                pairs[i].winner = higherWinner;
+                pairs[i].loser = higherLoser;
+                pairs[i+1].winner = lowerWinner;
+                pairs[i+1].loser = lowerLoser;
+            }
         }
     }
     return;
