@@ -181,7 +181,7 @@ bool cycle(int start, int end)
         }
         for (int i = 0; i < candidate_count; i++)
         {
-            if (locked[i][end])
+            if (locked[end][i])
             {
                 if (cycle(start, i))
                 {
