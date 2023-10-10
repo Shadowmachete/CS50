@@ -180,7 +180,7 @@ void lock_pairs(void)
     {
         // check if it will make a cycle
         // if not
-        if (pairs[i].loser)
+        if (!pairs[i].loser)
         {
             continue;
         }
@@ -201,11 +201,11 @@ void print_winner(void)
     {
         win[i] = true;
     }
-
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
+            printf("%d, %d\n", locked[j][i], locked[i][j]);
             if (locked[j][i] == true)
             {
                 win[j] = false;
