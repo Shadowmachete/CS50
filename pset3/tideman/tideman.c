@@ -92,10 +92,6 @@ int main(int argc, string argv[])
 
     add_pairs();
     sort_pairs();
-    for (int x = 0; x < pair_count; x++)
-    {
-        printf("Winner: %d, Loser %d, %i\n", pairs[x].winner, pairs[x].loser, preferences[pairs[x].winner][pairs[x].loser]);
-    }
     lock_pairs();
     print_winner();
     return 0;
@@ -186,11 +182,11 @@ void lock_pairs(void)
         // if not
         if (pairs[i].loser)
         {
-            continue
+            continue;
         }
         else
         {
-            locked[pairs[i].winner][pairs[i].loser];
+            locked[pairs[i].winner][pairs[i].loser] = true;
         }
     }
     return;
@@ -201,6 +197,11 @@ void print_winner(void)
 {
     // TODO
     bool win[candidate_count];
+    for (int i = 0; i < candidate_count; i++)
+    {
+        win[i] = true;
+    }
+
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -215,7 +216,7 @@ void print_winner(void)
     {
         if (win[i] == true)
         {
-            
+            printf("%s\n", candidates[i]);
         }
     }
     return;
