@@ -183,7 +183,7 @@ bool cycle(int start, int end)
         {
             if (locked[i][end])
             {
-                if (cycle(i, start))
+                if (cycle(start, i))
                 {
                     return true;
                 }
