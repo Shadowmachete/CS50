@@ -166,12 +166,12 @@ void sort_pairs(void)
                 pairs[i].loser = higherLoser;
                 pairs[i+1].winner = lowerWinner;
                 pairs[i+1].loser = lowerLoser;
+                for (int x = 0; x < pair_count; x++)
+                {
+                    printf("Winner: %d, Loser %d\n", pairs[x].winner, pairs[x].loser);
+                }
             }
         }
-    }
-    for (int i = 0; i < pair_count; i++)
-    {
-        printf("Winner: %d, Loser %d\n", pairs[i].winner, pairs[i].loser);
     }
     return;
 }
