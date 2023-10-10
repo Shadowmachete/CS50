@@ -200,9 +200,20 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
+    bool win[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
+        {
+            if (locked[j][i] == true)
+            {
+                win[j] = false;
+            }
+        }
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (win[i] == true)
         {
             
         }
