@@ -178,8 +178,8 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        
-        if (!pairs[i].loser)
+
+        if (pairs[i].loser)
         {
             continue;
         }
