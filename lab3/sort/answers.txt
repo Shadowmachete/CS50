@@ -1,17 +1,11 @@
-sort1 uses: TODO
-Bubble sort
+sort1 uses: Bubble sort
 
-How do you know?: TODO
-sort1 is faster than sort3 for already sorted data which is indicative of bubble sort's minimum time complexity Omega (n)
+How do you know?: sort1 is faster than sort3 for already sorted data which is indicative of bubble sort's minimum time complexity Omega (n)
 
-sort2 uses: TODO
-Merge Sort
+sort2 uses: Merge Sort
 
-How do you know?: TODO
-sort2 runs much faster than sort1 and sort3 and has to be the fastest sorting algorithm of bubble, selection and merge sort which is merge sort.
+How do you know?: sort2 runs much faster than sort1 and sort3 and has to be the fastest sorting algorithm of bubble, selection and merge sort which is merge sort.
 
-sort3 uses: TODO
-Selection sort
+sort3 uses: Selection sort
 
-How do you know?: TODO
-sort3 is slightly faster than sort1 for random and reversed tests but not for the already sorted data
+How do you know?: sort3 is slightly faster than sort1 for random and reversed tests but not for the already sorted data
