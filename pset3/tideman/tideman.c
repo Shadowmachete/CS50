@@ -106,7 +106,6 @@ bool vote(int rank, string name, int ranks[])
         if (strcmp(candidates[i], name) == 0)
         {
             ranks[i] = rank + 1;
-            printf("%i %i %i\n", ranks[0], ranks[1], ranks[2]);
             return true;
         }
     }
@@ -134,6 +133,7 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    
     return;
 }
 
