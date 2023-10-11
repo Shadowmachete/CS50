@@ -61,12 +61,15 @@ int main(int argc, char *argv[])
     // Write reversed audio to file
     // TODO #8
     WORD buffer;
+    printf("%i", block_size);
     printf("%li\n", ftell(input));
-    fseek(input, -block_size, SEEK_CUR);
     while (fread(&buffer, block_size, 1, input))
     {
         printf("%li\n", ftell(input));
+        fseek(input, block_size, SEEK_CUR);
+        fseek(input, block_size, SEEK_CUR);
         fwrite(&buffer, block_size, 1, output);
+        printf("%li\n", ftell(input));
     }
 
     fclose(input);
