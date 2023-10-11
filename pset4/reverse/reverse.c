@@ -60,7 +60,12 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    
+    BYTE *format[4];
+    for (int i = 0; i < 4; i++)
+    {
+        format[i] = &header.format[i];
+    }
+    printf("%s", format);
     return 0;
 }
 
