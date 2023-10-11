@@ -61,12 +61,14 @@ int check_format(WAVHEADER header)
 {
     // TODO #4
     char *format[4];
+    printf("%s", header.format);
     for (int i = 0; i < 4; i++)
     {
         printf("%c\n", header.format[i]);
-        format[i] = header.format[i];
+        // format = header.format[i];
     }
     printf("%s", *format);
+    // return strcmp(header.format, "WAVE") == 0;
     return 0;
 }
 
