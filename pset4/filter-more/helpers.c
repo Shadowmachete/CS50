@@ -75,6 +75,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
             image[i][j].rgbtBlue = (int) round(sumBlue / (total * 1.0));
+            if (i == 1 && j == 1)
+            {
+                printf("%i\n", image[i][j].rgbtBlue);
+            }
             image[i][j].rgbtGreen = (int) round(sumGreen / (total * 1.0));
             image[i][j].rgbtRed = (int) round(sumRed / (total * 1.0));
         }
