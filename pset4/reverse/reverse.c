@@ -62,16 +62,14 @@ int main(int argc, char *argv[])
     // TODO #8
     WORD buffer;
     int reverse = -1 * block_size;
-    fseek(input, reverse, SEEK_END);
+    // fseek(input, reverse, SEEK_END);
+    fseek(input, 44, SEEK_SET);
     int length = ftell(input);
-    for (int i = 0; i < (length - sizeof(header)) / 4; i++)
+    while (fread(&buffer, block_size, 1, input))
     {
-        while (fread(&buffer, block_size, (length - sizeof(header)) / 4, input))
-        {
-            fwrite(&buffer, block_size, 1, output);
-        }
-        fseek(input, reverse, SEEK_CUR);
-        fseek(input, reverse, SEEK_CUR);
+        fwrite(&buffer, block_size, 1, output);
+        // fseek(input, reverse, SEEK_CUR);
+        // fseek(input, reverse, SEEK_CUR);
     }
 
     fclose(input);
