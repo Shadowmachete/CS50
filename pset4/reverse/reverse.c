@@ -61,14 +61,13 @@ int main(int argc, char *argv[])
     // Write reversed audio to file
     // TODO #8
     int16_t buffer;
-    fseek(input, -4, SEEK_END);
-    printf("%li, %li\n", ftell(input), sizeof(header));
-    for (int i = 0; i < (ftell(input) - sizeof(header)) / 4; i++)
+    fseek(input, -sizeof(block_size), SEEK_END);
+    for (int i = 0, length = (int) (ftell(input) - sizeof(header)) / block_size; i < length; i++)
     {
-        fread(&buffer, 4, 1, input);
-        fwrite(&buffer, 4, 1, output);
-        fseek(input, -4, SEEK_CUR);
-        fseek(input, -4, SEEK_CUR);
+        fread(&buffer, sizeof(block_size), 1, input);
+        fwrite(&buffer, sizeof(block_size), 1, output);
+        fseek(input, -sizeof(block_size), SEEK_CUR);
+        fseek(input, -sizeof(block_size), SEEK_CUR);
     }
 
     fclose(input);
@@ -92,5 +91,5 @@ int check_format(WAVHEADER header)
 int get_block_size(WAVHEADER header)
 {
     // TODO #7
-    return (int) header.numChannels * header.bitsPerSample / 8;
+    return (int) header.numChannels * (int) header.bitsPerSample / 8;
 }
