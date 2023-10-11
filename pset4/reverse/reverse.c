@@ -18,14 +18,14 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    if (!(argc[1][strlen(argc[1])]))
+    if (!(argv[1][strlen(argv[1])-3] == 'w' && argv[1][strlen(argv[1])-2] == 'a' && argv[1][strlen(argv[1])-1] == 'v'))
     {
         printf("Input is not a WAV file.\n");
         return 1;
     }
     // Open input file for reading
     // TODO #2
-
+    
     // Read header
     // TODO #3
 
