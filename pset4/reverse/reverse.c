@@ -35,10 +35,15 @@ int main(int argc, char *argv[])
     }
     // Read header
     // TODO #3
-    
+    WAVHEADER header;
+    fread(&header, sizeof(header), 1, input);
     // Use check_format to ensure WAV format
     // TODO #4
-
+    if (!check_format(header))
+    {
+        printf("Could not extract header from %s.\n", inputFile);
+        return 4;
+    }
     // Open output file for writing
     // TODO #5
 
@@ -55,6 +60,7 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
+    
     return 0;
 }
 
