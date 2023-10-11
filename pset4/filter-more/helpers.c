@@ -58,7 +58,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int horizontal_shift = -1; horizontal_shift <= 1; horizontal_shift++)
                 {
-                    if (i + vertical_shift < 0 || i + vertical_shift > height || j + horizontal_shift < 0 || j + horizontal_shift > width)
+                    if (i + vertical_shift < 0 || i + vertical_shift >= height || j + horizontal_shift < 0 || j + horizontal_shift >= width)
                     {
                         continue;
                     }
@@ -68,20 +68,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         sumGreen += image[i+vertical_shift][j+horizontal_shift].rgbtGreen;
                         sumRed += image[i+vertical_shift][j+horizontal_shift].rgbtRed;
                         total += 1;
-                        if (i == 0 && j == width - 1)
-                        {
-                            printf("%i %i %i\n", sumBlue, image[i+vertical_shift][j+horizontal_shift].rgbtBlue, total);
-                            printf("%i %i\n", i+vertical_shift, j+horizontal_shift);
-                            printf("%i\n\n", image[0][600].rgbtBlue);
-                        }
                     }
                 }
             }
             new_image[i][j].rgbtBlue = (int) round(sumBlue / (total * 1.0));
-            if (i == 0 && j == width - 1)
-            {
-                printf("%i", new_image[i][j].rgbtBlue);
-            }
             new_image[i][j].rgbtGreen = (int) round(sumGreen / (total * 1.0));
             new_image[i][j].rgbtRed = (int) round(sumRed / (total * 1.0));
         }
