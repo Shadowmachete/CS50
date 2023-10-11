@@ -52,9 +52,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            if (i == 0 && j == 0)
+            for (int vertical_shift = -1; vertical_shift <= 1; vertical_shift++)
             {
-                printf("%i", image[i-1][j-1].rgbtBlue == 0);
+                for (int horizontal_shift = -1; horizontal_shift <= 1; horizontal_shift++)
+                {
+                    if (i - vertical_shift < 0 || i + vertical_shift > height || j - horizontal_shift < 0 || j + horizontal_shift > width)
+                    {
+                        printf("Wall edge, i = %i, j = %i\n", i, j);
+                    }
+                }
             }
         }
     }
