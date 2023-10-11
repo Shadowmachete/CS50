@@ -73,7 +73,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         total += 1;
                         if (i == 1 && j == 1)
                         {
-                            printf("%i %i %i\n", sumBlue, image[i+vertical_shift][j+horizontal_shift].rgbtBlue, total);
+                            printf("%i %i %i\n\n", sumBlue, image[i+vertical_shift][j+horizontal_shift].rgbtBlue, total);
                         }
                     }
                 }
