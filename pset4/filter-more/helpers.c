@@ -114,13 +114,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (i + vertical_shift < 0 || i + vertical_shift > height || j + horizontal_shift < 0 || j + horizontal_shift > width)
                     {
-                        Gx_blue += 0;
-                        Gx_green += 0;
-                        Gx_red += 0;
-
-                        Gy_blue += 0;
-                        Gy_green += 0;
-                        Gy_red += 0;
+                        continue;
                     }
                     else
                     {
