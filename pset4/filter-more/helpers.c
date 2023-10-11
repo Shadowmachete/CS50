@@ -93,15 +93,15 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     Gx[2][2] = 1;
 
     int Gy[3][3];
-    Gx[0][0] = -1;
-    Gx[0][1] = -2;
-    Gx[0][2] = -1;
-    Gx[1][0] = 0;
-    Gx[1][1] = 0;
-    Gx[1][2] = 0;
-    Gx[2][0] = 1;
-    Gx[2][1] = 2;
-    Gx[2][2] = 1;
+    Gy[0][0] = -1;
+    Gy[0][1] = -2;
+    Gy[0][2] = -1;
+    Gy[1][0] = 0;
+    Gy[1][1] = 0;
+    Gy[1][2] = 0;
+    Gy[2][0] = 1;
+    Gy[2][1] = 2;
+    Gy[2][2] = 1;
 
     for (int i = 0; i < 10; i++)
     {
@@ -134,7 +134,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            printf("%i %i\n", Gx_blue, Gy_blue);
+            printf("%i %i %i \n", Gx_blue, Gy_blue, (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2))));
             image[i][j].rgbtBlue = (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2)));
             image[i][j].rgbtGreen = (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2)));
             image[i][j].rgbtRed = (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2)));
