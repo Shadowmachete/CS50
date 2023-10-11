@@ -26,9 +26,20 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < height; j++)
         {
             int tempBlue, tempGreen, tempRed;
+            // flip blue
             tempBlue = image[j][i].rgbtBlue;
             image[j][i].rgbtBlue = image[j][width-i-1].rgbtBlue;
             image[j][width-i-1].rgbtBlue = tempBlue;
+
+            // flip green
+            tempGreen = image[j][i].rgbtGreen;
+            image[j][i].rgbtGreen = image[j][width-i-1].rgbtGreen;
+            image[j][width-i-1].rgbtGreen = tempGreen;
+
+            // flip red
+            tempRed = image[j][i].rgbtRed;
+            image[j][i].rgbtRed = image[j][width-i-1].rgbtRed;
+            image[j][width-i-1].rgbtRed = tempRed;
         }
     }
     return;
@@ -37,6 +48,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+
+        }
+    }
     return;
 }
 
