@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
     // TODO #8
     int16_t buffer;
     fseek(input, -sizeof(block_size), SEEK_END);
-    for (int i = 0, length = (int) (ftell(input) - sizeof(header)) / block_size; i < length; i++)
+    for (int i = 0, length = (int) (ftell(input) - sizeof(header)) / block_size; i < length + 1; i++)
     {
         fread(&buffer, sizeof(block_size), 1, input);
         fwrite(&buffer, sizeof(block_size), 1, output);
