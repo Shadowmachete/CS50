@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
     int reverse = -1 * block_size;
     // fseek(input, reverse, SEEK_END);
     fseek(input, 44, SEEK_SET);
-    int length = ftell(input);
+    printf("%li", ftell(input));
     while (fread(&buffer, block_size, 1, input))
     {
         fwrite(&buffer, block_size, 1, output);
