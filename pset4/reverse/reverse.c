@@ -60,7 +60,10 @@ int main(int argc, char *argv[])
     block_size = get_block_size(header);
     // Write reversed audio to file
     // TODO #8
-    
+    for (int i = )
+
+    fclose(input);
+    fclose(output);
 }
 
 int check_format(WAVHEADER header)
