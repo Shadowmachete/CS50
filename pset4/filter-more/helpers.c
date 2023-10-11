@@ -103,9 +103,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     Gy[2][1] = 2;
     Gy[2][2] = 1;
 
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < 1; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < 1; j++)
         {
             int Gx_blue = 0, Gy_blue = 0, Gx_green = 0, Gy_green = 0, Gx_red = 0, Gy_red = 0;
             for (int vertical_shift = -1; vertical_shift <= 1; vertical_shift++)
@@ -131,9 +131,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         Gy_blue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue * Gy[1+vertical_shift][1+horizontal_shift];
                         Gy_green += image[i+vertical_shift][j+horizontal_shift].rgbtGreen * Gy[1+vertical_shift][1+horizontal_shift];
                         Gy_red += image[i+vertical_shift][j+horizontal_shift].rgbtRed * Gy[1+vertical_shift][1+horizontal_shift];
+                        printf("%i %i %i %i %i\n", Gx_blue, Gy_blue, image[i+vertical_shift][j+horizontal_shift].rgbtBlue, vertical_shift, horizontal_shift);
                     }
                 }
             }
+            printf("%i %i\n", Gx_blue, Gy_blue);
             image[i][j].rgbtBlue = (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2))) < 255 ? (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2))) : 255;
             image[i][j].rgbtGreen = (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2))) < 255 ? (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2))) : 255;
             image[i][j].rgbtRed = (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2))) < 255 ? (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2))) : 255;
