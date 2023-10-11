@@ -48,20 +48,31 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < 10; j++)
+        for (int j = 0; j < width; j++)
         {
+            int sumBlue = 0, sumGreen = 0, sumRed = 0, total = 0;
             for (int vertical_shift = -1; vertical_shift <= 1; vertical_shift++)
             {
                 for (int horizontal_shift = -1; horizontal_shift <= 1; horizontal_shift++)
                 {
                     if (i + vertical_shift < 0 || i + vertical_shift > height || j + horizontal_shift < 0 || j + horizontal_shift > width)
                     {
-                        printf("Wall edge, i = %i, j = %i, vertical = %i, horizontal = %i\n", i, j, vertical_shift, horizontal_shift);
+                        continue;
+                    }
+                    else
+                    {
+                        sumBlue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue;
+                        sumGreen += image[i+vertical_shift][j+horizontal_shift].rgbtGreen;
+                        sumRed += image[i+vertical_shift][j+horizontal_shift].rgbtRed;
+                        total += 1;
                     }
                 }
             }
+            image[i][j].rgbtBlue = (int) round(sumBlue / (total * 1.0));
+            image[i][j].rgbtGreen = (int) round(sumGreen / (total * 1.0));
+            image[i][j].rgbtRed = (int) round(sumRed / (total * 1.0));
         }
     }
     return;
