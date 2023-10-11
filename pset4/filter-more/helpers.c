@@ -81,6 +81,28 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    int Gx[3][3];
+    Gx[0][0] = -1;
+    Gx[0][1] = 0;
+    Gx[0][2] = 1;
+    Gx[0][0] = -2;
+    Gx[0][1] = 0;
+    Gx[0][2] = 2;
+    Gx[0][0] = -1;
+    Gx[0][1] = 0;
+    Gx[0][2] = 1;
+
+    int Gy[3][3];
+    Gx[0][0] = -1;
+    Gx[0][1] = -2;
+    Gx[0][2] = -1;
+    Gx[0][0] = 0;
+    Gx[0][1] = 0;
+    Gx[0][2] = 0;
+    Gx[0][0] = 1;
+    Gx[0][1] = 2;
+    Gx[0][2] = 1;
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -102,15 +124,19 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                     else
                     {
-                        Gx_blue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue;
-                        Gx_green += image[i+vertical_shift][j+horizontal_shift].rgbtGreen;
-                        Gx_red += image[i+vertical_shift][j+horizontal_shift].rgbtRed;
+                        Gx_blue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue * Gx[1+vertical_shift][1+horizontal_shift];
+                        Gx_green += image[i+vertical_shift][j+horizontal_shift].rgbtGreen * Gx[1+vertical_shift][1+horizontal_shift];
+                        Gx_red += image[i+vertical_shift][j+horizontal_shift].rgbtRed * Gx[1+vertical_shift][1+horizontal_shift];
+
+                        Gy_blue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue * Gy[1+vertical_shift][1+horizontal_shift];
+                        Gy_green += image[i+vertical_shift][j+horizontal_shift].rgbtGreen * Gy[1+vertical_shift][1+horizontal_shift];
+                        Gy_red += image[i+vertical_shift][j+horizontal_shift].rgbtRed * Gy[1+vertical_shift][1+horizontal_shift];
                     }
                 }
             }
-            image[i][j].rgbtBlue = (int) rount(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2)));
-            image[i][j].rgbtGreen = (int) rount(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2)));
-            image[i][j].rgbtRed = (int) rount(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2)));
+            image[i][j].rgbtBlue = (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2)));
+            image[i][j].rgbtGreen = (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2)));
+            image[i][j].rgbtRed = (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2)));
         }
     }
     return;
