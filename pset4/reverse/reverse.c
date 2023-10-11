@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    if (argc[1])
+    if (!argc[1])
     {
         printf("Input is not a WAV file.\n");
         return 1;
