@@ -108,9 +108,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            image[i][j].rgbtBlue = pow(pow(Gx_blue, 2) + pow(Gy_blue, 2), 1/2);
-            image[i][j].rgbtGreen = pow(pow(Gx_green, 2) + pow(Gy_green, 2), 1/2);
-            image[i][j].rgbtRed = pow(pow(Gx_red, 2) + pow(Gy_red, 2), 1/2);
+            image[i][j].rgbtBlue = (int) rount(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2)));
+            image[i][j].rgbtGreen = (int) rount(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2)));
+            image[i][j].rgbtRed = (int) rount(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2)));
         }
     }
     return;
