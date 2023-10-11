@@ -39,20 +39,25 @@ int main(int argc, char *argv[])
     fread(&header, sizeof(header), 1, input);
     // Use check_format to ensure WAV format
     // TODO #4
-    if (!check_format(header))
+    if (check_format(header) == 1)
     {
         printf("Could not extract header from %s.\n", inputFile);
         return 4;
     }
     // Open output file for writing
     // TODO #5
-
+    FILE *output = fopen(outputFile, "w");
+    if (output == NULL)
+    {
+        printf("Could not open output file.\n");
+        return 5;
+    }
     // Write header to file
     // TODO #6
-
+    fwrite(&header, sizeof(header), 1, output);
     // Use get_block_size to calculate size of block
     // TODO #7
-
+    
     // Write reversed audio to file
     // TODO #8
 }
@@ -60,10 +65,13 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
+    BYTE format[4] = {'W', 'A', 'V', 'E'};
     for (int i = 0; i < 4; i++)
     {
-        printf("%c\n", header.format[i]);
-        // format = header.format[i];
+        if (header.format[i] != format[i])
+        {
+            return 1;
+        }
     }
     return 0;
 }
