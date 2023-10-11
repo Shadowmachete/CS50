@@ -62,9 +62,9 @@ int main(int argc, char *argv[])
     // TODO #8
     WORD buffer;
     printf("%li\n", ftell(input));
+    fseek(input, -block_size, SEEK_CUR);
     while (fread(&buffer, block_size, 1, input))
     {
-        fseek(input, -2 * block_size, SEEK_CUR);
         printf("%li\n", ftell(input));
         fwrite(&buffer, block_size, 1, output);
     }
