@@ -63,6 +63,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                     else
                     {
+                        if (i == 1 && j == 1)
+                        {
+                            printf("%i %i %i\n", sumBlue, image[i+vertical_shift][j+horizontal_shift].rgbtBlue, total);
+                        }
                         sumBlue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue;
                         sumGreen += image[i+vertical_shift][j+horizontal_shift].rgbtGreen;
                         sumRed += image[i+vertical_shift][j+horizontal_shift].rgbtRed;
