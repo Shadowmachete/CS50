@@ -60,16 +60,11 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    BYTE correct_format[4];
-    correct_format[0] = 'W';
-    printf("%s", header.format);
     for (int i = 0; i < 4; i++)
     {
         printf("%c\n", header.format[i]);
         // format = header.format[i];
     }
-    printf("%s", correct_format);
-    // return strcmp(header.format, "WAVE") == 0;
     return 0;
 }
 
