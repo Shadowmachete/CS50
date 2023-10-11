@@ -58,7 +58,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (i - vertical_shift < 0 || i + vertical_shift > height || j - horizontal_shift < 0 || j + horizontal_shift > width)
                     {
-                        printf("Wall edge, i = %i, j = %i\n", i, j);
+                        printf("Wall edge, i = %i, j = %i, vertical = %i, horizontal = %i\n", i, j, vertical_shift, horizontal_shift);
                     }
                 }
             }
