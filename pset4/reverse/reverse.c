@@ -66,15 +66,20 @@ int main(int argc, char *argv[])
     printf("%i\n", block_size);
     printf("%i\n", reverse);
     fseek(input, reverse, SEEK_END);
-    printf("%li\n", ftell(input));
-    while (fread(&buffer, block_size, 10, input))
+    long length = ftell(input);
+    printf("%li, %li", length, ftell(input));
+    printf("%li", (length - sizeof(header)) / 4);
+    for (int i = 0; i < (length - sizeof(header)) / 4; i++)
     {
-        printf("%li\n", ftell(input));
-        printf("%i\n", reverse);
-        fseek(input, reverse, SEEK_CUR);
-        fseek(input, reverse, SEEK_CUR);
-        printf("%li\n", ftell(input));
-        fwrite(&buffer, block_size, 1, output);
+        while (fread(&buffer, block_size, 1, input))
+        {
+            printf("%li\n", ftell(input));
+            printf("%i\n", reverse);
+            fseek(input, reverse, SEEK_CUR);
+            fseek(input, reverse, SEEK_CUR);
+            printf("%li\n", ftell(input));
+            fwrite(&buffer, block_size, 1, output);
+        }
     }
 
     fclose(input);
