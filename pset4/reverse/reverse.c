@@ -21,14 +21,21 @@ int main(int argc, char *argv[])
     if (!(argv[1][strlen(argv[1])-3] == 'w' && argv[1][strlen(argv[1])-2] == 'a' && argv[1][strlen(argv[1])-1] == 'v'))
     {
         printf("Input is not a WAV file.\n");
-        return 1;
+        return 2;
     }
     // Open input file for reading
     // TODO #2
-    
+    char *inputFile = argv[1];
+    char *outputFile = argv[2];
+    FILE *input = fopen(inputFile, "r");
+    if (input == NULL)
+    {
+        printf("Could not open %s.\n", inputFile);
+        return 3;
+    }
     // Read header
     // TODO #3
-
+    
     // Use check_format to ensure WAV format
     // TODO #4
 
