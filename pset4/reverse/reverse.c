@@ -66,12 +66,12 @@ int main(int argc, char *argv[])
     int length = ftell(input);
     for (int i = 0; i < (length - sizeof(header)) / 4; i++)
     {
-        while (fread(&buffer, block_size, 1, input))
+        while (fread(&buffer, block_size, (length - sizeof(header)) / 4, input))
         {
-            fseek(input, reverse, SEEK_CUR);
-            fseek(input, reverse, SEEK_CUR);
             fwrite(&buffer, block_size, 1, output);
         }
+        fseek(input, reverse, SEEK_CUR);
+        fseek(input, reverse, SEEK_CUR);
     }
 
     fclose(input);
