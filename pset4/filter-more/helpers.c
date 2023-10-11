@@ -112,6 +112,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     Gy[2][0] = 1;
     Gy[2][1] = 2;
     Gy[2][2] = 1;
+    
+    RGBTRIPLE new_image[height][width];
 
     for (int i = 0; i < height; i++)
     {
@@ -122,7 +124,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int horizontal_shift = -1; horizontal_shift <= 1; horizontal_shift++)
                 {
-                    if (i + vertical_shift < 0 || i + vertical_shift > height || j + horizontal_shift < 0 || j + horizontal_shift > width)
+                    if (i + vertical_shift < 0 || i + vertical_shift >= height || j + horizontal_shift < 0 || j + horizontal_shift >= width)
                     {
                         continue;
                     }
@@ -138,9 +140,18 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            image[i][j].rgbtBlue = (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2))) < 255 ? (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2))) : 255;
-            image[i][j].rgbtGreen = (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2))) < 255 ? (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2))) : 255;
-            image[i][j].rgbtRed = (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2))) < 255 ? (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2))) : 255;
+            new_image[i][j].rgbtBlue = (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2))) < 255 ? (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2))) : 255;
+            new_image[i][j].rgbtGreen = (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2))) < 255 ? (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2))) : 255;
+            new_image[i][j].rgbtRed = (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2))) < 255 ? (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2))) : 255;
+        }
+    }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
+            image[i][j].rgbtGreen = new_image[i][j].rgbtGreen;
+            image[i][j].rgbtRed = new_image[i][j].rgbtRed;
         }
     }
     return;
