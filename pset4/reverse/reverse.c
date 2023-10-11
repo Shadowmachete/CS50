@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     // Ensure proper usage
     // TODO #1
-
+    
     // Open input file for reading
     // TODO #2
 
