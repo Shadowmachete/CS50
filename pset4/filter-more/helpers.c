@@ -124,7 +124,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                     else
                     {
-                        Gx_blue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue * Gx[1+vertical_shift][1+horizontal_shift];
+                        Gx_blue += fminf(image[i+vertical_shift][j+horizontal_shift].rgbtBlue * Gx[1+vertical_shift][1+horizontal_shift], 255.0);
                         Gx_green += image[i+vertical_shift][j+horizontal_shift].rgbtGreen * Gx[1+vertical_shift][1+horizontal_shift];
                         Gx_red += image[i+vertical_shift][j+horizontal_shift].rgbtRed * Gx[1+vertical_shift][1+horizontal_shift];
 
