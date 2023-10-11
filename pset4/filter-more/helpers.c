@@ -85,27 +85,27 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     Gx[0][0] = -1;
     Gx[0][1] = 0;
     Gx[0][2] = 1;
-    Gx[0][0] = -2;
-    Gx[0][1] = 0;
-    Gx[0][2] = 2;
-    Gx[0][0] = -1;
-    Gx[0][1] = 0;
-    Gx[0][2] = 1;
+    Gx[1][0] = -2;
+    Gx[1][1] = 0;
+    Gx[1][2] = 2;
+    Gx[2][0] = -1;
+    Gx[2][1] = 0;
+    Gx[2][2] = 1;
 
     int Gy[3][3];
     Gx[0][0] = -1;
     Gx[0][1] = -2;
     Gx[0][2] = -1;
-    Gx[0][0] = 0;
-    Gx[0][1] = 0;
-    Gx[0][2] = 0;
-    Gx[0][0] = 1;
-    Gx[0][1] = 2;
-    Gx[0][2] = 1;
+    Gx[1][0] = 0;
+    Gx[1][1] = 0;
+    Gx[1][2] = 0;
+    Gx[2][0] = 1;
+    Gx[2][1] = 2;
+    Gx[2][2] = 1;
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 10; i++)
     {
-        for (int j = 0; j < 2; j++)
+        for (int j = 0; j < 10; j++)
         {
             int Gx_blue = 0, Gy_blue = 0, Gx_green = 0, Gy_green = 0, Gx_red = 0, Gy_red = 0;
             for (int vertical_shift = -1; vertical_shift <= 1; vertical_shift++)
@@ -131,10 +131,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         Gy_blue += image[i+vertical_shift][j+horizontal_shift].rgbtBlue * Gy[1+vertical_shift][1+horizontal_shift];
                         Gy_green += image[i+vertical_shift][j+horizontal_shift].rgbtGreen * Gy[1+vertical_shift][1+horizontal_shift];
                         Gy_red += image[i+vertical_shift][j+horizontal_shift].rgbtRed * Gy[1+vertical_shift][1+horizontal_shift];
-                        printf("%i, vert: %i, horiz: %i\n", Gx[1+vertical_shift][1+horizontal_shift], vertical_shift, horizontal_shift);
                     }
                 }
             }
+            printf("%i %i\n", Gx_blue, Gy_blue);
             image[i][j].rgbtBlue = (int) round(sqrt(pow(Gx_blue, 2) + pow(Gy_blue, 2)));
             image[i][j].rgbtGreen = (int) round(sqrt(pow(Gx_green, 2) + pow(Gy_green, 2)));
             image[i][j].rgbtRed = (int) round(sqrt(pow(Gx_red, 2) + pow(Gy_red, 2)));
