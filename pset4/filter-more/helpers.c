@@ -68,7 +68,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         sumRed += image[i+vertical_shift][j+horizontal_shift].rgbtRed;
                         total += 1;
                     }
-                    printf("%i", sumBlue);
                 }
             }
             image[i][j].rgbtBlue = (int) round(sumBlue / (total * 1.0));
