@@ -57,13 +57,15 @@ int main(int argc, char *argv[])
     fwrite(&header, sizeof(header), 1, output);
     // Use get_block_size to calculate size of block
     // TODO #7
-    block_size = get_block_size(header);
+    int block_size = get_block_size(header);
     // Write reversed audio to file
     // TODO #8
     WORD buffer;
+    printf("%li\n", ftell(input));
     while (fread(&buffer, block_size, 1, input))
     {
-        buffer = buffer * factor;
+        fseek(input, -2 * block_size, SEEK_CUR);
+        printf("%li\n", ftell(input));
         fwrite(&buffer, block_size, 1, output);
     }
 
@@ -88,5 +90,5 @@ int check_format(WAVHEADER header)
 int get_block_size(WAVHEADER header)
 {
     // TODO #7
-    return header.numChannels * header.bitsPerSample / 8;
+    return (int) header.numChannels * header.bitsPerSample / 8;
 }
