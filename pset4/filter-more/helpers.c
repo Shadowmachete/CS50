@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 // Convert image to grayscale
@@ -48,7 +49,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE new_image[height][width];
+    RGBTRIPLE(*new_image)[width] = salloc(height, width * sizeof(RGBTRIPLE));
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -76,7 +77,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             new_image[i][j].rgbtRed = (int) round(sumRed / (total * 1.0));
         }
     }
-    image = new_image;
+    image = &new_image;
+    free(new_image);
     return;
 }
 
