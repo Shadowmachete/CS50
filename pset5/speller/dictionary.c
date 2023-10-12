@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "dictionary.h"
 
@@ -24,8 +25,12 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    word = toupper(word);
-    hash(word);
+    char *new_word = malloc(strlen(word));
+    for (int i = 0, len = strlen(word); i < len; i++)
+    {
+        new_word[i] = toupper(word[i]);
+    }
+    hash(new_word);
     return false;
 }
 
@@ -36,9 +41,10 @@ unsigned int hash(const char *word)
     int sum = 0;
     for (int i = 0, len = strlen(word); i < len; i++)
     {
-        sum += toupper(word[i]);
+        sum += word[i];
     }
-    printf("%i", (int) (sum / strlen(word)));
+    printf("%i", sum);
+    return sum;
     return (int) (sum / strlen(word));
 }
 
