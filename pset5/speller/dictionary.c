@@ -32,7 +32,6 @@ bool check(const char *word)
     while (fgets(buffer, sizeof(buffer), dict))
     {
         buffer[strcspn(buffer, "\n")] = 0;
-        printf("%s", buffer);
         if (strcasecmp(word, buffer) == 0)
         {
             return true;
@@ -66,6 +65,7 @@ bool load(const char *dictionary)
     fseek(dict, 0, SEEK_SET);
     for (int i = 0, len = size(); i < len; i++)
     {
+        printf("%i", i);
         fgets(buffer, sizeof(buffer), dict);
         buffer[strcspn(buffer, "\n")] = 0;
         printf("%s %i %s\n", buffer, hash(buffer), table[i]->word);
