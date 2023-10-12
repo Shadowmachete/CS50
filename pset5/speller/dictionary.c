@@ -61,7 +61,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    char buffer[50];
+    char buffer[46];
     while (fgets(buffer, sizeof(buffer), dict))
     {
         buffer[strcspn(buffer, "\n")] = 0;
@@ -73,10 +73,10 @@ bool load(const char *dictionary)
             {
                 return 1;
             }
-            //new_node->word = "apple";
+            new_node->word[0] = buffer[0];
             //new_node->next = NULL;
             table[hashedInt] = new_node;
-            printf("%s", table[hashedInt]->word);
+            printf("%c", table[hashedInt]->word[0]);
         }
         else
         {
