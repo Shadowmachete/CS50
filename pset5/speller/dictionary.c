@@ -43,8 +43,7 @@ unsigned int hash(const char *word)
     {
         sum += word[i];
     }
-    printf("%i", sum);
-    return sum;
+    printf("%i", (int) (sum / strlen(word)));
     return (int) (sum / strlen(word));
 }
 
