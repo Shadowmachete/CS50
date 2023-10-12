@@ -29,6 +29,15 @@ bool check(const char *word)
     int hashNum = hash(word);
     char buffer[50];
     fseek(dict, 0, SEEK_SET);
+    node *ptr = table[hashNum];
+    while (ptr->next != NULL)
+    {
+        if (ptr->word == word)
+        {
+            return true;
+        }
+        ptr = ptr->next;
+    }
     return false;
 }
 
