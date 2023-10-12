@@ -43,8 +43,8 @@ unsigned int hash(const char *word)
     {
         sum += word[i];
     }
-    printf("%i", (int) (sum / strlen(word)));
-    return (int) (sum / strlen(word));
+    printf("%i", (int) (sum / strlen(word)) + sum);
+    return (int) (sum / strlen(word)) + sum;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
