@@ -73,9 +73,9 @@ bool load(const char *dictionary)
             {
                 return 1;
             }
-            new_node->word = "apple";
-            new_node->next = NULL;
-            //table[hashedInt] = &new_node;
+            //new_node->word = "apple";
+            //new_node->next = NULL;
+            table[hashedInt] = new_node;
             printf("%s", table[hashedInt]->word);
         }
         else
