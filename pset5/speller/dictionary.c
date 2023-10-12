@@ -86,7 +86,9 @@ bool unload(void)
     }
     if (table[N-1] == NULL)
     {
+        fclose(dict);
         return true;
     }
+    fclose(dict);
     return false;
 }
