@@ -94,10 +94,10 @@ bool load(const char *dictionary)
     }
     for (int i = 0; i < N; i++)
     {
-        printf("%d, %s", i, table[i]->word);
+        printf("%d, %s\n", i, table[i]->word);
         if ((table[i]->next) != NULL)
         {
-            printf("%s", (table[i]->next)->word);
+            printf("%s\n\n", (table[i]->next)->word);
         }
     }
     return true;
