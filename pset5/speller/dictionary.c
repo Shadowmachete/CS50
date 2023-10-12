@@ -79,7 +79,6 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             table[hashedInt] = new_node;
-            free(new_node);
         }
         else
         {
@@ -99,7 +98,6 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             ptr->next = new_node;
-            free(new_node);
             free(ptr);
         }
     }
@@ -108,7 +106,7 @@ bool load(const char *dictionary)
         printf("%d %s\n", i, table[i]->word);
         if (table[i]->next != NULL)
         {
-            printf("%d %s\n", i, table[i]->next->word);
+            //printf("%d %s\n", i, table[i]->next->word);
         }
     }
     return true;
