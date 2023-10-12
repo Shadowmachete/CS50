@@ -26,6 +26,14 @@ bool check(const char *word)
 {
     // TODO
     int hashNum = hash(word);
+    char buffer[50];
+    while (fgets(buffer, sizeof(buffer), dict))
+    {
+        if (strcasecmp(word, buffer) == 0)
+        {
+            return true;
+        }
+    }
     return false;
 }
 
