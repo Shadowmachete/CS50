@@ -64,13 +64,10 @@ bool load(const char *dictionary)
     char buffer[50];
     for (int i = 0, len = size(); i < len; i++)
     {
-        printf("%i", i);
+        fgets(buffer, sizeof(buffer), dict);
         printf("%s", buffer);
-        if (fgets(buffer, sizeof(buffer), dict))
-        {
-            buffer[strcspn(buffer, "\n")] = 0;
-            printf("%s %i %s\n", buffer, hash(buffer), table[i]->word);
-        }
+        buffer[strcspn(buffer, "\n")] = 0;
+        printf("%s %i %s\n", buffer, hash(buffer), table[i]->word);
     }
     return true;
 }
@@ -88,7 +85,6 @@ unsigned int size(void)
     fseek(dict, 0, SEEK_SET);
     while (fgets(buffer, sizeof(buffer), dict))
     {
-        printf("%s", buffer);
         counter++;
     }
     return counter;
