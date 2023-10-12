@@ -24,6 +24,7 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    word = toupper(word);
     hash(word);
     return false;
 }
@@ -35,7 +36,7 @@ unsigned int hash(const char *word)
     int sum = 0;
     for (int i = 0, len = strlen(word); i < len; i++)
     {
-        sum += toupper(word[0]) - 'A';
+        sum += toupper(word[i]);
     }
     printf("%i", (int) (sum / strlen(word)));
     return (int) (sum / strlen(word));
