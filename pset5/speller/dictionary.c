@@ -26,7 +26,6 @@ bool check(const char *word)
 {
     // TODO
     int hashNum = hash(word);
-    printf("%i", hashNum);
     return false;
 }
 
@@ -79,6 +78,5 @@ bool unload(void)
     {
         return false;
     }
-    fclose(dict);
-    return true;
+    return fclose(dict);
 }
