@@ -62,12 +62,11 @@ unsigned int size(void)
     {
         return 0;
     }
-    char buffer[45];
+    char buffer[50];
     int counter = 0;
     while (fgets(buffer, sizeof(buffer), dict))
     {
         counter++;
-        printf("%s %i", buffer, counter);
     }
     return counter;
 }
