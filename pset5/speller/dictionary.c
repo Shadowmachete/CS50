@@ -90,7 +90,6 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             ptr->next = new_node;
-            free(ptr);
         }
     }
     return true;
