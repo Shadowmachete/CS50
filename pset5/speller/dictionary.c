@@ -82,7 +82,30 @@ bool load(const char *dictionary)
         }
         else
         {
-            printf("Collision");
+            node *ptr = table[hashedInt];
+            while (ptr->next != NULL)
+            {
+                ptr = ptr->next;
+            }
+            node *new_node = malloc(sizeof(node));
+            if (new_node == NULL)
+            {
+                return 1;
+            }
+            for (int i = 0; i < LENGTH + 1; i++)
+            {
+                new_node->word[i] = buffer[i];
+            }
+            new_node->next = NULL;
+            ptr->next = new_node;
+        }
+    }
+    for (int i = 0; i < N; i++)
+    {
+        printf("%d %s\n", i, table[i]->word);
+        if (table[i]->next != NULL)
+        {
+            printf("%d %s\n", i, table[i]->next->word);
         }
     }
     return true;
