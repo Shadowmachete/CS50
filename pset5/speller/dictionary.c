@@ -80,7 +80,13 @@ bool unload(void)
         while (ptr != NULL)
         {
             node *temp = ptr;
-            
+            ptr = ptr->next;
+            free(temp);
         }
     }
+    if (table[N-1] == NULL)
+    {
+        return true;
+    }
+    return false;
 }
