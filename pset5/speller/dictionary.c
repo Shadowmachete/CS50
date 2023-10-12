@@ -38,6 +38,7 @@ bool check(const char *word)
         }
         ptr = ptr->next;
     }
+    free(ptr);
     return false;
 }
 
@@ -80,6 +81,7 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             table[hashedInt] = new_node;
+            free(new_node);
         }/*
         else
         {
