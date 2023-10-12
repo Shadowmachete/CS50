@@ -138,22 +138,12 @@ bool unload(void)
             free(temp);
         }
     }
-    for (int i = 0; i < N; i++)
-    {
-        node *pter = table[i];
-        while (pter != NULL)
-        {
-            printf("%s %i ", pter->word, pter->next == NULL);
-            pter = pter->next;
-        }
-        free(pter);
-        printf("\n");
-    }
+    /*
     if (table[N-1] == NULL)
     {
         fclose(dict);
         return true;
-    }
+    }*/
     fclose(dict);
-    return false;
+    return true;
 }
