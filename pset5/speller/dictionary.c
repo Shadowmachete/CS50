@@ -98,7 +98,14 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             ptr->next = new_node;
-            free(ptr);
+        }
+    }
+    for (int i = 0; i < N; i++)
+    {
+        printf("%d, %s", i, table[i]->word);
+        if ((table[i]->next) != NULL)
+        {
+            printf("%s", (table[i]->next)->word);
         }
     }
     return true;
