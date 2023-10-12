@@ -28,10 +28,12 @@ bool check(const char *word)
     // TODO
     int hashNum = hash(word);
     char buffer[50];
+    fseek(dict, 0, SEEK_SET);
     while (fgets(buffer, sizeof(buffer), dict))
     {
         if (strcasecmp(word, buffer) == 0)
         {
+            printf("%s %s", word, buffer);
             return true;
         }
     }
@@ -72,6 +74,7 @@ unsigned int size(void)
     }
     char buffer[50];
     int counter = 0;
+    fseek(dict, 0, SEEK_SET);
     while (fgets(buffer, sizeof(buffer), dict))
     {
         counter++;
