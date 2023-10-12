@@ -31,7 +31,7 @@ bool check(const char *word)
     fseek(dict, 0, SEEK_SET);
     while (fgets(buffer, sizeof(buffer), dict))
     {
-        printf("%s %s %i\n", word, buffer, strcasecmp(word, buffer));
+        buffer[strcspn(buffer, "\n")] = 0;
         if (strcasecmp(word, buffer) == 0)
         {
             return true;
