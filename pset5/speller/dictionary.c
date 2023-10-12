@@ -29,14 +29,6 @@ bool check(const char *word)
     int hashNum = hash(word);
     char buffer[50];
     fseek(dict, 0, SEEK_SET);
-    while (fgets(buffer, sizeof(buffer), dict))
-    {
-        buffer[strcspn(buffer, "\n")] = 0;
-        if (strcasecmp(word, buffer) == 0)
-        {
-            return true;
-        }
-    }
     return false;
 }
 
