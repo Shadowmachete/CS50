@@ -28,9 +28,12 @@ bool check(const char *word)
     char *new_word = malloc(strlen(word));
     for (int i = 0, len = strlen(word); i < len; i++)
     {
-        new_word[i] = toupper(word[i]);
+        new_word[i] = tolower(word[i]);
     }
     hash(new_word);
+
+
+    free(new_word);
     return false;
 }
 
@@ -41,11 +44,8 @@ unsigned int hash(const char *word)
     int sum = 0;
     for (int i = 0, len = strlen(word); i < len; i++)
     {
-        sum += word[i];
+        sum += toupper(word[i]);
     }
-    printf("%i ", (int) ((sum / strlen(word)) + sum) % N);
-    printf("%i", sum % N);
-    return sum % N;
     return (int) ((sum / strlen(word)) + sum) % N;
 }
 
