@@ -25,15 +25,8 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    char *new_word = malloc(strlen(word));
-    for (int i = 0, len = strlen(word); i < len; i++)
-    {
-        new_word[i] = tolower(word[i]);
-    }
-    hash(new_word);
-
-
-    free(new_word);
+    hash(word);
+    
     return false;
 }
 
