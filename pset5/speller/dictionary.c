@@ -58,13 +58,21 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    if (dict == NULL)
+    {
+        return 0;
+    }
+    return 1;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
     // TODO
+    if(dict == NULL)
+    {
+        return false;
+    }
     fclose(dict);
     return true;
 }
