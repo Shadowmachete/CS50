@@ -122,12 +122,14 @@ bool unload(void)
         node *ptr = table[i];
         while (ptr != NULL)
         {
-            node *temp = ptr;
-            ptr = ptr->next;
-            free(temp);
+            node *next = ptr->next;
+            ptr->word = NULL;
+            ptr->next = NULL;
+            free(ptr);
+            ptr = next;
         }
     }
-    printf("%s", table[2]->word);
+    printf("%i", table[1] == NULL);
     if (table[N-1] == NULL)
     {
         fclose(dict);
