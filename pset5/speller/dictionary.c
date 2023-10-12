@@ -74,9 +74,13 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    if (dict == NULL)
+    for (int i = 0; i < N; i++)
     {
-        return false;
+        node *ptr = table[i];
+        while (ptr != NULL)
+        {
+            node *temp = ptr;
+            
+        }
     }
-    return fclose(dict);
 }
