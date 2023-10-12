@@ -26,7 +26,7 @@ bool check(const char *word)
 {
     // TODO
     hash(word);
-    
+
     return false;
 }
 
@@ -65,5 +65,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    return false;
+    
+    return true;
 }
