@@ -143,7 +143,7 @@ bool unload(void)
         node *pter = table[i];
         while (pter != NULL)
         {
-            printf("%s ", pter->word);
+            printf("%s %i ", pter->word, pter->next == NULL);
             pter = pter->next;
         }
         free(pter);
