@@ -123,8 +123,6 @@ bool unload(void)
         while (ptr != NULL)
         {
             node *next = ptr->next;
-            ptr->word = NULL;
-            ptr->next = NULL;
             free(ptr);
             ptr = next;
         }
