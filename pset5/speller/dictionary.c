@@ -71,7 +71,7 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             table[hashedInt] = new_node;
-        }/*
+        }
         else
         {
             node *ptr = table[hashedInt];
@@ -79,6 +79,7 @@ bool load(const char *dictionary)
             {
                 ptr = ptr->next;
             }
+            
             node *new_node = malloc(sizeof(node));
             if (new_node == NULL)
             {
@@ -90,7 +91,7 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             ptr->next = new_node;
-        }*/
+        }
     }
     return true;
 }
@@ -127,8 +128,7 @@ bool unload(void)
             ptr = next;
         }
     }
-    printf("%i", table[1] == NULL);
-    if (table[N-1] == NULL)
+    if (table[N-1]->next == NULL)
     {
         fclose(dict);
         return true;
