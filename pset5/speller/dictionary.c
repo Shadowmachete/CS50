@@ -66,10 +66,14 @@ bool load(const char *dictionary)
     {
         buffer[strcspn(buffer, "\n")] = 0;
         int hashedInt = hash(buffer);
-        printf("%s %i %s\n", buffer, hashedInt, table[hashedInt]->word);
-        if (table[hashedInt]->word)
+        if (table[hashedInt] == NULL)
         {
-            table[hashedInt]->word = buffer;
+            node new_node;
+            printf("%s %s", new_node.word, buffer);
+            //new_node.word = *buffer;
+            new_node.next = NULL;
+            table[hashedInt] = &new_node;
+            printf("%s", table[hashedInt]->word);
         }
         else
         {
