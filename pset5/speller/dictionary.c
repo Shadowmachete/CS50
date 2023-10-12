@@ -80,7 +80,7 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             table[hashedInt] = new_node;
-        }
+        }/*
         else
         {
             node *ptr = table[hashedInt];
@@ -100,7 +100,7 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             ptr->next = new_node;
-        }
+        }*/
     }
     return true;
 }
