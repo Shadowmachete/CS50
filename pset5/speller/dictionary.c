@@ -67,9 +67,9 @@ bool load(const char *dictionary)
         buffer[strcspn(buffer, "\n")] = 0;
         int hashedInt = hash(buffer);
         printf("%s %i %s\n", buffer, hashedInt, table[hashedInt]->word);
-        if (table[hashedInt]->word != NULL)
+        if (table[hashedInt]->word)
         {
-            table[hashedInt].word = buffer;
+            table[hashedInt]->word = buffer;
         }
         else
         {
