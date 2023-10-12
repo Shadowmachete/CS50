@@ -62,14 +62,15 @@ unsigned int size(void)
     {
         return 0;
     }
-    return 1;
+    char *buffer;
+    while (fread)
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
     // TODO
-    if(dict == NULL)
+    if (dict == NULL)
     {
         return false;
     }
