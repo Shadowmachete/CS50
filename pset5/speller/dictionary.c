@@ -30,9 +30,9 @@ bool check(const char *word)
     char buffer[50];
     fseek(dict, 0, SEEK_SET);
     node *ptr = table[hashNum];
-    while (ptr->next != NULL)
+    while (ptr != NULL)
     {
-        if (ptr->word == word)
+        if (strcasecmp(ptr->word, word) == 0)
         {
             return true;
         }
@@ -81,8 +81,7 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             table[hashedInt] = new_node;
-            free(new_node);
-        }/*
+        }
         else
         {
             node *ptr = table[hashedInt];
@@ -102,7 +101,12 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             ptr->next = new_node;
-        }*/
+        }
+    }
+    for (int i = 0; i < N; i++)
+    {
+        printf("%s", table[i]->word);
+        printf("\n");
     }
     return true;
 }
