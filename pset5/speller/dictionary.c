@@ -103,17 +103,6 @@ bool load(const char *dictionary)
             ptr->next = new_node;
         }
     }
-    for (int i = 0; i < N; i++)
-    {
-        node *pter = table[i];
-        while (pter != NULL)
-        {
-            printf("%s ", pter->word);
-            pter = pter->next;
-        }
-        free(pter);
-        printf("\n");
-    }
     return true;
 }
 
@@ -144,10 +133,21 @@ bool unload(void)
         node *ptr = table[i];
         while (ptr != NULL)
         {
-            node *next = ptr->next;
-            free(ptr);
-            ptr = next;
+            node *temp = ptr;
+            ptr = ptr->next;
+            free(temp);
         }
+    }
+    for (int i = 0; i < N; i++)
+    {
+        node *pter = table[i];
+        while (pter != NULL)
+        {
+            printf("%s ", pter->word);
+            pter = pter->next;
+        }
+        free(pter);
+        printf("\n");
     }
     if (table[N-1] == NULL)
     {
