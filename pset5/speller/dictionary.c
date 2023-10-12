@@ -61,6 +61,14 @@ bool load(const char *dictionary)
     {
         return false;
     }
+    char buffer[50];
+    fseek(dict, 0, SEEK_SET);
+    for (int i = 0, len = size(); i < len; i++)
+    {
+        fgets(buffer, sizeof(buffer), dict);
+        buffer[strcspn(buffer, "\n")] = 0;
+        printf("%s %i %s\n", buffer, hash(buffer), table[i]->word);
+    }
     return true;
 }
 
