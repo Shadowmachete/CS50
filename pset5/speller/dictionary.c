@@ -71,6 +71,7 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             table[hashedInt] = new_node;
+            free(new_node);
         }
         else
         {
@@ -90,6 +91,8 @@ bool load(const char *dictionary)
             }
             new_node->next = NULL;
             ptr->next = new_node;
+            free(ptr);
+            free(new_node);
         }
     }
     return true;
