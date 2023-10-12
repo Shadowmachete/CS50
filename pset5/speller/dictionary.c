@@ -32,6 +32,7 @@ bool check(const char *word)
     while (fgets(buffer, sizeof(buffer), dict))
     {
         buffer[strcspn(buffer, "\n")] = 0;
+        printf("%s", buffer);
         if (strcasecmp(word, buffer) == 0)
         {
             return true;
