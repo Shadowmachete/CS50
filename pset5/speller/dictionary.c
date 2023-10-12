@@ -62,14 +62,14 @@ unsigned int size(void)
     {
         return 0;
     }
-    char *buffer = NULL;
-    int count = 0;
-    while (fgets(buffer, 45, stdin))
+    char buffer[45];
+    int counter = 0;
+    while (fgets(buffer, sizeof(buffer), dict))
     {
-        printf("%c", *buffer);
-        count += 1;
+        counter++;
+        printf("%s %i", buffer, counter);
     }
-    return count;
+    return counter;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
