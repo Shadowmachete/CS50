@@ -68,10 +68,14 @@ bool load(const char *dictionary)
         int hashedInt = hash(buffer);
         if (table[hashedInt] == NULL)
         {
-            node new_node;
-            new_node.word = "apple";
-            new_node.next = NULL;
-            table[hashedInt] = &new_node;
+            node *new_node = malloc(sizeof(node));
+            if (new_node == NULL)
+            {
+                return 1;
+            }
+            new_node->word = "apple";
+            new_node->next = NULL;
+            //table[hashedInt] = &new_node;
             printf("%s", table[hashedInt]->word);
         }
         else
