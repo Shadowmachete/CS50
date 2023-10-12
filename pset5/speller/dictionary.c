@@ -62,12 +62,19 @@ bool load(const char *dictionary)
         return false;
     }
     char buffer[50];
-    for (int i = 0, len = size(); i < len; i++)
+    while (fgets(buffer, sizeof(buffer), dict))
     {
-        fgets(buffer, sizeof(buffer), dict);
-        printf("%s", buffer);
         buffer[strcspn(buffer, "\n")] = 0;
-        printf("%s %i %s\n", buffer, hash(buffer), table[i]->word);
+        int hashedInt = hash(buffer);
+        printf("%s %i %s\n", buffer, hashedInt, table[hashedInt]->word);
+        if (table[hashedInt]->word != NULL)
+        {
+            table[hashedInt].word = buffer;
+        }
+        else
+        {
+            printf("Collision");
+        }
     }
     return true;
 }
