@@ -127,6 +127,7 @@ bool unload(void)
             free(temp);
         }
     }
+    printf("%s", table[2]->word);
     if (table[N-1] == NULL)
     {
         fclose(dict);
