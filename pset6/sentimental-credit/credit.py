@@ -11,15 +11,14 @@ number = str(number)
 
 checksum = 0
 for i in range(-1, -len(number)-1, -1):
-    print(i, checksum, number[i])
     if i % 2 == 0:
-        checksum += 2 * int(number[i])
+        checksum += (2 * int(number[i]) % 10) + (2 * int(number[i]) // 10)
     else:
         checksum += int(number[i])
 
 if (checksum % 10 == 0) and (len(number) >= 13) and (len(number) <= 18):
     firstTwo = number[0:2]
-    if first[0] == '4':
+    if firstTwo[0] == '4':
         print("VISA")
     elif firstTwo == '34' or firstTwo == '37':
         print("AMEX")
