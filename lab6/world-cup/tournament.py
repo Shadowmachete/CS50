@@ -5,7 +5,7 @@ import sys
 import random
 
 # Number of simluations to run
-N = 1000000
+N = 1000
 
 
 def main():
@@ -27,6 +27,7 @@ def main():
     for _ in range(N):
         winner = simulate_tournament(teams)
         counts[winner] += 1
+    print(counts)
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
