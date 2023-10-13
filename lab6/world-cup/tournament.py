@@ -17,10 +17,10 @@ def main():
     teams = []
     # TODO: Read teams into memory from file
     with open(sys.argv[1])
-    
+
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-
+    print(simulate_round(teams))
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
