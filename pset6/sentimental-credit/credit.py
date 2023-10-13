@@ -7,7 +7,7 @@ while number < 1:
         number = int(number)
     except:
         number = 0
-number = str(number)
+number = (str(number)).strip()
 
 checksum = 0
 for i in range(-1, -len(number)-1, -1):
