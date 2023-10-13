@@ -17,7 +17,9 @@ def main():
     # TODO: Read DNA sequence file into a variable
     sequenceData = ""
     with open(sys.argv[2]) as sequence:
-        sequenceData = csv.reader(sequence)
+        reader = csv.reader(sequence)
+        for row in reader:
+            sequenceData = row[0]
     print(sequenceData)
     # TODO: Find longest match of each STR in DNA sequence
     #match = longest_match(sequence, subsequence)
