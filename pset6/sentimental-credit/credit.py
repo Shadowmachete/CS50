@@ -8,7 +8,12 @@ while number < 1:
     except:
         number = 0
 number = str(number)
+
 checksum = 0
-for i in range(len(number), ):
-    if i % 2 == 1:
-        checksum += 2 * number[i];
+for i in range(-1, -len(number)-1, -1):
+    if i % 2 == 0:
+        checksum += 2 * int(number[i])
+    else:
+        checksum += int(number[i])
+
+if (checksum % 10 == 0) && (len(number) > )
