@@ -65,3 +65,15 @@ SELECT flight_id, name, passengers.passport_number, seat FROM people JOIN passen
 -- | 36        | Luca   | 8496433585      | 7B   |
 
 -- Searching for caller and receiver of less than 1 minute call on 28 July
+SELECT phone_calls.id, name, receiver FROM people JOIN phone_calls ON people.phone_number = phone_calls.caller WHERE month = 7 AND day = 28 AND duration < 60;
+
+-- Deduction: caller is Bruce and receiver is Luca
+-- | 221 | Sofia   | (996) 555-8899 |
+-- | 224 | Kelsey  | (892) 555-8872 |
+-- | 233 | Bruce   | (375) 555-8161 |
+-- | 251 | Kelsey  | (717) 555-1342 |
+-- | 254 | Taylor  | (676) 555-6554 |
+-- | 255 | Diana   | (725) 555-3243 |
+-- | 261 | Carina  | (910) 555-3251 |
+-- | 279 | Kenny   | (066) 555-9701 |
+-- | 281 | Benista | (704) 555-2131 |
