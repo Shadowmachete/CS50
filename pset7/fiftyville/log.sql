@@ -26,4 +26,4 @@ SELECT atm_transactions.id, name, amount FROM people JOIN bank_accounts ON peopl
 -- | 266 | Taylor  | 60     |
 -- | 313 | Benista | 30     |
 
--- Checking for Cars leaving bakery parking lot
+-- Checking for Cars and owner leaving bakery parking lot
