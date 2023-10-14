@@ -27,3 +27,16 @@ SELECT atm_transactions.id, name, amount FROM people JOIN bank_accounts ON peopl
 -- | 313 | Benista | 30     |
 
 -- Checking for Cars and owner leaving bakery parking lot
+SELECT bakery_security_logs.id, name, people.license_plate FROM people JOIN bakery_security_logs ON people.license_plate = bakery_security_logs.license_plate WHERE day = 28 AND month = 7 AND activity = 'exit' AND hour = 10 AND minute < 25;
+
+-- Deduction: Suspect is one of these 8 people
+-- | 260 | Vanessa | 5P2BI95       |
+-- | 261 | Bruce   | 94KL13X       |
+-- | 262 | Barry   | 6P58WS2       |
+-- | 263 | Luca    | 4328GD8       |
+-- | 264 | Sofia   | G412CB7       |
+-- | 265 | Iman    | L93JTIZ       |
+-- | 266 | Diana   | 322W7JE       |
+-- | 267 | Kelsey  | 0NTHK55       |
+
+-- From combining the previous 2 we can see that suspect is either Bruce, Diana, Iman or Luca.
