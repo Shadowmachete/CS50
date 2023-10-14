@@ -8,4 +8,4 @@ SELECT * FROM crime_scene_reports WHERE month = 7 AND day = 28;
 -- Checking interviews with bakery mentioned in the transcript
 SELECT * FROM interviews WHERE month = 7 AND day = 28 AND transcript LIKE '%bakery%';
 
--- 
+--
