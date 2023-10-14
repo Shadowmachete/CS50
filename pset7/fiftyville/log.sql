@@ -44,7 +44,7 @@ SELECT bakery_security_logs.id, name, people.license_plate FROM people JOIN bake
 -- Searching for earliest flights out of Fiftyville on 29 July 2021
 SELECT * FROM flights WHERE month = 7 AND day = 29 ORDER BY hour ASC, minute ASC;
 
--- Deduction: Suspect got on flight id: 36 at 8:20 on 29 July 2021 from Fiftyville Regional Airport to LaGuardia Airport
+-- Deduction: Suspect got on flight id: 36 at 8:20 on 29 July 2021 from Fiftyville Regional Airport to LaGuardia Airport in NYC
 -- | 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20     |
 -- | 43 | 8                 | 1                      | 2021 | 7     | 29  | 9    | 30     |
 -- | 23 | 8                 | 11                     | 2021 | 7     | 29  | 12   | 15     |
