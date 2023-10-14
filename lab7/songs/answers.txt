@@ -1,1 +1,1 @@
-Their average energy is 0.659, average valence is 0.484 and average danceability is 0.716. Their audio aura is purple because they like music you can dance to and like to move along with the music.
+Their average energy is 0.659, average valence is 0.484 and average danceability is 0.716. Their audio aura is purple because they like music you can dance to and like to move along with the music. Loudness and speechiness should be included to see if the user likes loud music or not.
