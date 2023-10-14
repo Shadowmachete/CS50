@@ -67,7 +67,7 @@ SELECT flight_id, name, passengers.passport_number, seat FROM people JOIN passen
 -- Searching for caller and receiver of less than 1 minute call on 28 July
 SELECT phone_calls.id, name, receiver FROM people JOIN phone_calls ON people.phone_number = phone_calls.caller WHERE month = 7 AND day = 28 AND duration < 60;
 
--- Deduction: caller is Bruce and receiver is Luca
+-- Deduction: caller is Bruce and receiver is (375) 555-8161
 -- | 221 | Sofia   | (996) 555-8899 |
 -- | 224 | Kelsey  | (892) 555-8872 |
 -- | 233 | Bruce   | (375) 555-8161 |
@@ -77,3 +77,9 @@ SELECT phone_calls.id, name, receiver FROM people JOIN phone_calls ON people.pho
 -- | 261 | Carina  | (910) 555-3251 |
 -- | 279 | Kenny   | (066) 555-9701 |
 -- | 281 | Benista | (704) 555-2131 |
+
+-- Finding out who is the receiver with number (375) 555-8161
+SELECT * FROM people WHERE phone_number = '(375) 555-8161';
+
+-- Deduction: accomplice is Robin
+-- | 864400 | Robin | (375) 555-8161 | NULL            | 4V16VO0       |
