@@ -8,7 +8,7 @@ SELECT * FROM crime_scene_reports WHERE month = 7 AND day = 28;
 -- Checking interviews with bakery mentioned in the transcript
 SELECT * FROM interviews WHERE month = 7 AND day = 28 AND transcript LIKE '%bakery%';
 
--- Deduction: Withdrew money from ATM on Leggett Street. Left the bakery parking lot within 10 minutes of the theft (10:15-10:25 am). Planned to take earliest flight out of Fiftyville on 29/7/2021
+-- Deduction: Withdrew money from ATM on Leggett Street. Left the bakery parking lot within 10 minutes of the theft (10:15-10:25 am). Planned to take earliest flight out of Fiftyville on 29 July 2021
 --| 161 | Ruth    | 2021 | 7     | 28  | Sometime within ten minutes of the theft, I saw the thief get into a car in the bakery parking lot and drive away. If you have security footage from the bakery parking lot, you might want to look for cars that left the parking lot in that time frame.                                                          |
 --| 162 | Eugene  | 2021 | 7     | 28  | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |
 --| 163 | Raymond | 2021 | 7     | 28  | As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket. |
@@ -41,4 +41,12 @@ SELECT bakery_security_logs.id, name, people.license_plate FROM people JOIN bake
 
 -- From combining the previous 2 we can see that suspect is either Bruce, Diana, Iman or Luca.
 
--- Searching for earliest flights out of Fiftyville on 29/7/2021
+-- Searching for earliest flights out of Fiftyville on 29 July 2021
+SELECT * FROM flights WHERE month = 7 AND day = 29 ORDER BY hour ASC, minute ASC;
+
+-- Deduction: Suspect got on flight id: 36 at 8:20 on 29 July 2021 from Fiftyville Regional Airport to LaGuardia Airport
+-- | 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20     |
+-- | 43 | 8                 | 1                      | 2021 | 7     | 29  | 9    | 30     |
+-- | 23 | 8                 | 11                     | 2021 | 7     | 29  | 12   | 15     |
+-- | 53 | 8                 | 9                      | 2021 | 7     | 29  | 15   | 20     |
+-- | 18 | 8                 | 6                      | 2021 | 7     | 29  | 16   | 0      |
