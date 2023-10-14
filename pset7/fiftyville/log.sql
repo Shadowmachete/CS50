@@ -50,3 +50,18 @@ SELECT * FROM flights WHERE month = 7 AND day = 29 ORDER BY hour ASC, minute ASC
 -- | 23 | 8                 | 11                     | 2021 | 7     | 29  | 12   | 15     |
 -- | 53 | 8                 | 9                      | 2021 | 7     | 29  | 15   | 20     |
 -- | 18 | 8                 | 6                      | 2021 | 7     | 29  | 16   | 0      |
+
+-- Searching for passengers on flight 36
+SELECT flight_id, name, passengers.passport_number, seat FROM people JOIN passengers ON people.passport_number = passengers.passport_number WHERE flight_id = 36;
+
+-- Deduction: Suspect is either Bruce or Lucas
+-- | 36        | Doris  | 7214083635      | 2A   |
+-- | 36        | Sofia  | 1695452385      | 3B   |
+-- | 36        | Bruce  | 5773159633      | 4A   |
+-- | 36        | Edward | 1540955065      | 5C   |
+-- | 36        | Kelsey | 8294398571      | 6C   |
+-- | 36        | Taylor | 1988161715      | 6D   |
+-- | 36        | Kenny  | 9878712108      | 7A   |
+-- | 36        | Luca   | 8496433585      | 7B   |
+
+-- Searching for caller and receiver of less than 1 minute call on 28 July
