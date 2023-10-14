@@ -14,3 +14,16 @@ SELECT * FROM interviews WHERE month = 7 AND day = 28 AND transcript LIKE '%bake
 --| 163 | Raymond | 2021 | 7     | 28  | As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket. |
 
 -- Checking for Leggett Street ATM withdrawals.
+SELECT atm_transactions.id, name, amount FROM people JOIN bank_accounts ON people.id = bank_accounts.person_id JOIN atm_transactions ON bank_accounts.account_number = atm_transactions.account_number WHERE atm_location = 'Leggett Street' AND month = 7 AND day = 28 AND transaction_type = 'withdraw';
+
+-- Deduction: Suspect is one of these 8 people
+-- | 267 | Bruce   | 50     |
+-- | 336 | Diana   | 35     |
+-- | 269 | Brooke  | 80     |
+-- | 264 | Kenny   | 20     |
+-- | 288 | Iman    | 20     |
+-- | 246 | Luca    | 48     |
+-- | 266 | Taylor  | 60     |
+-- | 313 | Benista | 30     |
+
+-- Checking for
