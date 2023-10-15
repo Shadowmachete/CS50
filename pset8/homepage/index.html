@@ -6,6 +6,16 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <link href="styles.css" rel="stylesheet">
+        <script>
+            setInterval(() => {
+                document.querySelector('.center-container').style.visibility = 'visible';
+                document.querySelector('p').innerHTML += `Hello there! Click on the bolded text if you're stuck here!`;
+                setTimeout(() => {
+                    document.querySelector('.center-container').style.visibility = 'hidden';
+                    document.querySelector('p').innerHTML = '';
+                }, 2000)
+            }, 4000)
+        </script>
         <title>My Webpage</title>
     </head>
     <body>
@@ -19,7 +29,7 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>Hyper Text Markup Language (HTML)</strong> is the standard markup language used to create web pages. HTML documents consist of a series of elements enclosed in angle brackets < >, which are known as HTML tags. These tags are used to define the structure and content of a web page. For example, in these 3 accordian style collapsible boxes. HTML tags button, div, strong and h2 are used.
+                  <strong><a href="html.html">Hyper Text Markup Language (HTML)</a></strong> is the standard markup language used to create web pages. HTML documents consist of a series of elements enclosed in angle brackets < >, which are known as HTML tags. These tags are used to define the structure and content of a web page. For example, in these 3 accordian style collapsible boxes. HTML tags button, div, strong and h2 are used.
                 </div>
               </div>
             </div>
@@ -48,5 +58,6 @@
               </div>
             </div>
           </div>
+          <div class="center-container"><p></p></div>
     </body>
 </html>

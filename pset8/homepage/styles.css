@@ -13,3 +13,16 @@ strong:hover
 {
     color: #073495;
 }
+.center-container {
+    visibility: hidden;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+p
+{
+    background-color: lightgray;
+    border: solid black 1px;
+    border-radius: 10px;
+    padding: 1em;
+}
