@@ -22,6 +22,13 @@
                         }
                     })
                 })
+                document.querySelector('.FR').addEventListener('click', () => {
+                    inputText = document.querySelector('input').value.trim();
+                    if ('Cambridge' in inputText)
+                    {
+                        document.querySelectorAll('.section')[1].innerHTML += `<p> Correct! </p>`;
+                    }
+                })
             });
         </script>
     </head>
@@ -47,7 +54,7 @@
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <!-- TODO: Add free response question here -->
-                <h3> In what city is Harvard University? </h3>
+                <h3> In which city is Harvard University located? </h3>
                 <input type="text">
                 <button class="FR"> Check Answer </button>
             </div>
