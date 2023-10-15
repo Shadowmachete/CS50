@@ -10,8 +10,16 @@
             window.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.MCQ').forEach((btn) => {
                     btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-
+                        if (e.target.innerHTML.trim() == '14 Billion years')
+                        {
+                            e.target.style.backgroundColor = '#AFE1AF';
+                            document.querySelector('.section').innerHTML += `<p> Correct! </p>`;
+                        }
+                        else
+                        {
+                            e.target.style.backgroundColor = '#EE4B2B';
+                            document.querySelector('.section').innerHTML += `<p> Incorrect </p>`;
+                        }
                     })
                 })
             });
