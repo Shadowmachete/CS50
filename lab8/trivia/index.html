@@ -24,8 +24,9 @@
                 })
                 document.querySelector('.FR').addEventListener('click', () => {
                     inputText = document.querySelector('input').value.trim();
-                    if ('Cambridge' in inputText)
+                    if (inputText.includes("Cambridge"))
                     {
+                        document.querySelector('input').style.backgroundColor = '#AFE1AF';
                         document.querySelectorAll('.section')[1].innerHTML += `<p> Correct! </p>`;
                     }
                 })
