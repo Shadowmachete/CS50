@@ -29,6 +29,12 @@
                         document.querySelector('input').style.backgroundColor = '#AFE1AF';
                         document.querySelectorAll('.section')[1].innerHTML += `<p> Correct! </p>`;
                     }
+                    else
+                    {
+                        document.querySelector('input').style.backgroundColor = '#EE4B2B';
+                        document.querySelectorAll('.section')[1].innerHTML += `<p> Incorrect </p>`;
+                    }
+                    document.querySelector('input').value = inputText;
                 })
             });
         </script>
