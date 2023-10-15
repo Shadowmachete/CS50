@@ -5,3 +5,11 @@ h1
     background: linear-gradient(90deg, rgba(9,9,121,1) 21%, rgba(0,212,255,1) 84%);
     padding-block: 1em;
 }
+strong
+{
+    font-size: 105%;
+}
+strong:hover
+{
+    color: #073495;
+}
