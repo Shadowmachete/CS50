@@ -7,6 +7,14 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
+            window.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.MCQ').forEach((btn) => {
+                    btn.addEventListener((e) => {
+                        e.preventDefault();
+                        
+                    })
+                })
+            });
         </script>
     </head>
     <body>
@@ -20,13 +28,20 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3> What is the approximate age of the universe? </h3>
-                <input type="submit" placeholder="13.7 Billion">
+                <button class="MCQ"> 14 Billion years </button>
+                <button class="MCQ"> 16 Billion years </button>
+                <button class="MCQ"> 14 Billion light-years </button>
+                <button class="MCQ"> 13.7 Million years </button>
+                <button class="MCQ"> 13 Million years </button>
             </div>
 
             <div class="section">
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <!-- TODO: Add free response question here -->
+                <h3> In what city is Harvard University? </h3>
+                <input type="text">
+                <button class="FR"> Check Answer </button>
             </div>
         </div>
     </body>
