@@ -59,7 +59,7 @@ def buy():
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         if cash[0]["cash"] < float(data["price"] * numberOfShares):
             return apology("insufficient balance", 403)
-        db.execute("INSERT INTO purchases (user_id, stock, shares) VALUES (?, ?, ?)", session["user_id"], data["symbol"], numberOfShares)
+        db.execute("INSERT INTO purchases (user_id, stock, shares) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares)
         return redirect("/")
     else:
         return render_template("buy.html")
