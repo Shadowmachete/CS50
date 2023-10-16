@@ -119,9 +119,9 @@ def register():
             return apology("must provide password", 403)
 
         # Ensure password was repeated properly
-        elif not (request.form.get("password") == request.form.get("confirmation")):
+        elif request.form.get("password") != request.form.get("confirmation"):
             return apology("must repeat password properly", 403)
-        
+
         db.execute("")
         return redirect("/register")
     else:
