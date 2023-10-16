@@ -122,8 +122,8 @@ def register():
         elif request.form.get("password") != request.form.get("confirmation"):
             return apology("must repeat password properly", 403)
 
-        db.execute("")
-        return redirect("/register")
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password")))
+        return render_template("login.html")
     else:
         return render_template("register.html")
 
