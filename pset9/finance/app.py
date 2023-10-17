@@ -142,11 +142,11 @@ def quote():
     """Get stock quote."""
     if request.method == "POST":
         if not request.form.get("symbol"):
-            return apology("must provide symbol of stock", 403)
+            return apology("must provide symbol of stock", 400)
 
         data = lookup(request.form.get("symbol"))
         if data == None:
-            return apology("incorrect symbol", 403)
+            return apology("incorrect symbol", 400)
 
         return render_template("quoted.html", data=data)
     else:
@@ -173,7 +173,7 @@ def register():
         nameList = []
         for name in names:
             nameList.append(name['username'])
-        
+
         if request.form.get("username") in nameList:
             return apology("user already registered", 400)
 

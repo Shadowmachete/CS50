@@ -6,6 +6,6 @@
 
 {% block main %}
     <p>
-        The price of {{ data.symbol }} is {{ data.price }}
+        The price of {{ data.symbol }} is {{ data.price|round(2) }}
     </p>
 {% endblock %}
