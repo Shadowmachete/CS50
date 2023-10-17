@@ -168,7 +168,7 @@ def register():
             return apology("must repeat password properly", 403)
 
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password")))
-        return render_template("login.html")
+        return redirect("/login")
     else:
         return render_template("register.html")
 
@@ -177,4 +177,8 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+        
+        return redirect("/")
+    else:
+        return render_template("sell.html")
