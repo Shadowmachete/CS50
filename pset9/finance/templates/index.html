@@ -19,12 +19,14 @@
             </thead>
             <tbody>
                 {% for stock in stocks %}
-                    <tr>
-                        <td>{{ stock.stock }}</td>
-                        <td>{{ stock.shares }}</td>
-                        <td>{{ prices[stock.stock] }}</td>
-                        <td>{{ (prices[stock.stock] * stock.shares)|round(2) }}</td>
-                    </tr>
+                    {% if stock.shares > 0 %}
+                        <tr>
+                            <td>{{ stock.stock }}</td>
+                            <td>{{ stock.shares }}</td>
+                            <td>{{ prices[stock.stock] }}</td>
+                            <td>{{ (prices[stock.stock] * stock.shares)|round(2) }}</td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
         </table>
