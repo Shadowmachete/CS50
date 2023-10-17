@@ -47,20 +47,27 @@ def buy():
     if request.method == "POST":
         if not request.form.get("symbol"):
             return apology("must provide symbol of stock", 403)
+
         elif not request.form.get("shares"):
             return apology("must provide a number of shares", 403)
+
         try:
             numberOfShares = int(request.form.get("shares"))
             if numberOfShares < 0:
                 return apology("must provide a positive number of shares", 403)
+
         except:
             return apology("must provide a number of shares", 403)
+
         data = lookup(request.form.get("symbol"))
         if data == None:
             return apology("incorrect symbol", 403)
+
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         if cash[0]["cash"] < float(data["price"] * numberOfShares):
             return apology("insufficient balance", 403)
+
+        db.execute("UPDATE users SET cash = ? WHERE id")
         db.execute("INSERT INTO purchases (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
         return redirect("/")
     else:
