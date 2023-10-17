@@ -22,7 +22,8 @@
                     <tr>
                         <td>{{ stock.stock }}</td>
                         <td>{{ stock.shares }}</td>
-                        <td>{{ prices.stock }}</td>
+                        <td>{{ prices[stock.stock] }}</td>
+                        <td>{{ prices[stock.stock] * stock.shares}}</td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -37,9 +37,10 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    stocks = db.execute("SELECT * FROM purchases WHERE user_id = ? ORDER BY stock", session["user_id"])
+    stocks = db.execute("SELECT * FROM purchases WHERE user_id = ? GROUP BY stock", session["user_id"])
+    prices = {stock['stock']: lookup(stock['stock'])['price'] for stock in stocks}
     print(stocks)
-    prices = {stock.stock: lookup(stock.stock).price for stock in stocks}
+    print(prices)
     return render_template("index.html", stocks=stocks, prices=prices)
 
 
