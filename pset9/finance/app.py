@@ -39,8 +39,10 @@ def index():
     """Show portfolio of stocks"""
     stocks = db.execute("SELECT stock, SUM(shares) as shares, Date FROM purchases WHERE user_id = ? GROUP BY stock", session["user_id"])
     prices = {stock['stock']: lookup(stock['stock'])['price'] for stock in stocks}
-    name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
-    return render_template("index.html", name=name, stocks=stocks, prices=prices)
+    userData = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+    for i in stocks:
+        
+    return render_template("index.html", name=userData[0]["username"], cash=userData[0]["cash"], stocks=stocks, prices=prices)
 
 
 @app.route("/buy", methods=["GET", "POST"])
