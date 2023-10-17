@@ -67,7 +67,7 @@ def buy():
         if cash[0]["cash"] < float(data["price"] * numberOfShares):
             return apology("insufficient balance", 403)
 
-        db.execute("UPDATE users SET cash = ? WHERE id")
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash - (data["symbol"] * numberOfShares), session["user_id"])
         db.execute("INSERT INTO purchases (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
         return redirect("/")
     else:
