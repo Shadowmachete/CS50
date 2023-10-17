@@ -219,3 +219,11 @@ def sell():
     else:
         stocks = db.execute("SELECT DISTINCT(stock) FROM transactions WHERE user_id = ?", session["user_id"])
         return render_template("sell.html", stocks=stocks)
+
+@app.route("/passwordChange", methods=["GET", "POST"])
+@login_required
+def sell():
+    if request.method == "POST":
+        return redirect("/")
+    else:
+        return render_template("change_password.html")
