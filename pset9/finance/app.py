@@ -39,7 +39,8 @@ def index():
     """Show portfolio of stocks"""
     stocks = db.execute("SELECT * FROM purchases WHERE user_id = ? ORDER BY stock", session["user_id"])
     print(stocks)
-    return render_template("index.html", stocks=stocks)
+    prices = {stock.stock: lookup(stock.stock).price for stock in stocks}
+    return render_template("index.html", stocks=stocks, prices=prices)
 
 
 @app.route("/buy", methods=["GET", "POST"])
