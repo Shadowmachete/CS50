@@ -21,10 +21,14 @@
                     {% if stock.shares > 0 %}
                         <tr>
                             <td>{{ stock.stock }}</td>
-                            <td>Bought at {{ prices[stock.stock] }}</td>
+                            <td>Purchased at {{ prices[stock.stock] }}</td>
+                            <td>Purchased {{ stock.shares }} shares</td>
+                            <td>{{ stock.date }}</td>
                         </tr>
                     {% else %}
+                        <tr>
 
+                        </tr>
                     {% endif %}
                 {% endfor %}
             </tbody>
