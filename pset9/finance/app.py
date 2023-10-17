@@ -37,6 +37,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    
     return apology("TODO")
 
 
@@ -63,11 +64,11 @@ def buy():
         if data == None:
             return apology("incorrect symbol", 403)
 
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        if cash[0]["cash"] < float(data["price"] * numberOfShares):
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
+        if cash < float(data["price"] * numberOfShares):
             return apology("insufficient balance", 403)
 
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash - (data["symbol"] * numberOfShares), session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash - float(data["price"] * numberOfShares), session["user_id"])
         db.execute("INSERT INTO purchases (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
         return redirect("/")
     else:
