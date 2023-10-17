@@ -37,7 +37,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    stocks = db.execute("SELECT stock, SUM(shares) as shares, Date FROM purchases WHERE user_id = ? GROUP BY stock", session["user_id"])
+    stocks = db.execute("SELECT stock, SUM(shares) as shares, Date FROM transactions WHERE user_id = ? GROUP BY stock", session["user_id"])
     prices = {stock['stock']: lookup(stock['stock'])['price'] for stock in stocks}
     userData = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
     totalHolding = 0
@@ -74,7 +74,7 @@ def buy():
             return apology("insufficient balance", 403)
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash - float(data["price"] * numberOfShares), session["user_id"])
-        db.execute("INSERT INTO purchases (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
+        db.execute("INSERT INTO transactions (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -192,7 +192,7 @@ def sell():
         except:
             return apology("must provide a number of shares", 403)
 
-        stocks = db.execute("SELECT DISTINCT(stock) FROM purchases WHERE user_id = ?", session["user_id"])
+        stocks = db.execute("SELECT DISTINCT(stock) FROM transactions WHERE user_id = ?", session["user_id"])
         stocklist = []
         for i in stocks:
             stocklist.append(i['stock'])
@@ -200,7 +200,7 @@ def sell():
         if request.form.get("symbol") not in stocklist:
             return apology("shares not purchased", 403)
 
-        numShares = db.execute("SELECT sum(shares) as shares FROM purchases WHERE user_id = ? AND stock = ?", session["user_id"], request.form.get("symbol"))
+        numShares = db.execute("SELECT sum(shares) as shares FROM transactions WHERE user_id = ? AND stock = ?", session["user_id"], request.form.get("symbol"))
         if numberOfShares > numShares[0]['shares']:
             return apology("not enough shares purchased", 403)
 
@@ -211,9 +211,9 @@ def sell():
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash + float(data["price"] * numberOfShares), session["user_id"])
-        db.execute("INSERT INTO purchases (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], -numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
+        db.execute("INSERT INTO transactions (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], -numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
 
         return redirect("/")
     else:
-        stocks = db.execute("SELECT DISTINCT(stock) FROM purchases WHERE user_id = ?", session["user_id"])
+        stocks = db.execute("SELECT DISTINCT(stock) FROM transactions WHERE user_id = ?", session["user_id"])
         return render_template("sell.html", stocks=stocks)
