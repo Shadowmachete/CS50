@@ -84,7 +84,7 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    stocks = db.execute("SELECT stock, SUM(shares) as shares, Date FROM transactions WHERE user_id = ? GROUP BY stock ORDER BY Date ASC", session["user_id"])
+    stocks = db.execute("SELECT stock, shares, Date FROM transactions WHERE user_id = ? ORDER BY Date ASC", session["user_id"])
     prices = {stock['stock']: lookup(stock['stock'])['price'] for stock in stocks}
     return render_template("history.html", stocks=stocks, prices=prices)
 
