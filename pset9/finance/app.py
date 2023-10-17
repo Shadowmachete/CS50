@@ -159,15 +159,23 @@ def register():
     if request.method == "POST":
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Ensure password was repeated properly
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("must repeat password properly", 403)
+            return apology("must repeat password properly", 400)
+
+        names = db.execute("SELECT username FROM users")
+        nameList = []
+        for name in names:
+            nameList.append(name['username'])
+        
+        if request.form.get("username") in nameList:
+            return apology("user already registered", 400)
 
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password")))
         return redirect("/login")
