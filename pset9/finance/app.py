@@ -178,7 +178,33 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-        
+        if not request.form.get("symbol"):
+            return apology("must provide stock to sell", 403)
+
+        elif not request.form.get("shares"):
+            return apology("must provide number of stocks to sell", 403)
+
+        try:
+            numberOfShares = int(request.form.get("shares"))
+            if numberOfShares < 0:
+                return apology("must provide a positive number of shares", 403)
+
+        except:
+            return apology("must provide a number of shares", 403)
+
+        stocks = db.execute("SELECT DISTINCT(stock) FROM purchases WHERE user_id = ?", session["user_id"])
+        if request.form.get("symbol") not in stocks:
+            return apology("shares not purchased", 403)
+
+        numShares = db.execute("SELECT sum(shares) FROM purchases WHERE user_id = ? AND stock = ?", session["user_id"], request.form.get("symbol"))
+        if numberOfShares > numShares:
+            return apology("not enough shares purchased", 403)
+
+        data = lookup(request.form.get("symbol"))
+        if data == None:
+            return apology("incorrect symbol", 403)
+
         return redirect("/")
     else:
-        return render_template("sell.html")
+        stocks = db.execute("SELECT DISTINCT(stock) FROM purchases WHERE user_id = ?", session["user_id"])
+        return render_template("sell.html", stocks=stocks)
