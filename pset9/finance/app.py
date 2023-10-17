@@ -208,7 +208,10 @@ def sell():
         if data == None:
             return apology("incorrect symbol", 403)
 
-        
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
+
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash + float(data["price"] * numberOfShares), session["user_id"])
+        db.execute("INSERT INTO sales (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
 
         return redirect("/")
     else:
