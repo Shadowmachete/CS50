@@ -200,13 +200,15 @@ def sell():
         if request.form.get("symbol") not in stocklist:
             return apology("shares not purchased", 403)
 
-        numShares = db.execute("SELECT sum(shares) FROM purchases WHERE user_id = ? AND stock = ?", session["user_id"], request.form.get("symbol"))
-        if numberOfShares > numShares:
+        numShares = db.execute("SELECT sum(shares) as shares FROM purchases WHERE user_id = ? AND stock = ?", session["user_id"], request.form.get("symbol"))
+        if numberOfShares > numShares[0]['shares']:
             return apology("not enough shares purchased", 403)
 
         data = lookup(request.form.get("symbol"))
         if data == None:
             return apology("incorrect symbol", 403)
+
+        
 
         return redirect("/")
     else:
