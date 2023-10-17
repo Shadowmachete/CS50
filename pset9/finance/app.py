@@ -222,8 +222,15 @@ def sell():
 
 @app.route("/passwordChange", methods=["GET", "POST"])
 @login_required
-def sell():
+def change_password():
     if request.method == "POST":
+        if not request.form.get("password"):
+            return apology("must provide password", 403)
+
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return apology("must repeat password properly", 403)
+
+        db.execute("UPDATE users SET hash = ? WHERE id = ?", generate_password_hash(request.form.get("password")), session["user_id"])
         return redirect("/")
     else:
         return render_template("change_password.html")
