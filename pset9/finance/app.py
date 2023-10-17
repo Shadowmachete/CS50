@@ -52,26 +52,26 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         if not request.form.get("symbol"):
-            return apology("must provide symbol of stock", 403)
+            return apology("must provide symbol of stock", 400)
 
         elif not request.form.get("shares"):
-            return apology("must provide a number of shares", 403)
+            return apology("must provide a number of shares", 400)
 
         try:
             numberOfShares = int(request.form.get("shares"))
             if numberOfShares < 0:
-                return apology("must provide a positive number of shares", 403)
+                return apology("must provide a positive number of shares", 400)
 
         except:
-            return apology("must provide a number of shares", 403)
+            return apology("must provide a number of shares", 400)
 
         data = lookup(request.form.get("symbol"))
         if data == None:
-            return apology("incorrect symbol", 403)
+            return apology("incorrect symbol", 400)
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
         if cash < float(data["price"] * numberOfShares):
-            return apology("insufficient balance", 403)
+            return apology("insufficient balance", 400)
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash - float(data["price"] * numberOfShares), session["user_id"])
         db.execute("INSERT INTO transactions (user_id, stock, shares, date) VALUES (?, ?, ?, ?)", session["user_id"], data["symbol"], numberOfShares, datetime.datetime.now(pytz.timezone("US/Eastern")))
@@ -189,18 +189,18 @@ def sell():
     """Sell shares of stock"""
     if request.method == "POST":
         if not request.form.get("symbol"):
-            return apology("must provide stock to sell", 403)
+            return apology("must provide stock to sell", 400)
 
         elif not request.form.get("shares"):
-            return apology("must provide number of stocks to sell", 403)
+            return apology("must provide number of stocks to sell", 400)
 
         try:
             numberOfShares = int(request.form.get("shares"))
             if numberOfShares < 0:
-                return apology("must provide a positive number of shares", 403)
+                return apology("must provide a positive number of shares", 400)
 
         except:
-            return apology("must provide a number of shares", 403)
+            return apology("must provide a number of shares", 400)
 
         stocks = db.execute("SELECT DISTINCT(stock) FROM transactions WHERE user_id = ?", session["user_id"])
         stocklist = []
@@ -208,15 +208,15 @@ def sell():
             stocklist.append(i['stock'])
         print(stocks)
         if request.form.get("symbol") not in stocklist:
-            return apology("shares not purchased", 403)
+            return apology("shares not purchased", 400)
 
         numShares = db.execute("SELECT sum(shares) as shares FROM transactions WHERE user_id = ? AND stock = ?", session["user_id"], request.form.get("symbol"))
         if numberOfShares > numShares[0]['shares']:
-            return apology("not enough shares purchased", 403)
+            return apology("not enough shares purchased", 400)
 
         data = lookup(request.form.get("symbol"))
         if data == None:
-            return apology("incorrect symbol", 403)
+            return apology("incorrect symbol", 400)
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
 
@@ -233,10 +233,10 @@ def sell():
 def change_password():
     if request.method == "POST":
         if not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("must repeat password properly", 403)
+            return apology("must repeat password properly", 400)
 
         db.execute("UPDATE users SET hash = ? WHERE id = ?", generate_password_hash(request.form.get("password")), session["user_id"])
         return redirect("/")
