@@ -23,7 +23,7 @@
                         <td>{{ stock.stock }}</td>
                         <td>{{ stock.shares }}</td>
                         <td>{{ prices[stock.stock] }}</td>
-                        <td>{{ round(prices[stock.stock] * stock.shares)}}</td>
+                        <td>{{ (prices[stock.stock] * stock.shares)|round(2) }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -40,8 +40,8 @@
             <tbody>
                 <tr>
                     <td>{{ cash }}</td>
-                    <td>{{ round(holding|round }}</td>
-                    <td>{{ round(cash + holding) }}</td>
+                    <td>{{ (holding)|round(2) }}</td>
+                    <td>{{ (cash + holding)|round(2) }}</td>
                 </tr>
             </tbody>
         </table>
