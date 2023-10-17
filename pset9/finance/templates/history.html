@@ -27,7 +27,10 @@
                         </tr>
                     {% else %}
                         <tr>
-
+                            <td>{{ stock.stock }}</td>
+                            <td>Sold at ${{ prices[stock.stock] }}</td>
+                            <td>Sold {{ stock.shares|abs }} shares</td>
+                            <td>{{ stock.Date }}</td>
                         </tr>
                     {% endif %}
                 {% endfor %}
