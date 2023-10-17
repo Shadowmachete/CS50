@@ -11,13 +11,22 @@
             <thead>
                 <tr>
                     <th> Stock </th>
-                    <th> Shares </th>
-                    <th> Price of stock </th>
-                    <th> Value of holding </th>
+                    <th> Purchase / Sale Price </th>
+                    <th> Shares Purchased / Sold </th>
+                    <th> Date </th>
                 </tr>
             </thead>
             <tbody>
-                
+                {% for stock in stocks %}
+                    {% if stock.shares > 0 %}
+                        <tr>
+                            <td>{{ stock.stock }}</td>
+                            <td>Bought at {{ prices[stock.stock] }}</td>
+                        </tr>
+                    {% else %}
+
+                    {% endif %}
+                {% endfor %}
             </tbody>
         </table>
     </div>
