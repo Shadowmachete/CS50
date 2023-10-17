@@ -193,7 +193,10 @@ def sell():
             return apology("must provide a number of shares", 403)
 
         stocks = db.execute("SELECT DISTINCT(stock) FROM purchases WHERE user_id = ?", session["user_id"])
-        if request.form.get("symbol") not in stocks:
+        stocklist = []
+        for i in stocks:
+        print(stocks)
+        if request.form.get("symbol") not in stocklist:
             return apology("shares not purchased", 403)
 
         numShares = db.execute("SELECT sum(shares) FROM purchases WHERE user_id = ? AND stock = ?", session["user_id"], request.form.get("symbol"))
