@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block main %}
+    <h1> Welcome { name }</h1>
+    <h2> Your stocks </h2>
     <div class="section">
         <table>
             <thead>
@@ -15,6 +17,13 @@
                     <th> Value of holding </th>
                 </tr>
             </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock.stock }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </div>
 {% endblock %}
