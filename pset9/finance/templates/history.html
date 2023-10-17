@@ -22,14 +22,14 @@
                         <tr>
                             <td>{{ stock.stock }}</td>
                             <td>Purchased at {{ prices[stock.stock]|usd }}</td>
-                            <td>Purchased {{ stock.shares }} shares</td>
+                            <td>Purchased {{ stock.shares }} share(s)</td>
                             <td>{{ stock.Date }}</td>
                         </tr>
                     {% else %}
                         <tr>
                             <td>{{ stock.stock }}</td>
                             <td>Sold at {{ prices[stock.stock]|usd }}</td>
-                            <td>Sold {{ stock.shares|abs|usd }} shares</td>
+                            <td>Sold {{ stock.shares|abs }} share(s)</td>
                             <td>{{ stock.Date }}</td>
                         </tr>
                     {% endif %}
