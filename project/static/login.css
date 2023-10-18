@@ -138,5 +138,12 @@
 .above
 {
     display: flex;
+    position: relative;
     z-index: 3;
+    text-align: center;
+    padding: 1em;
+    background: #57B846;
+    color: white;
+    font-weight: bold;
+    
 }

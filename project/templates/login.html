@@ -9,7 +9,9 @@
 {% endblock %}
 
 {% block main %}
-    <span class="above">{{ error }}</span>
+    <div class="above">
+        <span>{{ error }}</span>
+    </div>
     <div class="container-login">
         <div class="wrap-login">
             <form action="/login" method="post" class="form-login">
