@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, width=device-width">
 
@@ -15,11 +13,9 @@
         <link href="/static/favicon.ico" rel="icon">
 
         <link href="/static/styles.css" rel="stylesheet">
-
         <title>Pokemon Stat Checker: {% block title %}{% endblock %}</title>
 
     </head>
-
     <body>
 
         <nav class="bg-light border navbar navbar-expand-md navbar-light">
@@ -29,23 +25,23 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
-                    <!--{% if session["user_id"] %}-->
-                        <ul class="navbar-nav me-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/quote">Quote</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/buy">Buy</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/sell">Sell</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/passwordChange">Change Password</a></li>
-                        </ul>
-                        <ul class="navbar-nav ms-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
-                        </ul>
-                    <!--{% else %}-->
-                        <ul class="navbar-nav ms-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
-                        </ul>
-                    <!--{% endif %}-->
+
+                    <ul class="navbar-nav me-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/quote">Quote</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/buy">Buy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/sell">Sell</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/passwordChange">Change Password</a></li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                    </ul>
+
                 </div>
             </div>
         </nav>
@@ -63,9 +59,7 @@
         </main>
         -->
         <footer class="mb-5 small text-center text-muted">
-            Data provided by <a href="https://iexcloud.io/">IEX</a>
+            Data provided by <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a>
         </footer>
-
     </body>
-
 </html>
