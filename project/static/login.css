@@ -9,7 +9,11 @@
     padding: 15px;
     position: relative;
     background-color: #FFFFFF;
-    margin-top: -5em;
+    margin-top: -3em;
+}
+.register
+{
+    margin-top: -1em;
 }
 .wrap-login
 {
