@@ -1,0 +1,85 @@
+* {
+    text-align: center;
+}
+:root {
+    --form-width : max(40%, 18em);
+}
+table {
+    margin-inline: auto;
+    border: 0.1em solid black;
+}
+th {
+    padding-inline: 1em;
+}
+input {
+    text-align: left;
+}
+form {
+    margin : auto;
+    margin-bottom: 3em;
+    border : 4px double #6a0d0d;
+    border-radius : 1.5em;
+    width : var(--form-width);
+    display: grid;
+    grid-template-columns: [labels] auto [controls] 1fr;
+    grid-auto-flow: row;
+    grid-gap: .8em;
+    background: #eee;
+    padding: 1em;
+}
+label  {
+    grid-column: labels;
+    grid-row: auto;
+}
+input, select, option {
+    grid-column: controls;
+    grid-row: auto;
+    border: none;
+    padding: 0.5em 0.8em;
+    outline: 1px solid #f99;
+}
+button {
+    grid-column: controls;
+    grid-row: auto;
+    padding: 0.5em 1em;
+}
+#Background {
+    height: 50vh;
+}
+#Background::before {
+    content: "";
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url("pokemon.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
