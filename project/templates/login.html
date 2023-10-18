@@ -4,19 +4,26 @@
     Log In
 {% endblock %}
 
+{% block styles %}
+<link href="/static/styles.css" rel="stylesheet">
+{% endblock %}
+
 {% block main %}
-    <form action="/login" method="post">
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
-        </div>
-        <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
-        </div>
-        <button class="btn btn-primary" type="submit">Log In</button>
-    </form>
+    <div class="wrapper">
+        <form action="/login" method="post">
+            <span class="form-title">Sign In</span>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+    </div>
 
-
-
+{% endblock %}
+<!--
 <div class="wrap-login100">
     <form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
     <span class="login100-form-title">
@@ -46,5 +53,4 @@
     </div>
     </form>
 </div>
-
-{% endblock %}
+-->
