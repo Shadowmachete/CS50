@@ -23,23 +23,20 @@ def login():
 
     if request.method == "POST":
         if not request.form.get("username"):
-            return
+            return render_template("login.html", error="No username")
 
-        # Ensure password was submitted
         elif not request.form.get("password"):
-            return
+            return render_template("login.html", error="No password")
 
-        # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        conn = connectDatabase()
+        rows = conn.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
-        # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return 
+            return render_template("login.html", error="Invalid username")
+        conn.close()
 
-        # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        # Redirect user to home page
         return redirect("/")
     else:
         return render_template("login.html")
