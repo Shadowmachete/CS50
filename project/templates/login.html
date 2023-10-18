@@ -9,16 +9,30 @@
 {% endblock %}
 
 {% block main %}
-    <div class="wrapper">
+    <div class="wrap-login">
         <form action="/login" method="post">
             <span class="form-title">Sign In</span>
-            <div class="mb-3">
-                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+            <div class="mb-3 wrap-input">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto input" id="username" name="username" placeholder="Username" type="text">
+                <span class="focus-input"></span>
             </div>
-            <div class="mb-3">
-                <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+            <div class="mb-3 wrap-input">
+                <input class="form-control mx-auto w-auto input" id="password" name="password" placeholder="Password" type="password">
+                <span class="focus-input"></span>
             </div>
-            <button class="btn btn-primary" type="submit">Log In</button>
+            <div class="wrap-btn">
+                <button class="form-btn">
+                Sign in
+                </button>
+            </div>
+            <div class="flex-col-c p-t-170 p-b-40">
+                <span class="txt1 p-b-9">
+                    Don't have an account?
+                </span>
+                <a href="#" class="txt3">
+                    Sign up now
+                </a>
+            </div>
         </form>
     </div>
 
