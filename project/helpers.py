@@ -1,6 +1,5 @@
 import sqlite3
 
-
 # Usage:
 # 1. conn = connectDatabase()
 # 2. conn.execute(SQL)
@@ -10,3 +9,16 @@ def connectDatabase():
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
     return conn
+
+def login_required(f):
+    """
+    Decorate routes to require login.
+
+    http://flask.pocoo.org/docs/0.12/patterns/viewdecorators/
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session.get("user_id") is None:
+            return redirect("/login")
+        return f(*args, **kwargs)
+    return decorated_function
