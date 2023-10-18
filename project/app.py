@@ -1,9 +1,9 @@
-import sqlite3
+from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import connectDatabase, login_required
+from helpers import login_required
 
 # Configure Application
 app = Flask(__name__)
@@ -11,6 +11,8 @@ app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
+db = SQL("sqlite:///database.db")
 
 @app.route("/")
 @login_required
@@ -28,8 +30,7 @@ def login():
         elif not request.form.get("password"):
             return render_template("login.html", error="No password")
 
-        conn = connectDatabase()
-        rows = conn.execute("SELECT * FROM users WHERE username = ?", (request.form.get("username")))
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
             return render_template("login.html", error="Invalid username")
@@ -41,9 +42,36 @@ def login():
     else:
         return render_template("login.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+
+    return redirect("/")
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        if not request.form.get("username"):
+            return render_template("register.html", error="No username")
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            return render_template("register.html", error="No password")
+
+        # Ensure password was repeated properly
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return render_template("register.html", error="Password repeated incorrectly")
+
+        names = db.execute("SELECT username FROM users")
+        nameList = []
+        for name in names:
+            nameList.append(name['username'])
+
+        if request.form.get("username") in nameList:
+            return render_template("register.html", error="User already registered")
+
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get(
+            "username"), generate_password_hash(request.form.get("password")))
         return redirect("/login")
     else:
         return render_template("register.html")
