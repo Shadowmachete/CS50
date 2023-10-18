@@ -21,6 +21,6 @@ def index():
 def layout():
     return render_template("layout.html")
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
     return render_template("login.html")
