@@ -106,7 +106,7 @@
 .sign-up
 {
     display: flex;
-    flex-direction: column:
+    flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
     padding-top: 170px;
