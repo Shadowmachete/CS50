@@ -29,7 +29,7 @@ def login():
             return render_template("login.html", error="No password")
 
         conn = connectDatabase()
-        rows = conn.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = conn.execute("SELECT * FROM users WHERE username = ?", (request.form.get("username")))
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
             return render_template("login.html", error="Invalid username")
