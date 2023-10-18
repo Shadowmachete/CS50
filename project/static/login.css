@@ -1,6 +1,16 @@
 .container-login
 {
-    
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    background-color: #FFFFFF;
+    margin-top: -10em;
+    z-index: -1;
 }
 .wrap-login
 {
@@ -9,4 +19,9 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+.form-title
+{
+    font-family: JosefinSans-bold;
+    font-size: 30px;
 }
