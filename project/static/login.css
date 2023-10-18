@@ -142,13 +142,11 @@
     z-index: 3;
     padding: 1em;
     background: #57B846;
-    color: white;
+    color: black;
     font-weight: bold;
     width: fit-content;
     border-radius: 20px;
-}
-.centered
-{
-    align-content: center;
-    display: flex;
+    margin-inline: auto;
+    font-size: 30px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
