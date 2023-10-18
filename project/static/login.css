@@ -144,6 +144,11 @@
     background: #57B846;
     color: white;
     font-weight: bold;
-    width: 500px;
+    width: fit-content;
     border-radius: 20px;
+}
+.centered
+{
+    align-content: center;
+    display: flex;
 }
