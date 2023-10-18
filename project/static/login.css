@@ -1,0 +1,8 @@
+.wrap-login
+{
+    width: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
