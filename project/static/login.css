@@ -9,8 +9,8 @@
     padding: 15px;
     position: relative;
     background-color: #FFFFFF;
-    margin-top: -10em;
     z-index: -1;
+    margin-top: -10em;
 }
 .wrap-login
 {
@@ -20,8 +20,32 @@
     overflow: hidden;
     box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
+.form-login
+{
+    width: 100%;
+    position: relative;
+    padding-inline: 55px;
+    padding-top: 178px;
+}
 .form-title
 {
     font-family: JosefinSans-bold;
     font-size: 30px;
+    color: #FFFFFF;
+    line-height: 1.2;
+    text-align: center;
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #57b846;
+    padding-top: 50px;
+    padding-bottom: 39px;
+}
+.wrap-input
+{
+    width: 100%;
+    border-radius: 27px;
+    z-index: 1;
 }
