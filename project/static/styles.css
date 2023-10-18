@@ -1,6 +1,10 @@
 * {
     text-align: center;
 }
+.navbar
+{
+    z-index: 2;
+}
 #Background {
     height: 50vh;
 }
