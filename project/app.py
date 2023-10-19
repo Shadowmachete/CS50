@@ -92,7 +92,9 @@ def change_password():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-        print(request.form.get("id"), request.form.get("name"), request.form.get("type1"), request.form.get("type2"), request.form.get("gen"), request.form.get("isLegend"), request.form.get("order"), request.form.get("orderdir"))
+        print(request.form)
+        id = request.form.get("id", "")
+        name = request.form.get("name"), request.form.get("type1"), request.form.get("type2"), request.form.get("gen"), request.form.get("isLegend"), request.form.get("order"), request.form.get("orderdir")
         return redirect("/search")
     else:
         return render_template("search.html")
