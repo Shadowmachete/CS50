@@ -62,8 +62,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Type 1</th>
-                <th>Type 2</th>
+                <th colspan="2"> Typing </th>
                 <th>Total</th>
                 <th>HP</th>
                 <th>Attack</th>
@@ -79,8 +78,12 @@
             <tr>
                 <td>{{ row['id'] }}</td>
                 <td>{{ row['Name'] }}</td>
+                {% if row['Type 2'] == '' %}
+                <td class="Typing {{ row['Type 1'] }}" colspan="2">{{ row['Type 1'] }}</td>
+                {% else %}
                 <td class="Typing {{ row['Type 1'] }}">{{ row['Type 1'] }}</td>
-                <td>{{ row['Type 2'] }}</td>
+                <td class="Typing {{ row['Type 2'] }}">{{ row['Type 2'] }}</td>
+                {% endif %}
                 <td>{{ row['Total'] }}</td>
                 <td>{{ row['HP'] }}</td>
                 <td>{{ row['Attack'] }}</td>
