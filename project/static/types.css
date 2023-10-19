@@ -1,4 +1,6 @@
-
+table {
+    border-collapse: separate;
+}
 .Name {
     color: darkblue;
     font-weight: bold;
