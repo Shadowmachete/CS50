@@ -8,102 +8,102 @@
     color: white;
     padding-inline: 0.25em;
 }
-#Mega {
+.Mega {
     color: darkmagenta;
     font-weight: bold;
 }
-#Mega img {
+.Mega img {
     height: 1em;
 }
-#Legendary {
+.Legendary {
     color: rgb(157, 1, 255);
 }
-#Normal {
+.Normal {
     background: #A8A878;
     border-radius: 20px;
     border: 1px solid #6D6D4E;
 }
-#Fire {
+.Fire {
     background: #F08030;
     border-radius: 20px;
     border: 1px solid #9C531F;
 }
-#Fighting {
+.Fighting {
     background: #C03028;
     border-radius: 20px;
     border: 1px solid #7D1F1A;
 }
-#Water {
+.Water {
     background: #6890F0;
     border-radius: 20px;
     border: 1px solid #445E9C;
 }
-#Flying {
+.Flying {
     background: #A890F0;
     border-radius: 20px;
     border: 1px solid #6D5E9C;
 }
-#Grass {
+.Grass {
     background: #78C850;
     border-radius: 20px;
     border: 1px solid #4E8234;
 }
-#Poison {
+.Poison {
     background: #A040A0;
     border-radius: 20px;
     border: 1px solid #682A68;
 }
-#Electric {
+.Electric {
     background: #F8D030;
     border-radius: 20px;
     border: 1px solid #A1871F;
 }
-#Ground {
+.Ground {
     background: #E0C068;
     border-radius: 20px;
     border: 1px solid #927D44;
 }
-#Psychic {
+.Psychic {
     background: #F85888;
     border-radius: 20px;
     border: 1px solid #A13959;
 }
-#Rock {
+.Rock {
     background: #B8A038;
     border-radius: 20px;
     border: 1px solid #786824;
 }
-#Ice {
+.Ice {
     background: #98D8D8;
     border-radius: 20px;
     border: 1px solid #638D8D;
 }
-#Bug {
+.Bug {
     background: #A8B820;
     border-radius: 20px;
     border: 1px solid #6D7815;
 }
-#Dragon {
+.Dragon {
     background: #7038F8;
     border-radius: 20px;
     border: 1px solid #4924A1;
 }
-#Ghost {
+.Ghost {
     background: #705898;
     border-radius: 20px;
     border: 1px solid #493963;
 }
-#Dark {
+.Dark {
     background: #705848;
     border-radius: 20px;
     border: 1px solid #49392F;
 }
-#Steel {
+.Steel {
     background: #B8B8D0;
     border-radius: 20px;
     border: 1px solid #787887;
 }
-#Fairy {
+.Fairy {
     background: #EE99AC;
     border-radius: 20px;
     border: 1px solid #9B6470;
