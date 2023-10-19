@@ -17,7 +17,7 @@ db = SQL("sqlite:///database.db")
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html")
+    return render_template("search.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -74,3 +74,7 @@ def register():
         return redirect("/login")
     else:
         return render_template("register.html")
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    return redirect("/")

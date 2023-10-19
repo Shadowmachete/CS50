@@ -9,11 +9,6 @@
 {% endblock %}
 
 {% block main %}
-    {% if error %}
-        <div class="above">
-            <span>{{ error }}</span>
-        </div>
-    {% endif %}
     <div class="container-login">
         <div class="wrap-login">
             <form action="/login" method="post" class="form-login">
