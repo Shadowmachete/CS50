@@ -49,6 +49,21 @@
         </select>
         <button type="submit">Submit</button>
 	</form>
-    <table style="display: none"></table>
+    {% if not data %}
+    <table style="display:none">
+    {% else %}
+    <table>
+    {% endif %}
+        <thead>
+            <tr>
+                <th>Id</th>
+            </tr>
+        </thead>
+        {% for row in data %}
+            <tr>
+                <td>{{ row.id }}</td>
+            </tr>
+        {% endfor %}
+    </table>
     <div id="Background"></div>
 {% endblock %}
