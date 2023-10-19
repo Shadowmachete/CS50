@@ -17,7 +17,7 @@ db = SQL("sqlite:///database.db")
 @app.route("/")
 @login_required
 def index():
-    return render_template("search.html")
+    return redirect("/search")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -92,4 +92,6 @@ def change_password():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-        
+        ...
+    else:
+        return render_template("search.html")
