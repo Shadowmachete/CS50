@@ -100,7 +100,6 @@ def search():
                 data = db.execute("SELECT * FROM pokemon WHERE id LIKE ? AND Name LIKE ? AND `Type 1` LIKE ? AND `Type 2` LIKE ? AND Generation LIKE ? AND Legendary LIKE ? ORDER BY ?", "%" + id + "%", "%" + name + "%", "%" + type1 + "%", "%" + type2 + "%", "%" + gen + "%", "%" + isLegend + "%", order)
         else:
             data = db.execute("SELECT * FROM pokemon WHERE id LIKE ? AND Name LIKE ? AND `Type 1` LIKE ? AND `Type 2` LIKE ? AND Generation LIKE ? AND Legendary LIKE ?", "%" + id + "%", "%" + name + "%", "%" + type1 + "%", "%" + type2 + "%", "%" + gen + "%", "%" + isLegend + "%")
-        print(data)
         return render_template("search.html", data=data)
     else:
         return render_template("search.html")
