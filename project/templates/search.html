@@ -57,11 +57,37 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Name</th>
+                <th>Type 1</th>
+                <th>Type 2</th>
+                <th>Total</th>
+                <th>HP</th>
+                <th>Attack</th>
+                <th>Defense</th>
+                <th>Sp. Atk</th>
+                <th>Sp. Def</th>
+                <th>Speed</th>
+                <th>Generation</th>
+                <th>Legendary</th>
             </tr>
         </thead>
         {% for row in data %}
             <tr>
-                <td>{{ row.id }}</td>
+                <th>{{ row['id'] }}</th>
+                <th>{{ row['Name'] }}</th>
+                <th>{{ row['Type 1'] }}</th>
+                <th>{{ row['Type 2'] }}</th>
+                <th>{{ row['Total'] }}</th>
+                <th>{{ row['HP'] }}</th>
+                <th>{{ row['Attack'] }}</th>
+                <th>{{ row['Defense'] }}</th>
+                <th>{{ row['Sp. Atk'] }}</th>
+                <th>{{ row['Sp. Def'] }}</th>
+                <th>{{ row['Speed'] }}</th>
+                <th>{{ row['Generation'] }}</th>
+                {% if row['Legendary'] == True %}
+                <th></th>
+                <th>{{ row['Legendary'] }}</th>
             </tr>
         {% endfor %}
     </table>
