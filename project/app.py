@@ -36,7 +36,6 @@ def login():
             return render_template("login.html", error="Invalid username")
 
         session["user_id"] = rows[0]["id"]
-
         return redirect("/")
     else:
         return render_template("login.html")
@@ -69,12 +68,28 @@ def register():
         if request.form.get("username") in nameList:
             return render_template("register.html", error="User already registered")
 
-        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get(
-            "username"), generate_password_hash(request.form.get("password")))
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password")))
         return redirect("/login")
     else:
         return render_template("register.html")
 
+@app.route("/passwordChange", methods=["GET", "POST"])
+@login_required
+def change_password():
+    if request.method == "POST":
+        if not request.form.get("password"):
+            return render_template("change_password.html", error="No password")
+
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return render_template("change_password.html", error="Password repeated incorrectly")
+
+        db.execute("UPDATE users SET hash = ? WHERE id = ?", generate_password_hash(request.form.get("password")), session["user_id"])
+        return redirect("/")
+    else:
+        return render_template("change_password.html")
+
+@login_required
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    return redirect("/")
+    if request.method == "POST":
+        
