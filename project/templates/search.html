@@ -102,7 +102,12 @@
         {% for row in data %}
             <tr>
                 <td>{{ row['id'] }}</td>
-                <td>{{ row['Name'] }}</td>
+                {% if row['Name'].match(/\Mega(?!\w)/g)%}
+
+                {% else %}
+                <td class="Name">{{ row['Name'] }}</td>
+                {% endif %}
+
                 {% if row['Type 2'] == '' %}
                 <td class="Typing {{ row['Type 1'] }}" colspan="2">{{ row['Type 1'] }}</td>
                 {% else %}
