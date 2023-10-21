@@ -5,11 +5,6 @@
 {
     z-index: 2;
 }
-.nav-link:hover
-{
-    background-color: #57b846;
-    border-radius: 15px;
-}
 #Background {
     height: 50vh;
 }
