@@ -102,8 +102,8 @@
         {% for row in data %}
             <tr>
                 <td>{{ row['id'] }}</td>
-                {% if row['Name'] | regex_search('/\Mega(?!\w)/g')%}
-
+                {% if 'Mega ' in row['Name'] %}
+                <td class="Mega Name"><img src="/static/mega.png"> {{ row['Name'] }}</td>
                 {% else %}
                 <td class="Name">{{ row['Name'] }}</td>
                 {% endif %}
