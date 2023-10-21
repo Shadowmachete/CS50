@@ -6,53 +6,56 @@
 
 {% block styles %}
 <link href="/static/types.css" rel="stylesheet">
+<link href="/static/query.css" rel="stylesheet">
 {% endblock %}
 
 {% block main %}
     <h1> Search for pokemon</h1>
-    <form action="/search" method="post">
-        <input type="text" name="id" id="id" placeholder="Id">
-        <input type="text" name="name" id="name" placeholder="Name">
-        <input type="text" name="type1" id="type1" placeholder="Primary Type">
-        <input type="text" name="type2" id="type2" placeholder="Secondary Type">
-        <select name="gen" id="gen">
-            <option selected disabled>Generation Number</option>
-            <option value="">Any</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-        </select>
-        <select name="isLegend" id="isLegend">
-            <option selected disabled>Is Legendary</option>
-            <option value="">Any</option>
-            <option>True</option>
-            <option>False</option>
-        </select>
-        <select name="order" id="order">
-            <option selected disabled>Order</option>
-            <option value="">Any</option>
-            <option>Name</option>
-            <option>Type 1</option>
-            <option>Type 2</option>
-            <option>Total</option>
-            <option>HP</option>
-            <option>Attack</option>
-            <option>Defense</option>
-            <option>Sp. Atk</option>
-            <option>Sp. Def</option>
-            <option>Speed</option>
-            <option>Generation</option>
-        </select>
-        <select name="orderdir" id="orderdir">
-            <option selected disabled>Ordering Direction</option>
-            <option value="">ASC</option>
-            <option>DESC</option>
-        </select>
-        <button type="submit">Submit</button>
-	</form>
+    <div class="container">
+        <form action="/search" method="post">
+            <input type="text" name="id" id="id" placeholder="Id">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="type1" id="type1" placeholder="Primary Type">
+            <input type="text" name="type2" id="type2" placeholder="Secondary Type">
+            <select name="gen" id="gen">
+                <option selected disabled>Generation Number</option>
+                <option value="">Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+            <select name="isLegend" id="isLegend">
+                <option selected disabled>Is Legendary</option>
+                <option value="">Any</option>
+                <option>True</option>
+                <option>False</option>
+            </select>
+            <select name="order" id="order">
+                <option selected disabled>Order</option>
+                <option value="">Any</option>
+                <option>Name</option>
+                <option>Type 1</option>
+                <option>Type 2</option>
+                <option>Total</option>
+                <option>HP</option>
+                <option>Attack</option>
+                <option>Defense</option>
+                <option>Sp. Atk</option>
+                <option>Sp. Def</option>
+                <option>Speed</option>
+                <option>Generation</option>
+            </select>
+            <select name="orderdir" id="orderdir">
+                <option selected disabled>Ordering Direction</option>
+                <option value="">ASC</option>
+                <option>DESC</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     {% if not data %}
     <table style="display:none">
     {% else %}
