@@ -1,6 +1,7 @@
 :root {
     --form-width : max(40%, 18em);
 }
+/*
 table {
     margin-inline: auto;
     border: 0.1em solid black;
@@ -10,19 +11,12 @@ th {
 }
 input {
     text-align: left;
-}
+}*/
 form {
-    margin : auto;
-    margin-bottom: 3em;
-    border : 4px double #3B7A57;
-    border-radius : 1.5em;
-    width : var(--form-width);
-    display: grid;
-    grid-template-columns: [labels] auto [controls] 1fr;
-    grid-auto-flow: row;
-    grid-gap: .8em;
-    background: #eee;
-    padding: 1em;
+    width: 100%;
+    position: relative;
+    padding-inline: 55px;
+    padding-top: 178px;
 }
 input, select, option {
     grid-column: controls;
@@ -32,10 +26,8 @@ input, select, option {
     outline: 1px solid #3B7A57;
 }
 button {
-    grid-column: controls;
-    grid-row: auto;
-    padding: 0.5em 1em;
     margin-top: 2em;
+    margin-bottom: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +51,7 @@ span
     line-height: 1.2;
     text-align: center;
     display: block;
+    position: absolute;
     width: 100%;
     top: 0;
     left: 0;
@@ -66,4 +59,24 @@ span
     padding-top: 50px;
     padding-bottom: 39px;
     font-weight: bold;
+}
+.container
+{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    margin-top: -3em;
+}
+.wrapper
+{
+    width: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
