@@ -13,47 +13,67 @@
     <div class="container">
         <div class="wrapper">
             <form action="/search" method="post">
-                <span> Search for pokemon</span>
-                <input type="text" name="id" id="id" placeholder="Id">
-                <input type="text" name="name" id="name" placeholder="Name">
-                <input type="text" name="type1" id="type1" placeholder="Primary Type">
-                <input type="text" name="type2" id="type2" placeholder="Secondary Type">
-                <select name="gen" id="gen">
-                    <option selected disabled>Generation Number</option>
-                    <option value="">Any</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                </select>
-                <select name="isLegend" id="isLegend">
-                    <option selected disabled>Is Legendary</option>
-                    <option value="">Any</option>
-                    <option>True</option>
-                    <option>False</option>
-                </select>
-                <select name="order" id="order">
-                    <option selected disabled>Order</option>
-                    <option value="">Any</option>
-                    <option>Name</option>
-                    <option>Type 1</option>
-                    <option>Type 2</option>
-                    <option>Total</option>
-                    <option>HP</option>
-                    <option>Attack</option>
-                    <option>Defense</option>
-                    <option>Sp. Atk</option>
-                    <option>Sp. Def</option>
-                    <option>Speed</option>
-                    <option>Generation</option>
-                </select>
-                <select name="orderdir" id="orderdir">
-                    <option selected disabled>Ordering Direction</option>
-                    <option value="">ASC</option>
-                    <option>DESC</option>
-                </select>
+                <span class="form-title"> Search for pokemon</span>
+                <div class="input-wrapper">
+                    <input type="text" name="id" id="id" placeholder="Id">
+                    <span class="focus-input"></span>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" name="name" id="name" placeholder="Name">
+                    <span class="focus-input"></span>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" name="type1" id="type1" placeholder="Primary Type">
+                    <span class="focus-input"></span>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" name="type2" id="type2" placeholder="Secondary Type">
+                    <span class="focus-input"></span>
+                </div>
+                <div class="input-wrapper">
+                    <select name="gen" id="gen">
+                        <option selected disabled>Generation Number</option>
+                        <option value="">Any</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <select name="isLegend" id="isLegend">
+                        <option selected disabled>Is Legendary</option>
+                        <option value="">Any</option>
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <select name="order" id="order">
+                        <option selected disabled>Order</option>
+                        <option value="">Any</option>
+                        <option>Name</option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                        <option>Total</option>
+                        <option>HP</option>
+                        <option>Attack</option>
+                        <option>Defense</option>
+                        <option>Sp. Atk</option>
+                        <option>Sp. Def</option>
+                        <option>Speed</option>
+                        <option>Generation</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <select name="orderdir" id="orderdir">
+                        <option selected disabled>Ordering Direction</option>
+                        <option value="">ASC</option>
+                        <option>DESC</option>
+                    </select>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
