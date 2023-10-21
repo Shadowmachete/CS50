@@ -28,7 +28,7 @@ input, select
     line-height: 1.2;
     position: relative;
     display: block;
-    width: 100%;
+    width: 50%;
     height: 55px;
     background: #ebebeb;
     border-radius: 27px;
@@ -88,7 +88,7 @@ button
 }
 .wrapper
 {
-    width: 500px;
+    width: 1000px;
     background: #FFFFFF;
     border-radius: 20px;
     overflow: hidden;
