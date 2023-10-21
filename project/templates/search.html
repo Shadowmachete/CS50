@@ -102,7 +102,7 @@
         {% for row in data %}
             <tr>
                 <td>{{ row['id'] }}</td>
-                {% if row['Name'].match(/\Mega(?!\w)/g)%}
+                {% if row['Name'] | regex_search('/\Mega(?!\w)/g')%}
 
                 {% else %}
                 <td class="Name">{{ row['Name'] }}</td>
