@@ -14,11 +14,11 @@
     <div id="Background"></div>
     <script>
         id = document.querySelector("#id").innerHTML;
-        function getData(id) {
-            fetch('https://pokeapi.co/api/v2/pokemon/' + id)
+        async function getData(id) {
+            await fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(resp => resp.json())
             .then(data => {
-                global levelUp = [];
+                levelUp = [];
                 egg = [];
                 other = [];
                 box = document.querySelector("#box");
@@ -39,10 +39,8 @@
                     box.innerHTML += `${moveName}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
                 })
             })
-            console.log(levelUp);
-            console.log(egg);
-            console.log(other);
+            return [levelUp, egg, other]
         }
-        getData(id);
+        console.log(getData(id));
     </script>
 {% endblock %}
