@@ -137,7 +137,6 @@
     <div id="Background"></div>
     <script>
         id = document.querySelector("#id").innerHTML;
-        console.log(id);
         function getData(id) {
             fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(resp => resp.json())
@@ -146,7 +145,8 @@
                 moves = data.moves;
                 console.log(moves);
                 moves.forEach((move) => {
-                    id.innerHTML += `${move.move.name}. Learnt at Level ${move.version_group_details[0].level_learned_at}.`
+                    console.log(move.move)
+                    id.innerHTML += `${move.move.name}. Learnt at Level ${move.version_group_details[0].level_learned_at}.`;
                 })
             })
         }
