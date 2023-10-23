@@ -146,7 +146,7 @@
                 moves = data.moves;
                 console.log(moves);
                 moves.forEach((move) => {
-                    id.innerHTML += `${move.move.name}. ${}`
+                    id.innerHTML += `${move.move.name}. Learnt at Level ${move.version_group_details[0].level_learned_at}.`
                 })
             })
         }
