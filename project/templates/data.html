@@ -14,7 +14,7 @@
     <div id="Background"></div>
     <script>
         id = document.querySelector("#id").innerHTML;
-        generations = {1: [1,2], 2: [3,4], 3: [5,6,7], 4: [8,9,10], 5: []};
+        generations = {1: [1,2], 2: [3,4], 3: [5,6,7], 4: [8,9,10], 5: [11, 12, 13, 14], 6: [15, 16]};
         async function getData(id) {
             await fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(resp => resp.json())
