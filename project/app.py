@@ -103,15 +103,18 @@ def search():
             data = db.execute("SELECT * FROM pokemon WHERE id LIKE ? AND Name LIKE ? AND `Type 1` LIKE ? AND `Type 2` LIKE ? AND Generation LIKE ? AND Legendary LIKE ?", "%" + id + "%", "%" + name + "%", "%" + type1 + "%", "%" + type2 + "%", "%" + gen + "%", "%" + isLegend + "%")
         return render_template("search.html", data=data)
     else:
-        return render_template("search.html")
+        if error:
+            return render_template("search.html", error=error)
+        else:
+            return render_template("search.html")
 
 @login_required
 @app.route("/data", methods=["GET", "POST"])
 def pokemonData():
     if request.method == "POST":
         id = request.form.get("id")
-        if id == None:
-            return render_template("search.html", error="Please choose")
+        if id == None or id < 0:
+            return redirect("search.html", error="Please choose a valid pokemon")
         return render_template("data.html", id=id)
     else:
-        return render_template("search.html", error="Please select the pokemon you would like to see the data of.")
+        return redirect("search.html", error="Please select the pokemon you would like to see the data of.")
