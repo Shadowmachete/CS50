@@ -134,7 +134,7 @@
     </table>
     -->
     <a id="id" class="hidden">{{ id }}</a>
-    <p id=""></p>
+    <p id="box"></p>
     <div id="Background"></div>
     <script>
         id = document.querySelector("#id").innerHTML;
@@ -142,10 +142,11 @@
             fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(resp => resp.json())
             .then(data => {
-                box = document.querySelector("#id");
+                box = document.querySelector("#box");
                 console.log(data);
                 moves = data.moves;
                 console.log(moves);
+                box.innerHTML += `${data.name}<br>`;
                 moves.forEach((move) => {
                     box.innerHTML += `${move.move.name}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
                 })
