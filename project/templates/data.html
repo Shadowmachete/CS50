@@ -21,10 +21,9 @@
                 levelUp = [];
                 egg = [];
                 other = [];
-                box = document.querySelector("#box");
                 console.log(data);
                 moves = data.moves;
-                box.innerHTML += `${data.name}<br>`;
+                name = data.name;
                 moves.forEach((move) => {
                     moveName = move.move.name;
                     for (i of move.version_group_details) {
@@ -36,11 +35,20 @@
                             other.push([moveName, i]);
                         }
                     }
-                    box.innerHTML += `${moveName}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
                 })
             })
-            return [levelUp, egg, other]
+            return [name, levelUp, egg, other]
         }
-        console.log(getData(id));
+        async function renderData() {
+            data = await getData(id);
+            box = document.querySelector("#box");
+            box.innerHTML = ``;
+            box.innerHTML += `${name}<br>`;
+            for (i of data[1]) {
+                box.innerHTML += `${i[0]}<br>`;
+            }
+            console.log(data);
+        }
+        renderData();
     </script>
 {% endblock %}
