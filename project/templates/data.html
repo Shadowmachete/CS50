@@ -144,7 +144,7 @@
             console.log(xhr.response);
         });
 
-        xhr.open('GET', 'https://api.pkmnapi.com/v1/pokemon/names/${id}', true);
+        xhr.open('GET', 'https://api.pkmnapi.com/v1/pokemon/names/' + id, true);
         xhr.setRequestHeader('Authorization', 'Bearer <access_token>');
         xhr.send(null);
     </script>
