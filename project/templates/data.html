@@ -25,7 +25,7 @@
                 box.innerHTML += `${data.name}<br>`;
                 moves.forEach((move) => {
                     moveName = move.move.name;
-                    
+
                     box.innerHTML += `${moveName}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
                 })
             })
