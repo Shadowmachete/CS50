@@ -128,7 +128,9 @@
                 {% else %}
                 <td>&#x2716;</td>
                 {% endif %}
-                <td><a class="link" href="/data?id={{ row['id'] }}" method="post">Data</a></td>
+                <td>
+                    <button class="link" href="/data?id={{ row['id'] }}" method="post">Data</button>
+                </td>
             </tr>
         {% endfor %}
     </table>
