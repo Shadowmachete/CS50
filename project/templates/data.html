@@ -15,14 +15,18 @@
         <div class="leftbox"></div>
         <div class="rightbox">
             <div class="buttons">
-                <button value="1">Gen 1</button>
-                <button value="2">Gen 2</button>
-                <button value="3">Gen 3</button>
-                <button value="4">Gen 4</button>
-                <button value="5">Gen 5</button>
-                <button value="6">Gen 6</button>
-                <button value="7">Gen 7</button>
-                <button value="8">Gen 8</button>
+                <button name="gen" value="1">Gen 1</button>
+                <button name="gen" value="2">Gen 2</button>
+                <button name="gen" value="3">Gen 3</button>
+                <button name="gen" value="4">Gen 4</button>
+                <button name="gen" value="5">Gen 5</button>
+                <button name="gen" value="6">Gen 6</button>
+                <button name="gen" value="7">Gen 7</button>
+                <button name="gen" value="8">Gen 8</button>
+                <br>
+                <button name="learn_by" value="level-up">Level Up</button>
+                <button name="learn_by" value="egg">Egg</button>
+                <button name="learn_by" value="other">Other</button>
             </div>
             <div class="learnset"></div>
         </div>
@@ -56,12 +60,13 @@
             })
             return [name, levelUp, egg, other]
         }
-        async function renderData(gen=1) {
+        async function renderData(gen=1, learn_by="learn-set") {
             data = await getData(id);
             box = document.querySelector(".learnset");
             box.innerHTML = ``;
             document.querySelector(".leftbox").innerHTML = name;
-            for (move of data[1]) {
+            learnBy = {"learn-set": 1, "egg": 2, "other": 3}
+            for (move of data[learnBy[learn_by]]) {
                 versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
                 moveName = move[0].split("-").join(" ")
                 version = move[1].version_group.name.split("-").join(" ")
@@ -74,7 +79,7 @@
         renderData();
         document.querySelectorAll("button").forEach((btn) => {
             btn.addEventListener('click', (e) => {
-                renderData(e.target.value)
+                renderData(e.target.name = e.target.value)
             })
         })
     </script>
