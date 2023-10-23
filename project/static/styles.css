@@ -35,4 +35,11 @@
     width: initial;
     height: initial;
     text-transform: initial;
+    display: initial;
+}
+.form-link
+{
+    width: initial;
+    position: initial;
+    padding: 0;
 }

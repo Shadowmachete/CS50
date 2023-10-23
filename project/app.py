@@ -107,8 +107,11 @@ def search():
 
 @login_required
 @app.route("/data", methods=["GET", "POST"])
-def data():
+def pokemonData():
     if request.method == "POST":
-        return render_template("data.html")
+        id = request.form.get("id")
+        if id == None:
+            return render_template("search.html", error="Please choose")
+        return render_template("data.html", id=id)
     else:
         return render_template("search.html", error="Please select the pokemon you would like to see the data of.")

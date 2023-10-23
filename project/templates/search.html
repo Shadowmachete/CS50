@@ -129,7 +129,9 @@
                 <td>&#x2716;</td>
                 {% endif %}
                 <td>
-                    <button class="link" href="/data?id={{ row['id'] }}" method="post">Data</button>
+                    <form class="form-link" action="/data?id={{ row['id'] }}" method="post">
+                        <button class="link">Data</button>
+                    </form>
                 </td>
             </tr>
         {% endfor %}
