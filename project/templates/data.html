@@ -6,13 +6,26 @@
 
 {% block styles %}
 <link href="/static/types.css" rel="stylesheet">
+<link href="/static/displayData.css" rel="stylesheet">
 {% endblock %}
 
 {% block main %}
     <a id="id" class="hidden">{{ id }}</a>
     <div class="container">
         <div class="leftbox"></div>
-        <div id="box" class="rightbox"></div>
+        <div class="rightbox">
+            <div class="buttons">
+                <button>Gen 1</button>
+                <button>Gen 2</button>
+                <button>Gen 3</button>
+                <button>Gen 4</button>
+                <button>Gen 5</button>
+                <button>Gen 6</button>
+                <button>Gen 7</button>
+                <button>Gen 8</button>
+            </div>
+            <div class="learnset"></div>
+        </div>
     </div>
     <div id="Background"></div>
     <script>
@@ -45,9 +58,9 @@
         }
         async function renderData(gen=1) {
             data = await getData(id);
-            box = document.querySelector("#box");
+            box = document.querySelector(".learnset");
             box.innerHTML = ``;
-            box.innerHTML += `${name}<br>`;
+            document.querySelector(".leftbox").innerHTML += `${name}<br>`;
             for (move of data[1]) {
                 versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
                 moveName = move[0].split("-").join(" ")
