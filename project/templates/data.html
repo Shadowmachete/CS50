@@ -9,130 +9,6 @@
 {% endblock %}
 
 {% block main %}
-    <!--
-    <div class="container">
-        <div class="wrapper">
-            <form action="/search" method="post">
-                <span class="form-title"> Search for pokemon</span>
-                <div class="input-wrapper">
-                    <input type="text" name="id" id="id" placeholder="Id">
-                    <span class="focus-input"></span>
-                </div>
-                <div class="input-wrapper">
-                    <input type="text" name="name" id="name" placeholder="Name">
-                    <span class="focus-input"></span>
-                </div>
-                <div class="input-wrapper">
-                    <input type="text" name="type1" id="type1" placeholder="Primary Type">
-                    <span class="focus-input"></span>
-                </div>
-                <div class="input-wrapper">
-                    <input type="text" name="type2" id="type2" placeholder="Secondary Type">
-                    <span class="focus-input"></span>
-                </div>
-                <div class="input-wrapper">
-                    <select name="gen" id="gen">
-                        <option selected disabled>Generation Number</option>
-                        <option value="">Any</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
-                <div class="input-wrapper">
-                    <select name="isLegend" id="isLegend">
-                        <option selected disabled>Is Legendary</option>
-                        <option value="">Any</option>
-                        <option>True</option>
-                        <option>False</option>
-                    </select>
-                </div>
-                <div class="input-wrapper">
-                    <select name="order" id="order">
-                        <option selected disabled>Order</option>
-                        <option value="">Any</option>
-                        <option>Name</option>
-                        <option>Type 1</option>
-                        <option>Type 2</option>
-                        <option>Total</option>
-                        <option>HP</option>
-                        <option>Attack</option>
-                        <option>Defense</option>
-                        <option>Sp. Atk</option>
-                        <option>Sp. Def</option>
-                        <option>Speed</option>
-                        <option>Generation</option>
-                    </select>
-                </div>
-                <div class="input-wrapper">
-                    <select name="orderdir" id="orderdir">
-                        <option selected disabled>Ordering Direction</option>
-                        <option value="">ASC</option>
-                        <option>DESC</option>
-                    </select>
-                </div>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-    {% if not data %}
-    <table style="display:none">
-    {% else %}
-    <table>
-    {% endif %}
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th colspan="2"> Typing </th>
-                <th>Total</th>
-                <th>HP</th>
-                <th>Attack</th>
-                <th>Defense</th>
-                <th>Sp. Atk</th>
-                <th>Sp. Def</th>
-                <th>Speed</th>
-                <th>Generation</th>
-                <th>Legendary</th>
-                <th>Data</th>
-            </tr>
-        </thead>
-        {% for row in data %}
-            <tr>
-                <td>{{ row['id'] }}</td>
-                {% if 'Mega ' in row['Name'] %}
-                <td class="Mega Name"><img src="/static/mega.png"> {{ row['Name'] }}</td>
-                {% else %}
-                <td class="Name">{{ row['Name'] }}</td>
-                {% endif %}
-
-                {% if row['Type 2'] == '' %}
-                <td class="Typing {{ row['Type 1'] }}" colspan="2">{{ row['Type 1'] }}</td>
-                {% else %}
-                <td class="Typing {{ row['Type 1'] }}">{{ row['Type 1'] }}</td>
-                <td class="Typing {{ row['Type 2'] }}">{{ row['Type 2'] }}</td>
-                {% endif %}
-                <td>{{ row['Total'] }}</td>
-                <td>{{ row['HP'] }}</td>
-                <td>{{ row['Attack'] }}</td>
-                <td>{{ row['Defense'] }}</td>
-                <td>{{ row['Sp. Atk'] }}</td>
-                <td>{{ row['Sp. Def'] }}</td>
-                <td>{{ row['Speed'] }}</td>
-                <td>{{ row['Generation'] }}</td>
-                {% if row['Legendary'] == 'True' %}
-                <td class="Legendary">&#x2714;</td>
-                {% else %}
-                <td>&#x2716;</td>
-                {% endif %}
-                <td><a class="link" href="/data?id={{ row['id'] }}" method="post">Data</a></td>
-            </tr>
-        {% endfor %}
-    </table>
-    -->
     <a id="id" class="hidden">{{ id }}</a>
     <p id="box"></p>
     <div id="Background"></div>
@@ -150,7 +26,7 @@
                 moves.forEach((move) => {
                     moveName = move.move.name;
                     
-                    box.innerHTML += `${move.move.name}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
+                    box.innerHTML += `${moveName}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
                 })
             })
         }
