@@ -47,8 +47,7 @@
             box.innerHTML += `${name}<br>`;
             for (move of data[1]) {
                 versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
-                console.log(generations[gen], versionGroup, generations[gen].includes(versionGroup))
-                if (generations[gen].includes(versionGroup)) {
+                if (generations[gen].some((version) => version == versionGroup)) {
                     box.innerHTML += `${move[0]} learnt at ${move[1].level_learned_at} in ${move[1].version_group.name} version group ${versionGroup}<br>`;
                 }
             }
