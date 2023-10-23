@@ -18,31 +18,30 @@
             fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(resp => resp.json())
             .then(data => {
+                global levelUp = [];
+                egg = [];
+                other = [];
                 box = document.querySelector("#box");
                 console.log(data);
                 moves = data.moves;
-                console.log(moves);
                 box.innerHTML += `${data.name}<br>`;
                 moves.forEach((move) => {
                     moveName = move.move.name;
-                    levelUp = [];
-                    egg = [];
-                    other = [];
                     for (i of move.version_group_details) {
                         if (i.move_learn_method.name == "level-up") {
-                            levelUp.push({moveName: i});
+                            levelUp.push([moveName, i]);
                         } else if (i.move_learn_method.name == "egg") {
-                            egg.push({moveName: i});
+                            egg.push([moveName, i]);
                         } else {
-                            other.push({moveName: i});
+                            other.push([moveName, i]);
                         }
                     }
-                    console.log(levelUp);
-                    console.log(egg);
-                    console.log(other);
                     box.innerHTML += `${moveName}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
                 })
             })
+            console.log(levelUp);
+            console.log(egg);
+            console.log(other);
         }
         getData(id);
     </script>
