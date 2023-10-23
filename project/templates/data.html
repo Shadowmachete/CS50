@@ -40,14 +40,16 @@
             })
             return [name, levelUp, egg, other]
         }
-        async function renderData() {
+        async function renderData(gen=1) {
             data = await getData(id);
             box = document.querySelector("#box");
             box.innerHTML = ``;
             box.innerHTML += `${name}<br>`;
             for (move of data[1]) {
                 versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
-                box.innerHTML += `${move[0]} learnt at ${move[1].level_learned_at} in ${move[1].version_group.name} version group ${versionGroup}<br>`;
+                if (versionGroup in generations[gen]) {
+                    box.innerHTML += `${move[0]} learnt at ${move[1].level_learned_at} in ${move[1].version_group.name} version group ${versionGroup}<br>`;
+                }
             }
             console.log(data);
         }
