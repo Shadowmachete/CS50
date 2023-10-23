@@ -86,8 +86,20 @@
         document.querySelectorAll("button").forEach((btn) => {
             btn.addEventListener('click', (e) => {
                 if (e.target.name == "gen") {
+                    e.target.classList.add("selected");
+                    document.querySelectorAll("button").forEach((button) => {
+                        if (button.name == "gen" && button.classList.contains("selected") && button != e.target) {
+                            button.classList.remove("selected")
+                        }
+                    })
                     renderData(gen = e.target.value, learn_by = document.querySelector("#learn_by").innerHTML)
                 } else {
+                    e.target.classList.add("selected");
+                    document.querySelectorAll("button").forEach((button) => {
+                        if (button.name == "learn_by" && button.classList.contains("selected") && button != e.target) {
+                            button.classList.remove("selected")
+                        }
+                    })
                     renderData(gen = document.querySelector("#gen").innerHTML, learn_by = e.target.value)
                 }
             })
