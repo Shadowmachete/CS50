@@ -133,6 +133,19 @@
         {% endfor %}
     </table>
     -->
-    {{ id }}
+    <a id="id">{{ id }}</a>
     <div id="Background"></div>
+    <script>
+        id = document.querySelector("#id").innerHTML;
+        console.log(id);
+        const xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('load', () => {
+            console.log(xhr.response);
+        });
+
+        xhr.open('GET', 'https://api.pkmnapi.com/v1/pokemon/names/${id}', true);
+        xhr.setRequestHeader('Authorization', 'Bearer <access_token>');
+        xhr.send(null);
+    </script>
 {% endblock %}
