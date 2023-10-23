@@ -138,14 +138,11 @@
     <script>
         id = document.querySelector("#id").innerHTML;
         console.log(id);
-        const xhr = new XMLHttpRequest();
-
-        xhr.addEventListener('load', () => {
-            console.log(xhr.response);
-        });
-
-        xhr.open('GET', 'https://api.pkmnapi.com/v1/pokemon/names/' + id, true);
-        xhr.setRequestHeader('Authorization', 'Bearer <access_token>');
-        xhr.send(null);
+        function getData(id) {
+            fetch('https://pokeapi.co/api/v2/pokemon/' + id)
+            .then(resp => resp.json())
+            .then(data => console.log(data))
+        }
+        getData(id);
     </script>
 {% endblock %}
