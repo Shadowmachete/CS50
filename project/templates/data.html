@@ -40,7 +40,7 @@
             })
             return [name, levelUp, egg, other]
         }
-        async function renderData(gen=1) {
+        async function renderData(gen=4) {
             data = await getData(id);
             box = document.querySelector("#box");
             box.innerHTML = ``;
