@@ -10,7 +10,10 @@
 
 {% block main %}
     <a id="id" class="hidden">{{ id }}</a>
-    <p id="box"></p>
+    <div class="container">
+        <div class="leftbox"></div>
+        <div id="box" class="rightbox"></div>
+    </div>
     <div id="Background"></div>
     <script>
         id = document.querySelector("#id").innerHTML;
@@ -40,16 +43,17 @@
             })
             return [name, levelUp, egg, other]
         }
-        async function renderData(gen=4) {
+        async function renderData(gen=1) {
             data = await getData(id);
             box = document.querySelector("#box");
             box.innerHTML = ``;
             box.innerHTML += `${name}<br>`;
             for (move of data[1]) {
                 versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
-                console.log(generations[gen], versionGroup)
-                if (/*generations[gen].some((version) => version == versionGroup)*/ versionGroup in generations[gen]) {
-                    box.innerHTML += `${move[0]} learnt at ${move[1].level_learned_at} in ${move[1].version_group.name} version group ${versionGroup}<br>`;
+                moveName = move[0].split("-").join(" ")
+                version = move[1].version_group.name.split("-").join(" ")
+                if (/*generations[gen].some((version) => version == versionGroup)*/ generations[gen][0] == versionGroup) {
+                    box.innerHTML += `${moveName} learnt at ${move[1].level_learned_at} in gen ${gen}<br>`;
                 }
             }
             console.log(data);
