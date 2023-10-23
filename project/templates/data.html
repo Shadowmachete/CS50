@@ -61,14 +61,14 @@
             })
             return [name, levelUp, egg, other]
         }
-        async function renderData(gen=1, learn_by="learn-set") {
+        async function renderData(gen=1, learn_by="level-up") {
             data = await getData(id);
             box = document.querySelector(".learnset");
             box.innerHTML = ``;
             document.querySelector("#gen").innerHTML = gen;
             document.querySelector("#learn_by").innerHTML = learn_by;
             document.querySelector(".leftbox").innerHTML = name;
-            learnBy = {"learn-set": 1, "egg": 2, "other": 3}
+            learnBy = {"level-up": 1, "egg": 2, "other": 3}
             for (move of data[learnBy[learn_by]]) {
                 versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
                 moveName = move[0].split("-").join(" ")
