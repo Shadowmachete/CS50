@@ -74,7 +74,11 @@
                 moveName = move[0].split("-").join(" ")
                 version = move[1].version_group.name.split("-").join(" ")
                 if (/*generations[gen].some((version) => version == versionGroup)*/ generations[gen][0] == versionGroup) {
-                    box.innerHTML += `${moveName} learnt at ${move[1].level_learned_at} in gen ${gen}<br>`;
+                    if (learn_by == "level-up") {
+                        box.innerHTML += `${moveName} learnt at ${move[1].level_learned_at} in gen ${gen}<br>`;
+                    } else {
+                        box.innerHTML += `${moveName} learnt via 
+                    }
                 }
             }
         }
