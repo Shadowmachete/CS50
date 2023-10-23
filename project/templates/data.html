@@ -26,12 +26,20 @@
                 moves.forEach((move) => {
                     moveName = move.move.name;
                     levelUp = {};
+                    egg = {};
+                    machine = {};
                     for (i of move.version_group_details) {
                         if (i.move_learn_method.name == "level-up") {
                             levelUp[moveName] = i;
-                            console.log(levelUp);
+                        } else if (i.move_learn_method.name == "egg") {
+                            egg[moveName] = i;
+                        } else {
+                            machine[moveName] = i;
                         }
                     }
+                    console.log(levelUp);
+                    console.log(egg);
+                    console.log(machine);
                     box.innerHTML += `${moveName}. Learnt at Level ${move.version_group_details[0].level_learned_at}.<br>`;
                 })
             })
