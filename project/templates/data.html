@@ -141,7 +141,14 @@
         function getData(id) {
             fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(resp => resp.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data);
+                moves = data.moves;
+                console.log(moves);
+                moves.forEach((move) => {
+                    id.innerHTML += `${move.move.name}. ${}`
+                })
+            })
         }
         getData(id);
     </script>
