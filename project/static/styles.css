@@ -5,10 +5,12 @@
 {
     z-index: 2;
 }
-#Background {
+#Background
+{
     height: 50vh;
 }
-#Background::before {
+#Background::before
+{
     content: "";
     position: fixed;
     top: 0px;
@@ -20,4 +22,13 @@
     background-position: center top;
     opacity: 0.15;
     z-index: -1;
+}
+.link
+{
+    text-decoration: none;
+    color: white;
+    background: #57b846;
+    padding-inline: 0.5em;
+    border-radius: 20px;
+    border: 1px solid #57b846;
 }

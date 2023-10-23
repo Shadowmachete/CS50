@@ -104,3 +104,11 @@ def search():
         return render_template("search.html", data=data)
     else:
         return render_template("search.html")
+
+@login_required
+@app.route("/data", methods=["GET", "POST"])
+def data():
+    if request.method == "POST":
+        return render_template("data.html")
+    else:
+        return render_template("search.html", error="Please select the pokemon you would like to see the data of.")
