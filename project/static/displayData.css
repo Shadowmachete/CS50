@@ -33,5 +33,5 @@ button
 }
 .selected
 {
-    border: 10px solid black;
+    background-color: blue;
 }
