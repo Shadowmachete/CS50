@@ -47,3 +47,18 @@
 {
     display: none;
 }
+.above
+{
+    display: flex;
+    position: relative;
+    z-index: 3;
+    padding: 1em;
+    background: #57B846;
+    color: black;
+    font-weight: bold;
+    width: fit-content;
+    border-radius: 20px;
+    margin-inline: auto;
+    font-size: 30px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
