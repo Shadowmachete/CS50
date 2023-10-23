@@ -11,6 +11,7 @@
 
 {% block main %}
     <a id="id" class="hidden">{{ id }}</a>
+    <a id="gen" class="hidden"></a>
     <div class="container">
         <div class="leftbox"></div>
         <div class="rightbox">
@@ -64,8 +65,10 @@
             data = await getData(id);
             box = document.querySelector(".learnset");
             box.innerHTML = ``;
+            document.querySelector("#gen").innerHTML = gen;
             document.querySelector(".leftbox").innerHTML = name;
             learnBy = {"learn-set": 1, "egg": 2, "other": 3}
+            console.log(learnBy[learn_by])
             for (move of data[learnBy[learn_by]]) {
                 versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
                 moveName = move[0].split("-").join(" ")
@@ -79,7 +82,11 @@
         renderData();
         document.querySelectorAll("button").forEach((btn) => {
             btn.addEventListener('click', (e) => {
-                renderData(e.target.name = e.target.value)
+                if (e.target.name == "gen") {
+                    renderData(gen = e.target.value)
+                } else {
+                    renderData(gen = document.querySelector("#gen").innerHTML, learn_by = e.target.value)
+                }
             })
         })
     </script>
