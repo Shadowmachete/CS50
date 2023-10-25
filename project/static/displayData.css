@@ -48,8 +48,14 @@ button
     font-weight: bold;
     border-radius: 10px;
     padding-block: 10px;
-}
-.title
-{
     text-transform: capitalize;
+}
+.flex
+{
+    display: flex;
+    width: 100%;
+}
+.Typing
+{
+    width: 100%;
 }
