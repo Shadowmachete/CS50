@@ -105,8 +105,3 @@ table
 {
     width: 100%;
 }
-tr:nth-of-type(even)
-{
-    background: #57b846;
-    color: white;
-}
