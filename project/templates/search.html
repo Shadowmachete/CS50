@@ -128,12 +128,14 @@
                 {% else %}
                 <td>&#x2716;</td>
                 {% endif %}
+                {% if 'Mega ' not in row['Name'] %}
                 <td>
                     <form class="form-link" action="/data" method="post">
                         <input class="hidden" name="id" value="{{ row['id'] }}">
                         <button type="submit" class="link">Data</button>
                     </form>
                 </td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>
