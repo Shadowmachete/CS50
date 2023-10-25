@@ -35,3 +35,21 @@ button
 {
     background-color: blue;
 }
+.title
+{
+    font-size: 30px;
+    color: #FFFFFF;
+    line-height: 1.2;
+    text-align: center;
+    display: block;
+    top: 0;
+    left: 0;
+    background-color: #57b846;
+    font-weight: bold;
+    border-radius: 10px;
+    padding-block: 10px;
+}
+.title::first-letter
+{
+    text-transform:capitalize;
+}

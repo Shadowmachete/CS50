@@ -7,8 +7,12 @@ async function getData(id) {
         levelUp = [];
         egg = [];
         other = [];
+        abilities = data.abilities;
+        stats = data.stats;
+        types = data.types;
         moves = data.moves;
         name = data.name;
+        console.log(data);
         moves.forEach((move) => {
             moveName = move.move.name;
             for (i of move.version_group_details) {
@@ -22,15 +26,19 @@ async function getData(id) {
             }
         })
     })
-    return [name, levelUp, egg, other]
+    return [name, levelUp, egg, other, abilities, stats, types]
 }
 async function renderData(gen=1, learn_by="level-up") {
     data = await getData(id);
     box = document.querySelector(".learnset");
+    lbox = document.querySelector(".leftbox");
+    lbox.innerHTML = ``;
     box.innerHTML = ``;
+
     document.querySelector("#gen").innerHTML = gen;
     document.querySelector("#learn_by").innerHTML = learn_by;
-    document.querySelector(".leftbox").innerHTML = name;
+    lbox.innerHTML += `<h1 class="title">${data[0]}</h1>`;
+
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
     for (move of data[learnBy[learn_by]]) {
         versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
