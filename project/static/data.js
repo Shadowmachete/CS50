@@ -64,6 +64,7 @@ async function renderData(gen=1, learn_by="level-up") {
         document.querySelector("#stats").innerHTML += `<p class="Stat">${i[0]} : ${i[1]}</p>`;
     }
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
+    document.querySelectorAll(".title")[1].innerHTML = learn_by.split('-').join(" ");
     for (move of data[learnBy[learn_by]]) {
         versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
         moveName = move[0].split("-").join(" ")
