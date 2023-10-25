@@ -1,6 +1,7 @@
 .leftbox
 {
     width: 20%;
+    max-width: 30%;
     display: inline-block;
     background: #57b846;
     padding: 1em;

@@ -56,12 +56,12 @@ async function renderData(gen=1, learn_by="level-up") {
         {
             EVs.push([i.stat.name,i.effort])
         }
-        document.querySelector("#stats").innerHTML += `<p class="Stat">${i.stat.name} : ${i.base_stat}</p>`;
+        document.querySelector("#stats").innerHTML += `<p class="Stat">${i.stat.name.split('-').join(" ")} : ${i.base_stat}</p>`;
     }
     document.querySelector("#stats").innerHTML += `<hr><p class="Stat" id="EV">Effort Values</p>`;
     for (i of EVs)
     {
-        document.querySelector("#stats").innerHTML += `<p class="Stat">${i[0]} : ${i[1]}</p>`;
+        document.querySelector("#stats").innerHTML += `<p class="Stat">${i[0].split('-').join(" ")} : ${i[1]}</p>`;
     }
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
     document.querySelectorAll(".title")[1].innerHTML = learn_by.split('-').join(" ");
