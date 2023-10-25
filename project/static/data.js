@@ -26,6 +26,7 @@ async function getData(id) {
             }
         })
     })
+    console.log(levelUp.sort((a,b) => b-a))
     return [name, levelUp, egg, other, abilities, stats, types]
 }
 async function renderData(gen=1, learn_by="level-up") {
