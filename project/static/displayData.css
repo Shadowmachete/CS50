@@ -2,6 +2,9 @@
 {
     width: 20%;
     display: inline-block;
+    background: #57b846;
+    padding: 1em;
+    border-radius: 20px;
 }
 .rightbox
 {
@@ -38,13 +41,13 @@ button
 .title
 {
     font-size: 30px;
-    color: #FFFFFF;
+    color: black;
     line-height: 1.2;
     text-align: center;
     display: block;
     top: 0;
     left: 0;
-    background-color: #57b846;
+    background-color: white;
     font-weight: bold;
     border-radius: 10px;
     padding-block: 10px;
@@ -63,8 +66,8 @@ button
 .Ability
 {
     width: 100%;
-    background: #57b846;
-    color: white;
+    background: white;
+    color: black;
 }
 .Ability:first-of-type
 {
@@ -79,7 +82,12 @@ button
 .Stat
 {
     width: 100%;
-    background: #57b846;
     color: white;
-    padding-inline: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#stats
+{
+    flex: 1;
+    flex-direction: column;
 }

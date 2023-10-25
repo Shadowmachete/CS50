@@ -51,7 +51,7 @@ async function renderData(gen=1, learn_by="level-up") {
     lbox.innerHTML += `<div id="stats" class="flex"></div>`;
     for (i of data[5])
     {
-        document.querySelector("#stats").innerHTML += `<p class="Stat">${i.stat.name}</p>`;
+        document.querySelector("#stats").innerHTML += `<p class="Stat">${i.stat.name} : ${i.base_stat}</p>`;
     }
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
     for (move of data[learnBy[learn_by]]) {
