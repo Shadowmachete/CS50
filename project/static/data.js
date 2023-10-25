@@ -43,6 +43,11 @@ async function renderData(gen=1, learn_by="level-up") {
     {
         document.querySelector(".flex").innerHTML += `<p class="Typing ${i.type.name[0].toUpperCase() + i.type.name.substring(1)}">${i.type.name[0].toUpperCase() + i.type.name.substring(1)}</p>`;
     }
+    document.querySelector(".flex").innerHTML += `<div class="break"></div>`;
+    for (i of data[4])
+    {
+        document.querySelector(".flex").innerHTML += `<p>${i.ability.name[0].toUpperCase() + i.ability.name.substring(1)}</p>`;
+    }
 
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
     for (move of data[learnBy[learn_by]]) {
