@@ -38,6 +38,7 @@ async function renderData(gen=1, learn_by="level-up") {
     document.querySelector("#gen").innerHTML = gen;
     document.querySelector("#learn_by").innerHTML = learn_by;
     lbox.innerHTML += `<h1 class="title">${data[0]}</h1>`;
+    lbox.innerHTML += `<p class="Typing ${data[6][0].name}">${data[6][0].name}</p>`;
 
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
     for (move of data[learnBy[learn_by]]) {
