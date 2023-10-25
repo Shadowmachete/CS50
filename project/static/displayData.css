@@ -76,3 +76,10 @@ button
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+.Stat
+{
+    width: 100%;
+    background: #57b846;
+    color: white;
+    padding-inline: 1em;
+}

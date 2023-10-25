@@ -41,12 +41,12 @@ async function renderData(gen=1, learn_by="level-up") {
     lbox.innerHTML += `<div id="types" class="flex"></div>`;
     for (i of data[6])
     {
-        document.querySelector("#types").innerHTML += `<p class="Typing ${i.type.name[0].toUpperCase() + i.type.name.substring(1)}">${i.type.name[0].toUpperCase() + i.type.name.substring(1)}</p>`;
+        document.querySelector("#types").innerHTML += `<p class="Typing ${i.type.name[0].toUpperCase() + i.type.name.substring(1)}">${i.type.name}</p>`;
     }
     lbox.innerHTML += `<div id="abilities" class="flex"></div>`;
     for (i of data[4])
     {
-        document.querySelector("#abilities").innerHTML += `<p class="Ability">${i.ability.name[0].toUpperCase() + i.ability.name.substring(1)}</p>`;
+        document.querySelector("#abilities").innerHTML += `<p class="Ability">${i.ability.name}</p>`;
     }
     lbox.innerHTML += `<div id="stats" class="flex"></div>`;
     for (i of data[5])
