@@ -104,5 +104,6 @@ hr
 table
 {
     width: 100%;
-    border: 1px 
+    border: 3px solid #57b846;
+    border-radius: 10px;
 }
