@@ -48,7 +48,11 @@ async function renderData(gen=1, learn_by="level-up") {
     {
         document.querySelector("#abilities").innerHTML += `<p class="Ability">${i.ability.name[0].toUpperCase() + i.ability.name.substring(1)}</p>`;
     }
-
+    lbox.innerHTML += `<div id="stats" class="flex"></div>`;
+    for (i of data[5])
+    {
+        document.querySelector("#stats").innerHTML += `<p class="Stat">${i.stat.name}</p>`;
+    }
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
     for (move of data[learnBy[learn_by]]) {
         versionGroup = move[1].version_group.url.split('version-group/')[1].split("/")[0]
