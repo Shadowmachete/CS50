@@ -38,15 +38,15 @@ async function renderData(gen=1, learn_by="level-up") {
     document.querySelector("#gen").innerHTML = gen;
     document.querySelector("#learn_by").innerHTML = learn_by;
     lbox.innerHTML += `<h1 class="title">${data[0]}</h1>`;
-    lbox.innerHTML += `<div class="flex"></div>`;
+    lbox.innerHTML += `<div id="types" class="flex"></div>`;
     for (i of data[6])
     {
-        document.querySelector(".flex").innerHTML += `<p class="Typing ${i.type.name[0].toUpperCase() + i.type.name.substring(1)}">${i.type.name[0].toUpperCase() + i.type.name.substring(1)}</p>`;
+        document.querySelector("#types").innerHTML += `<p class="Typing ${i.type.name[0].toUpperCase() + i.type.name.substring(1)}">${i.type.name[0].toUpperCase() + i.type.name.substring(1)}</p>`;
     }
-    document.querySelector(".flex").innerHTML += `<div class="break"></div>`;
+    lbox.innerHTML += `<div id="abilities" class="flex"></div>`;
     for (i of data[4])
     {
-        document.querySelector(".flex").innerHTML += `<p>${i.ability.name[0].toUpperCase() + i.ability.name.substring(1)}</p>`;
+        document.querySelector("#abilities").innerHTML += `<p>${i.ability.name[0].toUpperCase() + i.ability.name.substring(1)}</p>`;
     }
 
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
