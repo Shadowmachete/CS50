@@ -49,9 +49,19 @@ async function renderData(gen=1, learn_by="level-up") {
         document.querySelector("#abilities").innerHTML += `<p class="Ability">${i.ability.name}</p>`;
     }
     lbox.innerHTML += `<div id="stats" class="flex"></div>`;
+    EVs = [];
     for (i of data[5])
     {
+        if (i.effort != 0)
+        {
+            EVs.push([i.stat.name,i.effort])
+        }
         document.querySelector("#stats").innerHTML += `<p class="Stat">${i.stat.name} : ${i.base_stat}</p>`;
+    }
+    document.querySelector("#stats").innerHTML += `<hr><p class="Stat" id="EV">Effort Values</p>`;
+    for (i of EVs)
+    {
+        document.querySelector("#stats").innerHTML += `<p class="Stat">${i[0]} : ${i[1]}</p>`;
     }
     learnBy = {"level-up": 1, "egg": 2, "other": 3}
     for (move of data[learnBy[learn_by]]) {

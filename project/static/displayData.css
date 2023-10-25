@@ -91,3 +91,11 @@ button
     flex: 1;
     flex-direction: column;
 }
+#EV
+{
+    font-size: 20px;
+}
+hr
+{
+    visibility: hidden;
+}
