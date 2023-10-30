@@ -31,3 +31,5 @@ Some things to note are that Mega pokemon have a mega icon next to their name al
 
 ### Data
 Finally, on to _"/data"_. Initially, if the user clicks the "Pokemon Data" in the navigation bar or manually visits the _"/data"_ route in the url of the site, they will be displayed with the **search.html** template file and prompted to select the pokemon they wish to view the data of.
+
+Once the user 
