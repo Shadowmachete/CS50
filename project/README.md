@@ -25,4 +25,6 @@ Additionally, the user can choose to order the search results in either Ascendin
 - respective stat points
 - generation number
 
-After the user submits their inputted values, the form will then submit all the data to execute a `SELECT` statement to the pokemon table in the database. This pokemon table was obtained from a pokemon.csv file from [Github user Armgilles](https://gist.github.com/armgilles/194bcff35001e7eb53a2a8b441e8b2c6) which contains data regarding pokemon from Generation 1 to 6 of pokemon.
+After the user submits their inputted values, the form will then submit all the data to execute a `SELECT` statement to the pokemon table in the database. This pokemon table was obtained from a pokemon.csv file from [Github user Armgilles](https://gist.github.com/armgilles/194bcff35001e7eb53a2a8b441e8b2c6) which contains data regarding pokemon from Generation 1 to 6 of pokemon. The data returned from the `SELECT` statement was then used to populate the table which has rows ***Id, Name, Typing, Total, HP, Attack, Defense, Sp. Atk, Sp. Def, Speed, Generation, Legendary*** and ***Data***. The ***Typing*** column has 2 columns for dual typed pokemon. Pokemon with only 1 type will have their typing populate both columns allocated to ***Typing***.
+
+Some things to note are that Mega pokemon have a mega icon next to their name along with a different text colour being Dark Magenta
