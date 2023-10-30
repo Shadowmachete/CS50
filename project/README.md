@@ -49,4 +49,4 @@ Firstly, the Javascript file extracts the pokemon id from the HTML of the **data
 
 Next, the renderData function is defined with arguments *gen* and *learn_by* which has default values of *1* and *"level-up"* respectively. This function first gets the data by calling getData with the id of the pokemon. Then it populates the left box with the name, typing, abilities, stats and EVs of the pokemon, all from the data returned by the getData function.
 
-For the right box, the renderData function loops through all moves which are in array corresponding to the *learn_by* argument inputted into the function. Then, the generation that the pokemon learns the move in is compared against the *gen* argument inputted before adding 
+For the right box, the renderData function loops through all moves which are in array corresponding to the *learn_by* argument inputted into the function. Then, the generation that the pokemon learns the move in is compared against the *gen* argument inputted before adding the new row into the table.

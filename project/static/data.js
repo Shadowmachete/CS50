@@ -71,9 +71,9 @@ async function renderData(gen=1, learn_by="level-up") {
         version = move[1].version_group.name.split("-").join(" ")
         if (/*generations[gen].some((version) => version == versionGroup)*/ generations[gen][0] == versionGroup) {
             if (learn_by == "level-up") {
-                box.innerHTML += `<td>${moveName}</td><td>${move[1].level_learned_at}</td><br>`;
+                box.innerHTML += `<tr><td>${moveName}</td><td>${move[1].level_learned_at}</td></tr><br>`;
             } else {
-                box.innerHTML += `<td>${moveName}</td><td>N.A.</td><br>`;
+                box.innerHTML += `<tr><td>${moveName}</td><td>N.A.</td></tr><br>`;
             }
         }
     }
