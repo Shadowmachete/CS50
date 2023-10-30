@@ -30,4 +30,4 @@ After the user submits their inputted values, the form will then submit all the 
 Some things to note are that Mega pokemon have a mega icon next to their name along with a different text colour being Dark Magenta. The colours for the ***Typings*** are obtained from [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page). The ***Legendary*** column has either a tick or a cross to represent either *Yes* or *No* to the question *"Is this pokemon a legendary?"*. Lastly, under the ***Data*** column, there is a button which will send the user to the _"/data"_ route with the corresponding ***Id*** of the pokemon to display the data of. Mega pokemon will not have this button as outside of battle they are equivalent to the base pokemon.
 
 ### Data
-Finally, on to _"/data"_. 
+Finally, on to _"/data"_. Initially, if the user clicks the "Pokemon Data" in the navigation bar or manually visits the _"/data"_ route in the url of the site, they will be displayed with the **search.html** template file and prompted to select the pokemon they wish to view the data of.
