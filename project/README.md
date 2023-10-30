@@ -1,5 +1,5 @@
 # Pokemon Stat Checker
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://www.youtube.com/watch?v=vsGjYnMcV18>
 ## Description:
 ### Introduction
 This project is a Flask website that allows users to search for and obtain simple data regarding pokemon from Generations 1 to 6.
