@@ -42,3 +42,11 @@ Once the user has selected the pokemon to view the data of via clicking on the D
 Next, on the right we have 8 buttons on top which allow the user to choose from Generation 1 to 8. Below that the user can choose either Level Up, Egg or Other. These 3 options represent the method that the pokemon learns the moves displayed below.
 
 Below the buttons, there is a table which states the method that the pokemon learns the moves by, followed by the move name and the level that the pokemon learns the move at, if applicable.
+
+Learnset data is all obtained via Javascript API fetch from [PokéAPI](https://pokeapi.co/) in the **data.js** file.
+
+Firstly, the Javascript file extracts the pokemon id from the HTML of the **data.html** page. The function getData is then defined to take in the id as an argument and to use `fetch` to fetch the data from the API via `fetch('https://pokeapi.co/api/v2/pokemon/' + id)`. The response is converted to JSON and data is extracted from the JSON to populate the _levelUp_, _egg_ and _other_ arrays, along with _abilities_, _stats_, _types_ and _pokemonName_ variables. The data is then returned as the array, `[pokemonName, levelUp, egg, other, abilities, stats, types]` with the _levelUp_ array being sorted by _Level Learnt_.
+
+Next, the renderData function is defined with arguments *gen* and *learn_by* which has default values of *1* and *"level-up"* respectively. This function first gets the data by calling getData with the id of the pokemon. Then it populates the left box with the name, typing, abilities, stats and EVs of the pokemon, all from the data returned by the getData function.
+
+For the right box, the renderData function loops through all moves which are in array corresponding to the *learn_by* argument inputted into the function. Then, the generation that the pokemon learns the move in is compared against the *gen* argument inputted before adding 

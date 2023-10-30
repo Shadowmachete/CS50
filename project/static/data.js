@@ -11,7 +11,7 @@ async function getData(id) {
         stats = data.stats;
         types = data.types;
         moves = data.moves;
-        name = data.name;
+        pokemonName = data.name;
         moves.forEach((move) => {
             moveName = move.move.name;
             for (i of move.version_group_details) {
@@ -26,7 +26,7 @@ async function getData(id) {
         })
     })
     levelUp.sort((a,b) => {return a[1].level_learned_at - b[1].level_learned_at});
-    return [name, levelUp, egg, other, abilities, stats, types]
+    return [pokemonName, levelUp, egg, other, abilities, stats, types]
 }
 async function renderData(gen=1, learn_by="level-up") {
     data = await getData(id);
