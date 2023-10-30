@@ -41,4 +41,4 @@ Once the user has selected the pokemon to view the data of via clicking on the D
 
 Next, on the right we have 8 buttons on top which allow the user to choose from Generation 1 to 8. Below that the user can choose either Level Up, Egg or Other. These 3 options represent the method that the pokemon learns the moves displayed below.
 
-Below the buttons, there is a table which states the method that the pokemon learns the moves by followed by the move name and 
+Below the buttons, there is a table which states the method that the pokemon learns the moves by, followed by the move name and the level that the pokemon learns the move at, if applicable.

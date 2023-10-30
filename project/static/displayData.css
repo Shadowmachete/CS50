@@ -107,4 +107,5 @@ table
     width: 100%;
     border: 3px solid #57b846;
     border-radius: 10px;
+    text-transform: capitalize;
 }
