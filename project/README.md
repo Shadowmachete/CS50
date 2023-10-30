@@ -32,4 +32,13 @@ Some things to note are that Mega pokemon have a mega icon next to their name al
 ### Data
 Finally, on to _"/data"_. Initially, if the user clicks the "Pokemon Data" in the navigation bar or manually visits the _"/data"_ route in the url of the site, they will be displayed with the **search.html** template file and prompted to select the pokemon they wish to view the data of.
 
-Once the user 
+Once the user has selected the pokemon to view the data of via clicking on the Data button, they will be shown the **data.html** file with relevant information. The **data.html** file has 2 sections. On the left, in order from top to bottom we have the pokemon's
+- Name
+- Typing
+- Abilities
+- Stats
+- EVs (Effort Values) gained upon kill
+
+Next, on the right we have 8 buttons on top which allow the user to choose from Generation 1 to 8. Below that the user can choose either Level Up, Egg or Other. These 3 options represent the method that the pokemon learns the moves displayed below.
+
+Below the buttons, there is a table which states the method that the pokemon learns the moves by followed by the move name and 
