@@ -25,4 +25,4 @@ Additionally, the user can choose to order the search results in either Ascendin
 - respective stat points
 - generation number
 
-After the user submits their inputted values, the form will then submit all the data to execute a `SELECT` statement to the pokemon table in the database. This pokemon table was obtained from a pokemon.csv file from [Github user Armgilles](https://gist.github.com/armgilles/194bcff35001e7eb53a2a8b441e8b2c6)
+After the user submits their inputted values, the form will then submit all the data to execute a `SELECT` statement to the pokemon table in the database. This pokemon table was obtained from a pokemon.csv file from [Github user Armgilles](https://gist.github.com/armgilles/194bcff35001e7eb53a2a8b441e8b2c6) which contains data regarding pokemon from Generation 1 to 6 of pokemon.
